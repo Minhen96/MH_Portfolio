@@ -2,10 +2,22 @@
   "id": "frontend",
   "title": "Frontend & Web Frameworks",
   "items": [
-    "React (TypeScript)",
-    "Next.js",
-    "Astro",
-    "Tailwind CSS"
+    {
+      "name": "React (TypeScript) ⚛️",
+      "icon": "react"
+    },
+    {
+      "name": "Next.js 🚀",
+      "icon": "nextdotjs"
+    },
+    {
+      "name": "Astro 👨‍🚀",
+      "icon": "astro"
+    },
+    {
+      "name": "Tailwind CSS 🎨",
+      "icon": "tailwindcss"
+    }
   ],
   "icon": "Layout",
   "order": 2

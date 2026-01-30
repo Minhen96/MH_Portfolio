@@ -2,10 +2,22 @@
   "id": "backend",
   "title": "Backend",
   "items": [
-    "Spring Boot (Java)",
-    ".NET Core (ASP.NET)",
-    "REST APIs",
-    "Solidity"
+    {
+      "name": "Spring Boot (Java) ☕",
+      "icon": "springboot"
+    },
+    {
+      "name": ".NET Core (ASP.NET) ⚡",
+      "icon": "dotnet"
+    },
+    {
+      "name": "REST APIs 🔌",
+      "icon": "postman"
+    },
+    {
+      "name": "Solidity ⛓️",
+      "icon": "solidity"
+    }
   ],
   "icon": "Server",
   "order": 3

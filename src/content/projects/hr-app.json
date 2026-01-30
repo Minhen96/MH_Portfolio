@@ -1,14 +1,19 @@
 {
   "id": "hr-app",
   "title": "HR App & Portal",
-  "description": "Comprehensive HR management solution.",
+  "description": "Comprehensive HR management solution with mobile app and admin web portal.",
   "techStack": [
     "Flutter",
     "React",
     ".NET core",
     "MSSQL"
   ],
-  "link": "#",
-  "image": "/projects/default.png",
-  "order": 4
+  "link": "https://github.com/Minhen96/hr_user_app_with_admin_web_portal",
+  "order": 6,
+  "images": [
+    "/projects/hr-app/1_mobilehome.png",
+    "/projects/hr-app/2_vision.png",
+    "/projects/hr-app/3_webadmin.png",
+    "/projects/hr-app/4_webadmin.png"
+  ]
 }

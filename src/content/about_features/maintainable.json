@@ -1,0 +1,8 @@
+{
+  "id": "maintainable",
+  "title": "Maintainable Code",
+  "description": "Writing clean, scalable, and well-documented code that is easy to maintain.",
+  "icon": "Code2",
+  "color": "royal-blue",
+  "order": 2
+}

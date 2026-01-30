@@ -7,7 +7,7 @@ const projects = defineCollection({
         title: z.string(),
         description: z.string(),
         techStack: z.array(z.string()),
-        image: z.string(),
+        images: z.array(z.string()),
         link: z.string(),
         order: z.number().default(0),
     }),
@@ -17,7 +17,10 @@ const skills = defineCollection({
     loader: glob({ pattern: "**/*.json", base: "./src/content/skills" }),
     schema: z.object({
         title: z.string(),
-        items: z.array(z.string()),
+        items: z.array(z.object({
+            name: z.string(),
+            icon: z.string().optional()
+        })),
         icon: z.string(),
         order: z.number().default(0),
     }),
@@ -77,6 +80,7 @@ const siteConfig = defineCollection({
             github: z.string(),
             linkedin: z.string(),
             instagram: z.string(),
+            whatsapp: z.string().optional(),
         })
     ])
 });
@@ -91,6 +95,7 @@ const hackathons = defineCollection({
         description: z.array(z.string()),
         techStack: z.array(z.string()),
         link: z.string().optional(),
+        image: z.string().optional(),
         order: z.number().default(0),
     }),
 });

@@ -7,13 +7,15 @@ const skillCategories = allSkills
     .map(c => c.data);
 ---
 
-<section id="skills" class="py-32 relative bg-gray-50 dark:bg-neutral-950 transition-colors duration-300">
-  <!-- Luxurious Top Border -->
-  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-portfolio-royal-blue to-transparent"></div>
-  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-portfolio-royal-blue via-portfolio-navy to-portfolio-royal-blue blur-sm"></div>
+<section id="skills" class="py-32 relative bg-gray-50 dark:bg-neutral-950 transition-colors duration-500 overflow-hidden">
+  <!-- Dynamic Background Ambient -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute top-1/4 -right-20 w-96 h-96 bg-portfolio-royal-blue/5 rounded-full blur-3xl animate-pulse-slow"></div>
+    <div class="absolute bottom-1/4 -left-20 w-[30rem] h-[30rem] bg-portfolio-navy/5 rounded-full blur-3xl animate-pulse-slower"></div>
+  </div>
 
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="flex items-center justify-center mb-6">
+  <div class="max-w-6xl mx-auto px-6 relative z-10">
+    <div class="flex items-center justify-center mb-6 animate-on-scroll">
       <div class="h-px w-16 bg-gradient-to-r from-transparent to-portfolio-royal-blue/50"></div>
       <div class="mx-4 px-6 py-1 rounded-full border border-portfolio-royal-blue/20 bg-gradient-to-r from-portfolio-royal-blue/5 to-portfolio-navy/5">
         <span class="text-xs font-medium tracking-widest uppercase text-portfolio-royal-blue">Expertise</span>
@@ -21,31 +23,42 @@ const skillCategories = allSkills
       <div class="h-px w-16 bg-gradient-to-l from-transparent to-portfolio-navy/50"></div>
     </div>
 
-    <h2 class="text-4xl md:text-6xl font-bold text-black dark:text-white mb-20 text-center animate-fade-in tracking-tight">
+    <h2 class="text-4xl md:text-6xl font-bold text-black dark:text-white mb-24 text-center animate-on-scroll tracking-tight">
       Skills & Technologies
     </h2>
 
-    <div class="grid md:grid-cols-3 gap-8">
-      {skillCategories.map((category, index) => (
-        <div
-          class="group/card p-8 rounded-2xl transition-all hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50 border-2 border-black/10 dark:bg-gradient-to-br dark:from-black dark:to-neutral-950 dark:border-white/10 animate-scale-in relative overflow-hidden shadow-xl hover:shadow-2xl"
-          style={`animation-delay: ${index * 0.1}s`}
-        >
-          <!-- Premium dual-tone accent border -->
-          <div class={`absolute top-0 left-0 right-0 h-2 bg-gradient-to-r ${index % 2 === 0 ? 'from-portfolio-navy via-portfolio-royal-blue to-portfolio-navy' : 'from-portfolio-royal-blue via-portfolio-navy to-portfolio-royal-blue'} opacity-0 group-hover/card:opacity-100 transition-opacity duration-500`}></div>
-          <div class="absolute inset-0 bg-gradient-to-br from-portfolio-navy/5 via-transparent to-portfolio-royal-blue/5 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500"></div>
-
-          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-6 tracking-tight flex items-center gap-3 relative z-10">
-            <span class={`w-1.5 h-8 rounded-full ${index % 2 === 0 ? 'bg-gradient-to-b from-portfolio-navy to-portfolio-royal-blue' : 'bg-gradient-to-b from-portfolio-royal-blue to-portfolio-navy'} shadow-lg`}></span>
+    <div class="space-y-24">
+      {skillCategories.map((category, catIndex) => (
+        <div class="animate-on-scroll" style={`animation-delay: ${catIndex * 150}ms`}>
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-10 text-center tracking-tight flex items-center justify-center gap-4">
+            <span class="h-px w-8 bg-black/10 dark:bg-white/10"></span>
             {category.title}
+            <span class="h-px w-8 bg-black/10 dark:bg-white/10"></span>
           </h3>
-          <div class="flex flex-wrap gap-3 relative z-10">
-            {category.items.map((skill) => (
-              <span
-                class="px-4 py-2 rounded-full text-sm font-medium border-2 transition-all hover:scale-105 bg-black/5 text-gray-700 border-black/20 hover:bg-black/10 hover:border-portfolio-navy/50 dark:bg-white/5 dark:text-gray-300 dark:border-white/20 dark:hover:bg-white/10 dark:hover:border-portfolio-navy/50 shadow-sm hover:shadow-md"
+          
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
+            {category.items.map((item, skillIndex) => (
+              <div
+                class="group/skill relative p-6 rounded-3xl bg-white/50 dark:bg-white/[0.02] border border-black/5 dark:border-white/5 hover:border-portfolio-royal-blue/30 dark:hover:border-portfolio-royal-blue/30 hover:bg-white dark:hover:bg-white/[0.05] transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 flex flex-col items-center justify-center gap-4"
               >
-                {skill}
-              </span>
+                <!-- Icon Container -->
+                <div class="w-10 h-10 md:w-14 md:h-14 flex items-center justify-center transition-transform duration-500 group-hover/skill:scale-110">
+                  <img 
+                    src={`https://cdn.simpleicons.org/${item.icon || 'codeforces'}`} 
+                    alt={item.name}
+                    class="w-full h-full object-contain dark:invert-[0.1] group-hover/skill:brightness-125 transition-all"
+                    onerror="this.src='https://cdn.simpleicons.org/codeforces';this.style.opacity='0.5';"
+                  />
+                </div>
+                
+                <!-- Skill Name -->
+                <span class="text-xs md:text-sm font-bold text-gray-600 dark:text-gray-400 group-hover/skill:text-portfolio-royal-blue transition-colors text-center">
+                  {item.name.includes(' ') ? item.name.split(' ')[0] : item.name}
+                </span>
+
+                <!-- Subtle Background Hover Effect -->
+                <div class="absolute inset-0 bg-gradient-to-br from-portfolio-royal-blue/5 to-transparent opacity-0 group-hover/skill:opacity-100 transition-opacity rounded-3xl"></div>
+              </div>
             ))}
           </div>
         </div>
@@ -55,42 +68,43 @@ const skillCategories = allSkills
 </section>
 
 <style>
-  .animate-fade-in {
+  /* Reuse animation logic from other components for consistency */
+  .animate-on-scroll {
     opacity: 0;
-    animation: fadeIn 0.8s ease-out forwards;
+    transform: translateY(20px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @keyframes pulse-slow {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.05); }
+  }
+  .animate-pulse-slow {
+    animation: pulse-slow 8s infinite ease-in-out;
   }
   
-  .animate-scale-in {
-    opacity: 0;
-    transform: scale(0.9);
-    animation: scaleIn 0.6s ease-out forwards;
+  @keyframes pulse-slower {
+    0%, 100% { opacity: 0.2; transform: scale(1.02); }
+    50% { opacity: 0.4; transform: scale(0.98); }
   }
-  
-  @keyframes fadeIn {
-    to { opacity: 1; }
-  }
-  
-  @keyframes scaleIn {
-    to { opacity: 1; transform: scale(1); }
+  .animate-pulse-slower {
+    animation: pulse-slower 12s infinite ease-in-out;
   }
 </style>
 
 <script>
-    // If strict animation triggers on scroll are needed, reuse the observer logic.
-    // For now simple animations on load or simple CSS hover states.
-    // The CSS animations above trigger on load. To trigger on scroll, we can add the observer again.
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                (entry.target as HTMLElement).style.animationPlayState = 'running';
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-    
-    // We can pause animation initially in CSS and run it here, or just let them run.
-    // The class based visibility toggle in About.astro is cleaner.
-    // Let's assume the user is okay with load animations or we can add scroll later.
-    // For consistency with About/Timeline, let's just leave it simple for now.
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
 </script>

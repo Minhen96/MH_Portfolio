@@ -2,8 +2,14 @@
   "id": "infrastructure",
   "title": "Infrastructure",
   "items": [
-    "Redis",
-    "Authentication"
+    {
+      "name": "Redis 🔴",
+      "icon": "redis"
+    },
+    {
+      "name": "Authentication 🔑",
+      "icon": "auth0"
+    }
   ],
   "icon": "Cloud",
   "order": 4

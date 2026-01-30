@@ -1,0 +1,19 @@
+{
+  "id": "reme",
+  "title": "RE:ME",
+  "description": "Self-growth app tracking moods, hobbies, and reflections, visualize your growth and find your personality.",
+  "techStack": [
+    "Next.js",
+    "Supabase",
+    "Vercel",
+    "OAuth"
+  ],
+  "link": "https://github.com/Minhen96/RE-ME",
+  "order": 4,
+  "images": [
+    "/projects/reme/1_dashboard.png",
+    "/projects/reme/2_hobby.png",
+    "/projects/reme/3_lifetree.png",
+    "/projects/reme/4_personality.png"
+  ]
+}

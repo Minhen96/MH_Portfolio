@@ -1,0 +1,20 @@
+{
+  "id": "techtrove-hackathon",
+  "title": "TechTrove Unearth Innovation",
+  "subtitle": "Build solution with specific topics",
+  "date": "2025",
+  "location": "Kuala Lumpur",
+  "description": [
+    "Done project “RE:ME”, a personal self-growth record web app that tracks moods, hobbies, reflections, and visualizes your strengths for self-awareness.",
+    "Used Nextjs and Supabase as tech stack, Vercel to deploy."
+  ],
+  "techStack": [
+    "Next.js",
+    "Supabase",
+    "Vercel",
+    "Tailwind CSS"
+  ],
+  "link": "https://luma.com/1k4xqcrs",
+  "image": "/hackathon/TechTrove-Unearth-Innovation.jpeg",
+  "order": 3
+}

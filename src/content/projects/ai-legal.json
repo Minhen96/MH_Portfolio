@@ -1,0 +1,21 @@
+{
+  "id": "ai-legal",
+  "title": "AI Legal Assistant",
+  "description": "AI-powered assistant tp analyse legal document analysis and clause identification, and ai chatbot to answer legal question.",
+  "techStack": [
+    "AWS Amplify",
+    "Lambda",
+    "Bedrock",
+    "S3",
+    "Opensearch"
+  ],
+  "link": "https://github.com/Minhen96/ai-legal-assistant",
+  "order": 8,
+  "images": [
+    "/projects/ai-legal/1_home.png",
+    "/projects/ai-legal/2_upload.png",
+    "/projects/ai-legal/3_analysis.png",
+    "/projects/ai-legal/4_risk.png",
+    "/projects/ai-legal/5_chat.png"
+  ]
+}

@@ -34,6 +34,7 @@ export function setIntroDone() {
 }
 
 export function restartIntro() {
+    console.log("Restarting Intro sequence...");
     introCompleted.set(false);
     isIntroVisible.set(true);
     introKey.set(introKey.get() + 1);

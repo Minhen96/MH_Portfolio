@@ -1,40 +1,41 @@
 ---
-import { Briefcase, GraduationCap, MapPin, Sparkles, ChevronDown } from 'lucide-preact';
+import { Briefcase, GraduationCap, MapPin, Calendar, ExternalLink } from 'lucide-preact';
 import { getCollection } from 'astro:content';
 
 const allTimelineItems = await getCollection('timeline');
 
 const timelineItems = allTimelineItems.map(item => ({
     ...item.data,
-    uniqueId: item.id // Use collection ID
+    uniqueId: item.id
 })).sort((a, b) => {
-  const dateA = a.endDate === null || a.endDate === undefined ? '9999-12' : a.startDate;
-  const dateB = b.endDate === null || b.endDate === undefined ? '9999-12' : b.startDate;
+  const dateA = a.startDate || '0000-00';
+  const dateB = b.startDate || '0000-00';
   return dateB.localeCompare(dateA); 
 });
 
-const getIconColor = (type) => {
+const getAccentColor = (type) => {
     switch (type) {
-      case 'work': return 'portfolio-navy';
-      case 'education': return 'portfolio-royal-blue';
-      default: return 'portfolio-navy';
+      case 'work': return '#002B5B'; // portfolio-navy
+      case 'education': return '#1A5F7A'; // portfolio-royal-blue
+      default: return '#002B5B';
     }
+};
+
+const getAccentClass = (type) => {
+    return type === 'work' ? 'portfolio-navy' : 'portfolio-royal-blue';
 };
 ---
 
-<section id="timeline" class="py-32 relative bg-white dark:bg-black transition-colors duration-300 overflow-hidden">
-  <!-- Animated background elements -->
+<section id="timeline" class="py-32 relative bg-white dark:bg-black transition-colors duration-500 overflow-hidden">
+  <!-- Dynamic Background Ambient -->
   <div class="absolute inset-0 overflow-hidden pointer-events-none">
-    <div class="absolute top-20 left-10 w-72 h-72 bg-portfolio-royal-blue/10 rounded-full blur-3xl animate-pulse-slow"></div>
-    <div class="absolute bottom-20 right-10 w-96 h-96 bg-portfolio-navy/10 rounded-full blur-3xl animate-pulse-slower"></div>
+    <div class="absolute top-1/4 -left-20 w-96 h-96 bg-portfolio-royal-blue/5 rounded-full blur-3xl animate-pulse-slow"></div>
+    <div class="absolute bottom-1/4 -right-20 w-[30rem] h-[30rem] bg-portfolio-navy/5 rounded-full blur-3xl animate-pulse-slower"></div>
   </div>
 
-  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-portfolio-navy to-transparent"></div>
-  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-portfolio-navy via-portfolio-royal-blue to-portfolio-navy blur-sm"></div>
-
   <div class="max-w-6xl mx-auto px-6 relative z-10">
-    <!-- Header -->
-    <div class="text-center mb-16 animate-on-scroll">
+    <!-- Header (Matched with About.astro) -->
+    <div class="text-center mb-24 animate-on-scroll">
       <div class="flex items-center justify-center mb-6">
         <div class="h-px w-16 bg-gradient-to-r from-transparent to-portfolio-navy/50"></div>
         <div class="mx-4 px-6 py-1 rounded-full border border-portfolio-navy/20 bg-gradient-to-r from-portfolio-navy/5 to-portfolio-royal-blue/5">
@@ -47,112 +48,91 @@ const getIconColor = (type) => {
         Experience & Education
       </h2>
       <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-        From education to professional experience—here's my journey so far.
+        A chronological overview of my professional path and academic foundations.
       </p>
     </div>
 
-    <!-- Timeline Container -->
-    <div class="relative">
-      <!-- Vertical Line -->
-      <div class="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-portfolio-navy/30 via-portfolio-royal-blue/30 to-portfolio-navy/30 dark:from-portfolio-navy dark:via-portfolio-royal-blue dark:to-portfolio-navy"></div>
-      
-      <!-- Sparkle -->
-      <div class="absolute left-8 md:left-1/2 top-0 transform -translate-x-1/2 animate-sparkle-move">
-        <div class="animate-sparkle-pulse">
-            <Sparkles class="text-portfolio-royal-blue" size={16} />
-        </div>
+    <!-- Timeline Wrapper -->
+    <div class="relative pl-6 md:pl-12">
+      <!-- High-Tech Left Axis -->
+      <div class="absolute left-0 top-[30px] bottom-0 w-[2px] overflow-hidden">
+        <div class="h-full w-full bg-slate-200 dark:bg-white/10"></div>
+        <!-- Animated Progress/Pulse Line (Starts from first event node center) -->
+        <div class="absolute top-0 left-0 w-full h-[50%] bg-gradient-to-b from-transparent via-portfolio-royal-blue/60 to-transparent animate-track-flow"></div>
       </div>
 
-      <div class="space-y-12">
+      <div class="space-y-12 md:space-y-16">
         {timelineItems.map((item, index) => {
-            const isEven = index % 2 === 0;
-            const iconColor = getIconColor(item.type);
-            const Icon = item.type === 'work' ? Briefcase : GraduationCap;
+            const isWork = item.type === 'work';
+            const accentClass = getAccentClass(item.type);
+            const Icon = isWork ? Briefcase : GraduationCap;
             
             return (
-                <div class={`relative flex items-start ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} flex-row animate-on-scroll ${isEven ? 'slide-left' : 'slide-right'}`}>
+                <div class="relative group animate-on-scroll" style={`animation-delay: ${index * 100}ms`}>
                     
-                    <!-- Content Card -->
-                    <div class={`flex-1 ${isEven ? 'md:pr-12 md:text-right' : 'md:pl-12 md:text-left'} pl-16 md:pl-0 text-left`}>
-                        <div class="timeline-card group p-6 rounded-2xl bg-black/5 dark:bg-white/5 border-2 border-black/10 dark:border-white/10 shadow-lg relative transition-all hover:-translate-y-1 hover:shadow-xl">
-                            
-                            <!-- Logo Desktop -->
-                            {item.logo && (
-                                <a href={item.link} target="_blank" class={`hidden md:block absolute ${isEven ? 'md:left-4' : 'md:right-4'} top-4 group/logo z-10 hover:scale-110 hover:rotate-3 transition-transform`}>
-                                   <div class="w-16 h-16 rounded-lg overflow-hidden">
-                                     <img src={item.logo} alt={`${item.subtitle} logo`} class="w-full h-full object-contain" />
-                                   </div>
-                                </a>
-                            )}
+                    <!-- Vertical Node Anchor -->
+                    <div class="absolute -left-[19px] md:-left-[53px] top-6 z-20">
+                        <div class={`w-3 h-3 rounded-full bg-white dark:bg-black border-2 border-${accentClass} group-hover:scale-150 transition-transform duration-300 shadow-[0_0_15px_rgba(26,95,122,0.4)]`}></div>
+                    </div>
 
-                            <!-- Badge -->
-                            <div class={`inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4 bg-portfolio-navy/10 dark:bg-portfolio-navy/20 border border-portfolio-navy/20 dark:border-portfolio-navy/30`}>
-                                <span class={`text-xs font-medium text-${iconColor}`}>
-                                    {item.duration}
-                                </span>
-                            </div>
+                    <div class="flex flex-col md:flex-row md:items-start gap-2 md:gap-12">
+                        <!-- Date Column -->
+                        <div class="flex flex-col md:w-32 flex-shrink-0 pt-0 md:pt-6 mb-2 md:mb-0">
+                            <span class="text-xs md:text-sm font-bold text-gray-400 dark:text-gray-500 tracking-wider">
+                                {item.duration}
+                            </span>
+                        </div>
 
-                            <!-- Mobile Title Header -->
-                            <div class="flex items-center gap-3 mb-2">
-                                {item.logo && (
-                                    <a href={item.link} target="_blank" class="md:hidden group/logo flex-shrink-0">
-                                         <div class="w-12 h-12 rounded-lg overflow-hidden">
-                                            <img src={item.logo} alt={`${item.subtitle} logo`} class="w-full h-full object-contain" />
-                                         </div>
-                                    </a>
-                                )}
-                                <h3 class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">
+                        <!-- Content Card -->
+                        <div class="flex-grow">
+                            <div class="relative p-5 md:p-10 rounded-2xl md:rounded-[2rem] bg-gray-50/50 dark:bg-white/[0.03] backdrop-blur-sm border border-black/5 dark:border-white/5 hover:border-portfolio-royal-blue/20 transition-all duration-500 shadow-sm hover:shadow-2xl hover:-translate-y-1">
+                                
+                                <!-- Primary Info: Title (Role) -->
+                                <h3 class="text-xl md:text-3xl font-bold text-portfolio-royal-blue mb-3 leading-tight group-hover:opacity-80 transition-opacity duration-300">
                                     {item.title}
                                 </h3>
+
+                                <!-- Secondary Info: Logo + Company + Location -->
+                                <div class="flex flex-wrap items-center gap-3 md:gap-4 mb-6">
+                                    {item.logo && (
+                                        <div class="w-10 h-10 md:w-11 md:h-11 rounded-xl bg-white p-2 shadow-sm border border-black/5 flex items-center justify-center transform group-hover:scale-105 transition-transform">
+                                            <img src={item.logo} alt={item.subtitle} class="w-full h-full object-contain" />
+                                        </div>
+                                    )}
+                                    <div class="flex flex-col">
+                                        <div class="flex items-center gap-2">
+                                            <span class="text-lg md:text-xl font-bold text-gray-500 dark:text-gray-400">
+                                                {item.subtitle}
+                                            </span>
+                                            {item.link && (
+                                                <a href={item.link} target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-portfolio-royal-blue transition-colors p-1">
+                                                    <ExternalLink size={14} />
+                                                </a>
+                                            )}
+                                        </div>
+                                        <div class="flex items-center gap-1.5 text-[9px] md:text-[10px] font-black text-portfolio-royal-blue/60 dark:text-portfolio-royal-blue/40 uppercase tracking-[0.2em]">
+                                            <MapPin size={9} md:size={10} />
+                                            {item.location}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Body: Achievements (Always Visible) -->
+                                <div class="achievement-section border-t border-black/5 dark:border-white/5 mt-6 pt-6 font-Inter">
+                                    <ul class="space-y-4">
+                                        {item.items.map((point) => (
+                                            <li class="flex items-start gap-3 md:gap-4 group/li">
+                                                <div class={`mt-2 w-1.5 h-1.5 rounded-full bg-${accentClass}/30 group-hover/li:bg-${accentClass} transition-colors duration-300 flex-shrink-0`}></div>
+                                                <p class="text-[13px] md:text-base text-gray-600 dark:text-gray-400 leading-relaxed font-medium">
+                                                    {point}
+                                                </p>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
                             </div>
-
-                            <!-- Subtitle -->
-                            <a href={item.link} target="_blank" class="group/link inline-block">
-                                <h4 class={`text-lg font-semibold mb-2 group-hover/link:underline transition-all ${
-                                    'text-' + iconColor // Note: dynamic class construction might need safeguarding, but explicit check above helps
-                                }`}>
-                                    {item.subtitle}
-                                </h4>
-                            </a>
-
-                            <!-- Location -->
-                            <div class={`flex items-center gap-2 mb-4 ${isEven ? 'md:justify-end' : 'md:justify-start'} justify-start`}>
-                                <MapPin size={16} class="text-gray-600 dark:text-gray-400" />
-                                <span class="text-sm text-gray-600 dark:text-gray-400">{item.location}</span>
-                            </div>
-
-                             <!-- Expand Button (Checkbox Hack or Just CSS Toggle? Let's use <details>) -->
-                             <!-- Using <details> is semantic and built-in, but animation is tricky.
-                                  Let's use a simple script for accordion logic to replicate current behavior. -->
-                             <button
-                                class="expand-btn flex items-center justify-center p-2 rounded-full mb-3 transition-all bg-black/5 hover:bg-black/10 dark:bg-white/5 dark:hover:bg-white/10 text-gray-700 dark:text-gray-300 ml-0"
-                                data-id={item.uniqueId}
-                             >
-                                <ChevronDown size={20} class="transform transition-transform duration-300" />
-                             </button>
-
-                             <div id={item.uniqueId} class="hidden overflow-hidden transition-all duration-300">
-                                <ul class="space-y-2 pb-4">
-                                    {item.items.map((desc) => (
-                                        <li class={`text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2 ${isEven ? 'md:flex-row-reverse md:text-right' : ''}`}>
-                                            <span class={`text-${iconColor} mt-1`}>•</span>
-                                            <span class="flex-1">{desc}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                             </div>
                         </div>
                     </div>
-
-                    <!-- Center Icon -->
-                    <div class="absolute left-8 md:left-1/2 top-0 transform -translate-x-1/2">
-                        <div class={`w-16 h-16 rounded-full bg-gradient-to-br from-${iconColor}/30 to-${iconColor}/10 border-4 border-white dark:border-black shadow-lg flex items-center justify-center transition-transform hover:scale-125`}>
-                            <Icon class={`text-${iconColor}`} size={24} />
-                        </div>
-                    </div>
-                    
-                    <!-- Spacer -->
-                    <div class="hidden md:block flex-1"></div>
                 </div>
             )
         })}
@@ -162,87 +142,49 @@ const getIconColor = (type) => {
 </section>
 
 <style>
-  /* Reuse pulse animations from About */
-  @keyframes sparkle-move {
-     0% { top: 0%; visibility: visible; }
-     99% { top: 99%; visibility: visible; }
-     100% { top: 100%; visibility: hidden; }
+  @keyframes track-flow {
+    0% { transform: translateY(-300%); }
+    100% { transform: translateY(300%); }
   }
-  .animate-sparkle-move {
-     animation: sparkle-move 8s linear infinite;
-  }
-  .animate-sparkle-pulse {
-     animation: pulse 2s infinite ease-in-out;
-  }
-  
-  /* Text Colors - explicit for Tailwind to pickup? 
-     Tailwind might purge 'text-portfolio-navy' if only constructed dynamically.
-     Safelist common dynamic classes if needed. 
-     Using style directives or safe listing in config is better. 
-     For now, we know portfolio-navy and portfolio-royal-blue are used elsewhere so they are safe.
-  */
-  
-  /* Accordion logic */
-  .expanded .hidden { display: block; animation: slideDown 0.3s ease-out; }
-  .expanded svg { transform: rotate(180deg); }
-  
-  @keyframes slideDown {
-      from { opacity: 0; max-height: 0; }
-      to { opacity: 1; max-height: 500px; }
+  .animate-track-flow {
+    animation: track-flow 10s linear infinite;
   }
 
-  /* Scroll Animation Classes */
+  /* Scroll Animation */
   .animate-on-scroll {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .animate-on-scroll.is-visible {
     opacity: 1;
     transform: translateY(0);
   }
-  .slide-left { transform: translateX(-50px); }
-  .slide-left.is-visible { transform: translateX(0); }
-  .slide-right { transform: translateX(50px); }
-  .slide-right.is-visible { transform: translateX(0); }
 
+  @keyframes pulse-slow {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.02); }
+  }
+  .animate-pulse-slow {
+    animation: pulse-slow 12s ease-in-out infinite;
+  }
+
+  /* Hide scrollbar but keep functionality */
+  .achievement-section::-webkit-scrollbar {
+    display: none;
+  }
 </style>
 
 <script>
-    // Accordion Logic
-    document.querySelectorAll('.expand-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            const button = e.currentTarget as HTMLButtonElement;
-            const id = button.getAttribute('data-id');
-            if (!id) return;
-            const content = document.getElementById(id);
-            if (!content) return;
-            
-            // Toggle visibility classes
-            const icon = button.querySelector('svg') as unknown as HTMLElement;
-            
-            if (content.classList.contains('hidden')) {
-                content.classList.remove('hidden');
-                // Optional: animate height
-                if(icon) icon.style.transform = 'rotate(180deg)';
-            } else {
-                content.classList.add('hidden');
-                if(icon) icon.style.transform = 'rotate(0deg)';
-            }
-        });
+  // Scroll Observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
     });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-    // Scroll Observer
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.animate-on-scroll').forEach((el) => {
-        observer.observe(el);
-    });
+  document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
 </script>

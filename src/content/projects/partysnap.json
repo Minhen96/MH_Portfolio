@@ -1,0 +1,21 @@
+{
+  "id": "partysnap",
+  "title": "PartySnap",
+  "description": "Create event, participants join event to upload images. Find related images by scanning face.",
+  "techStack": [
+    "React",
+    "Supabase",
+    "Cloudflare R2",
+    "Vercel",
+    "OAuth",
+    "face-api.js"
+  ],
+  "link": "https://github.com/Minhen96/PartySnap",
+  "order": 3,
+  "images": [
+    "/projects/partysnap/1_join.png",
+    "/projects/partysnap/2_home.png",
+    "/projects/partysnap/3_find.png",
+    "/projects/partysnap/4_admin.png"
+  ]
+}

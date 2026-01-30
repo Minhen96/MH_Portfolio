@@ -2,11 +2,26 @@
   "id": "software-engineering",
   "title": "Software Engineering",
   "items": [
-    "OOP",
-    "Agile",
-    "Software Architecture",
-    "Software Testing",
-    "HCI"
+    {
+      "name": "OOP 🧱",
+      "icon": "codeforces"
+    },
+    {
+      "name": "Agile 🏃",
+      "icon": "asana"
+    },
+    {
+      "name": "Software Architecture 🏛️",
+      "icon": "lucid"
+    },
+    {
+      "name": "Software Testing 🧪",
+      "icon": "jest"
+    },
+    {
+      "name": "HCI 👥",
+      "icon": "accessibility"
+    }
   ],
   "icon": "Code2",
   "order": 1

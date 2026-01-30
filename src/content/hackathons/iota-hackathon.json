@@ -1,17 +1,20 @@
 {
   "id": "iota-hackathon",
   "title": "IOTA Hackathon Malaysia",
-  "subtitle": "Blockchain Credential Platform",
-  "date": "First Hackathon",
-  "location": "Malaysia",
+  "subtitle": "First Hackathon",
+  "date": "2025",
+  "location": "Kuala Lumpur",
   "description": [
-    "Built a platform for issuing, holding, and verifying academic credentials with transparent credential and quick verification.",
-    "Build blockchain solution using iota api."
+    "Build blockchain solution using iota api",
+    "Built a platform for issuing, holding, and verifying academic credentials with transparent credential and quick verification"
   ],
   "techStack": [
-    "IOTA API",
-    "Blockchain"
+    "IOTA",
+    "Blockchain",
+    "Sui",
+    "TypeScript"
   ],
-  "link": "",
-  "order": 4
+  "link": "https://blog.iota.org/iota-hackathon-malaysia-2025/",
+  "image": "/hackathon/IOTA-hackathon.jpeg",
+  "order": 1
 }

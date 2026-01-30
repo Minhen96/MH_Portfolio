@@ -1,12 +1,18 @@
 {
   "id": "pet-ecommerce",
   "title": "Pet Ecommerce Platform",
-  "description": "Platform for pet products and services.",
+  "description": "Final Year Project. Platform for pet products and services, can be merchant or buyer.",
   "techStack": [
     "Kotlin",
     "Firebase"
   ],
-  "link": "#",
-  "image": "/projects/default.png",
-  "order": 6
+  "link": "https://github.com/Minhen96/FYP-pet-ecommerce-platform-mobile-app",
+  "order": 7,
+  "images": [
+    "/projects/pet-ecommerce/1_home.png",
+    "/projects/pet-ecommerce/2_profile.png",
+    "/projects/pet-ecommerce/3_petshop.png",
+    "/projects/pet-ecommerce/4_item.png",
+    "/projects/pet-ecommerce/5_service.png"
+  ]
 }

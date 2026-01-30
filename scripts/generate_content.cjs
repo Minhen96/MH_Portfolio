@@ -33,8 +33,9 @@ const siteConfig = {
     socials: {
         id: 'socials',
         github: "https://github.com/Minhen96", 
-        linkedin: "https://www.linkedin.com/in/minhen96", 
+        linkedin: "https://www.linkedin.com/in/yap-min-hen-366b3a218", 
         instagram: "https://www.instagram.com/minhen_96", 
+        whatsapp: "https://wa.me/60102322096",
         email: "mailto:evanyap96@gmail.com"
     }
 };
@@ -73,7 +74,7 @@ const timelineData = [
         startDate: '2024-11',
         endDate: '2025-05',
         location: 'Kuala Lumpur',
-        logo: '/timeline/greenstem_logo.png', // Assuming existing
+        logo: '/timeline/gs_square_transparent.png', // Assuming existing
         link: 'https://greenstem.com.my/',
         description: [
             "Flutter to develop workshop and company internal mobile app.",
@@ -93,7 +94,7 @@ const timelineData = [
         startDate: '2022-01',
         endDate: '2025-12',
         location: 'Kuala Lumpur',
-        logo: '/timeline/tarumt_logo.png', // Assuming existing
+        logo: '/timeline/tarumt_square_transparent.png', // Assuming existing
         link: 'https://www.tarc.edu.my/',
         description: [
             "CGPA 3.8",
@@ -113,7 +114,7 @@ const timelineData = [
         startDate: '2020-01',
         endDate: '2021-12',
         location: 'Kuala Lumpur',
-        logo: '/timeline/tarumt_logo.png', // Recycle or explicit
+        logo: '/timeline/tarumt_square_transparent.png', // Recycle or explicit
         link: 'https://www.tarc.edu.my/',
         description: [
             "Graduated with CGPA 3.9"
@@ -131,7 +132,7 @@ const timelineData = [
         startDate: '2016-01',
         endDate: '2020-12',
         location: 'Kuala Lumpur',
-        logo: '/timeline/chkl_logo.png', // Assuming existing
+        logo: '/timeline/chkl_square_transparent.png', // Assuming existing
         link: 'https://www.chonghwakl.edu.my/',
         description: [
             "SPM 10A"
@@ -144,59 +145,63 @@ const timelineData = [
 
 const hackathonsData = [
     {
-        id: 'cursor-anthropic',
-        title: 'Cursor x Anthropic Hackathon Malaysia',
-        subtitle: 'JustSnap',
-        date: '2024', 
-        location: 'Malaysia',
+        id: 'iota-hackathon',
+        title: 'IOTA Hackathon Malaysia',
+        subtitle: 'First Hackathon',
+        date: '2025',
+        location: 'Kuala Lumpur',
         description: [
-            "Project 'JustSnap': a snipping tool can do drawing, ocr, translation, snip ui and convert to ui code, copy, pin, save to local features.",
-            "Use React and Rust as tech stack, Github action to build release."
+            'Build blockchain solution using iota api',
+            'Built a platform for issuing, holding, and verifying academic credentials with transparent credential and quick verification'
         ],
-        techStack: ['React', 'Rust', 'Github Actions'],
-        link: '',
+        techStack: ['IOTA', 'Blockchain', 'Sui', 'TypeScript'],
+        link: 'https://blog.iota.org/iota-hackathon-malaysia-2025/',
+        image: '/hackathon/IOTA-hackathon.jpeg',
         order: 1
     },
     {
-        id: 'techtrove',
-        title: 'TechTrove Unearth Innovation',
-        subtitle: 'RE:ME',
-        date: '2024',
-        location: 'Malaysia',
+        id: 'aws-ai-hackathon',
+        title: 'AWS Great AI Hackathon',
+        subtitle: 'Use AWS services build AI solution',
+        date: '2025',
+        location: 'Kuala Lumpur',
         description: [
-            "Done project 'RE:ME', a personal self-growth record web app that tracks moods, hobbies, reflections, and visualizes strengths.",
-            "Used Nextjs and Supabase as tech stack, Vercel to deploy."
+            'Built AI legal assistant with law knowledge, help people to analyze and understand document risks and clauses identification.',
+            'Used AWS amplify, lambda, bedrock, s3, opensearch.'
         ],
-        techStack: ['Next.js', 'Supabase', 'Vercel'],
-        link: '',
+        techStack: ['AWS Amplify', 'Lambda', 'Bedrock', 'S3', 'OpenSearch'],
+        link: 'https://www.apu.edu.my/news/apu-leads-asean-record-great-malaysia-ai-hackathon-2025',
+        image: '/hackathon/aws-greatai-hackathon.jpeg',
         order: 2
     },
     {
-        id: 'aws-great-ai',
-        title: 'AWS Great AI Hackathon',
-        subtitle: 'AI Legal Assistant',
-        date: '2024',
-        location: 'Malaysia',
+        id: 'techtrove-hackathon',
+        title: 'TechTrove Unearth Innovation',
+        subtitle: 'Build solution with specific topics',
+        date: '2025',
+        location: 'Kuala Lumpur',
         description: [
-            "Built AI legal assistant with law knowledge to analyze and identify document risks/clauses.",
-            "Used AWS amplify, lambda, bedrock, s3, opensearch."
+            'Done project “RE:ME”, a personal self-growth record web app that tracks moods, hobbies, reflections, and visualizes your strengths for self-awareness.',
+            'Used Nextjs and Supabase as tech stack, Vercel to deploy.'
         ],
-        techStack: ['AWS Amplify', 'Lambda', 'Bedrock', 'S3', 'Opensearch'],
-        link: '',
+        techStack: ['Next.js', 'Supabase', 'Vercel', 'Tailwind CSS'],
+        link: 'https://luma.com/1k4xqcrs',
+        image: '/hackathon/TechTrove-Unearth-Innovation.jpeg',
         order: 3
     },
     {
-        id: 'iota-hackathon',
-        title: 'IOTA Hackathon Malaysia',
-        subtitle: 'Blockchain Credential Platform',
-        date: 'First Hackathon',
-        location: 'Malaysia',
+        id: 'cursor-anthropic-hackathon',
+        title: 'Cursor x Anthropic Hackathon Malaysia',
+        subtitle: 'Use AI tools to build project',
+        date: '2025',
+        location: 'Kuala Lumpur',
         description: [
-            "Built a platform for issuing, holding, and verifying academic credentials with transparent credential and quick verification.",
-            "Build blockchain solution using iota api."
+            'Done project “JustSnap”, a snipping tool can do drawing, ocr, translation, snip ui and convert to ui code, copy, pin, save to local features.',
+            'Use React and Rust as tech stack, Github action to build release.'
         ],
-        techStack: ['IOTA API', 'Blockchain'],
-        link: '',
+        techStack: ['React', 'Rust', 'Tauri', 'AI APIs'],
+        link: 'https://luma.com/cursor-hack-my',
+        image: '/hackathon/Cursor-Anthropic-Hackathon.png',
         order: 4
     }
 ];
@@ -205,169 +210,198 @@ const skillsData = [
     {
         id: 'software-engineering',
         title: 'Software Engineering',
-        items: ['OOP', 'Agile', 'Software Architecture', 'Software Testing', 'HCI'],
+        items: [
+            { name: 'OOP 🧱', icon: 'codeforces' },
+            { name: 'Agile 🏃', icon: 'asana' },
+            { name: 'Software Architecture 🏛️', icon: 'lucid' },
+            { name: 'Software Testing 🧪', icon: 'jest' },
+            { name: 'HCI 👥', icon: 'accessibility' }
+        ],
         icon: 'Code2',
         order: 1
     },
     {
         id: 'frontend',
         title: 'Frontend & Web Frameworks',
-        items: ['React (TypeScript)', 'Next.js', 'Astro', 'Tailwind CSS'],
+        items: [
+            { name: 'React (TypeScript) ⚛️', icon: 'react' },
+            { name: 'Next.js 🚀', icon: 'nextdotjs' },
+            { name: 'Astro 👨‍🚀', icon: 'astro' },
+            { name: 'Tailwind CSS 🎨', icon: 'tailwindcss' }
+        ],
         icon: 'Layout',
         order: 2
     },
     {
         id: 'backend',
         title: 'Backend',
-        items: ['Spring Boot (Java)', '.NET Core (ASP.NET)', 'REST APIs', 'Solidity'],
+        items: [
+            { name: 'Spring Boot (Java) ☕', icon: 'springboot' },
+            { name: '.NET Core (ASP.NET) ⚡', icon: 'dotnet' },
+            { name: 'REST APIs 🔌', icon: 'postman' },
+            { name: 'Solidity ⛓️', icon: 'solidity' }
+        ],
         icon: 'Server',
         order: 3
     },
     {
         id: 'infrastructure',
         title: 'Infrastructure',
-        items: ['Redis', 'Authentication'], 
+        items: [
+            { name: 'Redis 🔴', icon: 'redis' },
+            { name: 'Authentication 🔑', icon: 'auth0' }
+        ], 
         icon: 'Cloud',
         order: 4
     },
     {
         id: 'devops',
         title: 'DevOps & Deployment',
-        items: ['Docker', 'AWS (basic)', 'GitHub Actions', 'Vercel', 'Railway'],
+        items: [
+            { name: 'Docker 🐳', icon: 'docker' },
+            { name: 'AWS (basic) ☁️', icon: 'amazonaws' },
+            { name: 'GitHub Actions 🤖', icon: 'githubactions' },
+            { name: 'Vercel 📐', icon: 'vercel' },
+            { name: 'Railway 🚂', icon: 'railway' }
+        ],
         icon: 'Container',
         order: 5
     },
     {
         id: 'databases',
         title: 'Databases & Storage',
-        items: ['Postgres', 'MSSQL', 'Supabase', 'Firebase'],
+        items: [
+            { name: 'Postgres 🐘', icon: 'postgresql' },
+            { name: 'MSSQL 🛢️', icon: 'microsoftsqlserver' },
+            { name: 'Supabase ⚡', icon: 'supabase' },
+            { name: 'Firebase 🔥', icon: 'firebase' }
+        ],
         icon: 'Database',
         order: 6
     },
     {
         id: 'tools',
         title: 'Other Tools',
-        items: ['Git & GitHub', 'Postman', 'Figma', 'Canva'],
+        items: [
+            { name: 'Git & GitHub 🐙', icon: 'github' },
+            { name: 'Postman 🚀', icon: 'postman' },
+            { name: 'Figma 🎨', icon: 'figma' },
+            { name: 'Canva 🖌️', icon: 'canva' }
+        ],
         icon: 'PenTool',
         order: 7
-    },
-    {
-        id: 'languages',
-        title: 'Languages',
-        items: ['English', 'Chinese', 'Malay'],
-        icon: 'Languages',
-        order: 8
     }
 ];
 
 const projectsData = [
     {
         id: 'mini-tng',
-        title: 'Mini Tng (email)',
-        description: 'E-wallet application clone or similar system.',
+        title: 'Mini Tng',
+        description: 'E-wallet application but using email to transfer money. Practice purpose.',
         techStack: ['React', 'Spring Boot', 'Postgres', 'Kafka', 'Redis', 'Prometheus', 'Grafana'],
-        link: '#', 
-        image: '/projects/default.png', 
+        link: 'https://github.com/Minhen96/Mini_tng_Springboot', 
         order: 1
     },
     {
-        id: 'just-snap',
+        id: 'justsnap',
         title: 'JustSnap',
         description: 'Snipping tool with OCR, translation, and UI-to-code conversion features.',
-        techStack: ['React', 'Rust', 'AI API'],
-        link: '#',
-        image: '/projects/default.png',
+        techStack: ['React', 'Rust', 'Tauri', 'AI API'],
+        link: 'https://github.com/Minhen96/JustSnap',
         order: 2
     },
     {
-        id: 'party-snap',
+        id: 'partysnap',
         title: 'PartySnap',
-        description: 'Event gallery application.',
+        description: 'Create event, participants join event to upload images. Find related images by scanning face.',
         techStack: ['React', 'Supabase', 'Cloudflare R2', 'Vercel', 'OAuth', 'face-api.js'],
-        link: '#',
-        image: '/projects/default.png',
+        link: 'https://github.com/Minhen96/PartySnap',
         order: 3
+    },
+    {
+        id: 'reme',
+        title: 'RE:ME',
+        description: 'Self-growth app tracking moods, hobbies, and reflections, visualize your growth and find your personality.',
+        techStack: ['Next.js', 'Supabase', 'Vercel', 'OAuth'],
+        link: 'https://github.com/Minhen96/RE-ME',
+        order: 4
+    },
+    {
+        id: 'ai-whatsapp',
+        title: 'AI WhatsApp Assistant',
+        description: 'AI-powered chatbot system that integrates WhatsApp messaging, can save knowledge and chat.',
+        techStack: ['React', 'Twilio', 'SpringBoot', 'Web Socket'],
+        link: 'https://github.com/Minhen96/ai-whatsapp-assistant',
+        order: 5
     },
     {
         id: 'hr-app',
         title: 'HR App & Portal',
-        description: 'Comprehensive HR management solution.',
+        description: 'Comprehensive HR management solution with mobile app and admin web portal.',
         techStack: ['Flutter', 'React', '.NET core', 'MSSQL'],
-        link: '#',
-        image: '/projects/default.png',
-        order: 4
-    },
-    {
-        id: 're-me',
-        title: 'RE:ME',
-        description: 'Self-growth app tracking moods, hobbies, and reflections.',
-        techStack: ['Next.js', 'Supabase', 'OAuth'],
-        link: '#',
-        image: '/projects/default.png',
-        order: 5
+        link: 'https://github.com/Minhen96/hr_user_app_with_admin_web_portal',
+        order: 6
     },
     {
         id: 'pet-ecommerce',
         title: 'Pet Ecommerce Platform',
-        description: 'Platform for pet products and services.',
+        description: 'Final Year Project. Platform for pet products and services, can be merchant or buyer.',
         techStack: ['Kotlin', 'Firebase'],
-        link: '#',
-        image: '/projects/default.png',
-        order: 6
+        link: 'https://github.com/Minhen96/FYP-pet-ecommerce-platform-mobile-app',
+        order: 7
     },
     {
-        id: 'ai-legal-assistant',
+        id: 'ai-legal',
         title: 'AI Legal Assistant',
-        description: 'AI-powered assistant for legal document analysis.',
+        description: 'AI-powered assistant tp analyse legal document analysis and clause identification, and ai chatbot to answer legal question.',
         techStack: ['AWS Amplify', 'Lambda', 'Bedrock', 'S3', 'Opensearch'],
-        link: '#',
-        image: '/projects/default.png',
-        order: 7
+        link: 'https://github.com/Minhen96/ai-legal-assistant',
+        order: 8
+    },
+    {
+        id: '3d-particle',
+        title: '3D Particle Motion',
+        description: 'Interactive 3D particle motion visualization with holographic interface.',
+        techStack: ['Three.js', 'JavaScript', 'HTML/CSS'],
+        link: 'https://github.com/Minhen96/Jarvis-Holographic-interface',
+        order: 9
     },
     {
         id: 'self-portfolio',
         title: 'Self Portfolio',
-        description: 'Personal portfolio website.',
-        techStack: ['Astro'],
-        link: '#',
+        description: 'Modern and fast personal portfolio website built with Astro.',
+        techStack: ['Astro', 'Tailwind CSS', 'Preact'],
+        link: 'https://github.com/Minhen96/MH_Portfolio',
         image: '/projects/default.png',
-        order: 8
+        order: 10
     }
 ];
 
 // About Features
 const aboutFeaturesData = [
     {
-        id: 'fast',
-        title: 'Fast',
-        description: 'Fast load times and lag free interaction, my highest priority.',
-        icon: 'Zap',
+        id: 'explore',
+        title: 'Explore',
+        description: 'Constantly exploring new technologies and staying ahead of the curve with a deep willingness to learn.',
+        icon: 'Rocket',
         color: 'navy',
         order: 1
     },
     {
-        id: 'responsive',
-        title: 'Responsive',
-        description: 'My layouts will work on any device, big or small.',
-        icon: 'Smartphone',
+        id: 'maintainable',
+        title: 'Maintainable Code',
+        description: 'Writing clean, scalable, and well-documented code that is easy to maintain.',
+        icon: 'Code2',
         color: 'royal-blue',
         order: 2
     },
     {
-        id: 'intuitive',
-        title: 'Intuitive',
-        description: 'Strong preference for easy to use, intuitive UX/UI.',
-        icon: 'Lightbulb',
+        id: 'ux',
+        title: 'User-Centric UX',
+        description: 'Placing the user at the heart of the design process to create intuitive experiences.',
+        icon: 'Palette',
         color: 'indigo',
         order: 3
-    },
-    {
-        id: 'dynamic',
-        title: 'Dynamic',
-        description: "Websites don't have to be static, I love making pages come to life.",
-        icon: 'Rocket',
-        color: 'navy',
-        order: 4
     }
 ];
 
@@ -406,6 +440,32 @@ for (const [name, items] of Object.entries(collections)) {
         
         const filePath = path.join(dir, `${item.id}.json`);
         const content = { ...item };
+
+        // Dynamic Image Discovery for Projects
+        if (name === 'projects') {
+            const projectImageDir = path.join(__dirname, '../public/projects', item.id);
+            let projectImages = [];
+            
+            if (fs.existsSync(projectImageDir)) {
+                projectImages = fs.readdirSync(projectImageDir)
+                    .filter(file => file.toLowerCase().endsWith('.png'))
+                    .sort()
+                    .map(file => `/projects/${item.id}/${file}`);
+            }
+
+            // Fallback for missing images or missing folders
+            if (projectImages.length === 0) {
+                // If a single image was already provided (like self-portfolio), use it
+                if (item.image) {
+                    projectImages = [item.image];
+                } else {
+                    projectImages = ['/projects/default.png'];
+                }
+            }
+            
+            content.images = projectImages;
+            delete content.image; // Cleanup old field
+        }
         
         fs.writeFileSync(filePath, JSON.stringify(content, null, 2));
         console.log(`Generated ${filePath}`);

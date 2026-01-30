@@ -2,10 +2,22 @@
   "id": "databases",
   "title": "Databases & Storage",
   "items": [
-    "Postgres",
-    "MSSQL",
-    "Supabase",
-    "Firebase"
+    {
+      "name": "Postgres 🐘",
+      "icon": "postgresql"
+    },
+    {
+      "name": "MSSQL 🛢️",
+      "icon": "microsoftsqlserver"
+    },
+    {
+      "name": "Supabase ⚡",
+      "icon": "supabase"
+    },
+    {
+      "name": "Firebase 🔥",
+      "icon": "firebase"
+    }
   ],
   "icon": "Database",
   "order": 6

@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import { Trophy, MapPin, Calendar } from 'lucide-preact';
+import { Rocket, MapPin, Calendar, ExternalLink } from 'lucide-preact';
 
 const allHackathons = await getCollection('hackathons');
 const hackathons = allHackathons.map(item => item.data).sort((a, b) => a.order - b.order);
@@ -39,14 +39,39 @@ const hackathons = allHackathons.map(item => item.data).sort((a, b) => a.order -
           class="hackathon-card group p-8 rounded-2xl bg-white dark:bg-white/5 border-2 border-black/10 dark:border-white/10 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 animate-on-scroll"
           style={`animation-delay: ${index * 100}ms`}
         >
+          <!-- Image -->
+          {hackathon.image && (
+            <div class="h-56 mb-8 overflow-hidden rounded-xl border-2 border-black/5 dark:border-white/5 relative">
+              <img 
+                src={hackathon.image} 
+                alt={hackathon.title} 
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent group-hover:opacity-0 transition-opacity"></div>
+            </div>
+          )}
+
           <!-- Header -->
           <div class="flex items-start justify-between mb-4">
             <div class="flex-grow">
-              <h3 class="text-2xl font-bold text-black dark:text-white mb-2 group-hover:text-portfolio-royal-blue transition-colors">
-                {hackathon.title}
-              </h3>
+              <div class="flex items-center justify-between">
+                <h3 class="text-2xl font-bold text-black dark:text-white mb-2 group-hover:text-portfolio-royal-blue transition-colors">
+                  {hackathon.title}
+                </h3>
+                {hackathon.link && (
+                  <a 
+                    href={hackathon.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class="p-2 rounded-full bg-portfolio-royal-blue/10 text-portfolio-royal-blue hover:bg-portfolio-royal-blue hover:text-white transition-all transform hover:scale-110"
+                    title="View Hackathon Details"
+                  >
+                    <ExternalLink size={18} />
+                  </a>
+                )}
+              </div>
               <div class="flex items-center gap-2 text-portfolio-royal-blue font-semibold mb-3">
-                <Trophy size={20} />
+                <Rocket size={20} />
                 <span>{hackathon.subtitle}</span>
               </div>
             </div>

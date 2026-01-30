@@ -1,0 +1,18 @@
+{
+  "id": "ai-whatsapp",
+  "title": "AI WhatsApp Assistant",
+  "description": "AI-powered chatbot system that integrates WhatsApp messaging, can save knowledge and chat.",
+  "techStack": [
+    "React",
+    "Twilio",
+    "SpringBoot",
+    "Web Socket"
+  ],
+  "link": "https://github.com/Minhen96/ai-whatsapp-assistant",
+  "order": 5,
+  "images": [
+    "/projects/ai-whatsapp/1_home.png",
+    "/projects/ai-whatsapp/2_knowledge.png",
+    "/projects/ai-whatsapp/3_chat.png"
+  ]
+}

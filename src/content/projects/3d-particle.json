@@ -1,0 +1,16 @@
+{
+  "id": "3d-particle",
+  "title": "3D Particle Motion",
+  "description": "Interactive 3D particle motion visualization with holographic interface.",
+  "techStack": [
+    "Three.js",
+    "JavaScript",
+    "HTML/CSS"
+  ],
+  "link": "https://github.com/Minhen96/Jarvis-Holographic-interface",
+  "order": 9,
+  "images": [
+    "/projects/3d-particle/1_page1.png",
+    "/projects/3d-particle/2_page2.png"
+  ]
+}

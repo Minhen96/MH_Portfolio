@@ -1,0 +1,21 @@
+{
+  "id": "aws-ai-hackathon",
+  "title": "AWS Great AI Hackathon",
+  "subtitle": "Use AWS services build AI solution",
+  "date": "2025",
+  "location": "Kuala Lumpur",
+  "description": [
+    "Built AI legal assistant with law knowledge, help people to analyze and understand document risks and clauses identification.",
+    "Used AWS amplify, lambda, bedrock, s3, opensearch."
+  ],
+  "techStack": [
+    "AWS Amplify",
+    "Lambda",
+    "Bedrock",
+    "S3",
+    "OpenSearch"
+  ],
+  "link": "https://www.apu.edu.my/news/apu-leads-asean-record-great-malaysia-ai-hackathon-2025",
+  "image": "/hackathon/aws-greatai-hackathon.jpeg",
+  "order": 2
+}

@@ -2,11 +2,26 @@
   "id": "devops",
   "title": "DevOps & Deployment",
   "items": [
-    "Docker",
-    "AWS (basic)",
-    "GitHub Actions",
-    "Vercel",
-    "Railway"
+    {
+      "name": "Docker 🐳",
+      "icon": "docker"
+    },
+    {
+      "name": "AWS (basic) ☁️",
+      "icon": "amazonaws"
+    },
+    {
+      "name": "GitHub Actions 🤖",
+      "icon": "githubactions"
+    },
+    {
+      "name": "Vercel 📐",
+      "icon": "vercel"
+    },
+    {
+      "name": "Railway 🚂",
+      "icon": "railway"
+    }
   ],
   "icon": "Container",
   "order": 5

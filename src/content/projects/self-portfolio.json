@@ -1,11 +1,15 @@
 {
   "id": "self-portfolio",
   "title": "Self Portfolio",
-  "description": "Personal portfolio website.",
+  "description": "Modern and fast personal portfolio website built with Astro.",
   "techStack": [
-    "Astro"
+    "Astro",
+    "Tailwind CSS",
+    "Preact"
   ],
-  "link": "#",
-  "image": "/projects/default.png",
-  "order": 8
+  "link": "https://github.com/Minhen96/MH_Portfolio",
+  "order": 10,
+  "images": [
+    "/projects/default.png"
+  ]
 }

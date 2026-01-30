@@ -1,7 +1,7 @@
 {
   "id": "mini-tng",
-  "title": "Mini Tng (email)",
-  "description": "E-wallet application clone or similar system.",
+  "title": "Mini Tng",
+  "description": "E-wallet application but using email to transfer money. Practice purpose.",
   "techStack": [
     "React",
     "Spring Boot",
@@ -11,7 +11,12 @@
     "Prometheus",
     "Grafana"
   ],
-  "link": "#",
-  "image": "/projects/default.png",
-  "order": 1
+  "link": "https://github.com/Minhen96/Mini_tng_Springboot",
+  "order": 1,
+  "images": [
+    "/projects/mini-tng/1_Home.png",
+    "/projects/mini-tng/2_Login.png",
+    "/projects/mini-tng/3_Transfer.png",
+    "/projects/mini-tng/4_history.png"
+  ]
 }

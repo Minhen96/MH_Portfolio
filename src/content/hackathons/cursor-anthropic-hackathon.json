@@ -1,0 +1,20 @@
+{
+  "id": "cursor-anthropic-hackathon",
+  "title": "Cursor x Anthropic Hackathon Malaysia",
+  "subtitle": "Use AI tools to build project",
+  "date": "2025",
+  "location": "Kuala Lumpur",
+  "description": [
+    "Done project “JustSnap”, a snipping tool can do drawing, ocr, translation, snip ui and convert to ui code, copy, pin, save to local features.",
+    "Use React and Rust as tech stack, Github action to build release."
+  ],
+  "techStack": [
+    "React",
+    "Rust",
+    "Tauri",
+    "AI APIs"
+  ],
+  "link": "https://luma.com/cursor-hack-my",
+  "image": "/hackathon/Cursor-Anthropic-Hackathon.png",
+  "order": 4
+}

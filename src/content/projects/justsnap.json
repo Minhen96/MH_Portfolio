@@ -1,0 +1,20 @@
+{
+  "id": "justsnap",
+  "title": "JustSnap",
+  "description": "Snipping tool with OCR, translation, and UI-to-code conversion features.",
+  "techStack": [
+    "React",
+    "Rust",
+    "Tauri",
+    "AI API"
+  ],
+  "link": "https://github.com/Minhen96/JustSnap",
+  "order": 2,
+  "images": [
+    "/projects/justsnap/1_welcome.png",
+    "/projects/justsnap/2_tray.png",
+    "/projects/justsnap/3_snapshot.png",
+    "/projects/justsnap/4_toolbar.png",
+    "/projects/justsnap/5_setting.png"
+  ]
+}

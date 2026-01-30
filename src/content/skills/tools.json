@@ -2,10 +2,22 @@
   "id": "tools",
   "title": "Other Tools",
   "items": [
-    "Git & GitHub",
-    "Postman",
-    "Figma",
-    "Canva"
+    {
+      "name": "Git & GitHub 🐙",
+      "icon": "github"
+    },
+    {
+      "name": "Postman 🚀",
+      "icon": "postman"
+    },
+    {
+      "name": "Figma 🎨",
+      "icon": "figma"
+    },
+    {
+      "name": "Canva 🖌️",
+      "icon": "canva"
+    }
   ],
   "icon": "PenTool",
   "order": 7
