@@ -1,0 +1,14 @@
+{
+  "id": "hr-app",
+  "title": "HR App & Portal",
+  "description": "Comprehensive HR management solution.",
+  "techStack": [
+    "Flutter",
+    "React",
+    ".NET core",
+    "MSSQL"
+  ],
+  "link": "#",
+  "image": "/projects/default.png",
+  "order": 4
+}

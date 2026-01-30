@@ -1,0 +1,20 @@
+{
+  "id": "greenstem",
+  "type": "work",
+  "title": "Mobile and Web Developer",
+  "subtitle": "Greenstem Business Software Sdn Bhd",
+  "duration": "NOV 2024 - MAY 2025",
+  "startDate": "2024-11",
+  "endDate": "2025-05",
+  "location": "Kuala Lumpur",
+  "logo": "/timeline/gs_square_transparent.png",
+  "link": "https://greenstem.com.my/",
+  "description": [
+    "Flutter to develop workshop and company internal mobile app.",
+    "React and .NET Core (C#) to develop internal web application."
+  ],
+  "items": [
+    "Flutter to develop workshop and company internal mobile app.",
+    "React and .NET Core (C#) to develop internal web application."
+  ]
+}

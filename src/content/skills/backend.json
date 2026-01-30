@@ -1,0 +1,12 @@
+{
+  "id": "backend",
+  "title": "Backend",
+  "items": [
+    "Spring Boot (Java)",
+    ".NET Core (ASP.NET)",
+    "REST APIs",
+    "Solidity"
+  ],
+  "icon": "Server",
+  "order": 3
+}

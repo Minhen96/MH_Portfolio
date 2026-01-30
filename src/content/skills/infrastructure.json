@@ -1,0 +1,10 @@
+{
+  "id": "infrastructure",
+  "title": "Infrastructure",
+  "items": [
+    "Redis",
+    "Authentication"
+  ],
+  "icon": "Cloud",
+  "order": 4
+}

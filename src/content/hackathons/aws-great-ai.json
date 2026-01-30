@@ -1,0 +1,20 @@
+{
+  "id": "aws-great-ai",
+  "title": "AWS Great AI Hackathon",
+  "subtitle": "AI Legal Assistant",
+  "date": "2024",
+  "location": "Malaysia",
+  "description": [
+    "Built AI legal assistant with law knowledge to analyze and identify document risks/clauses.",
+    "Used AWS amplify, lambda, bedrock, s3, opensearch."
+  ],
+  "techStack": [
+    "AWS Amplify",
+    "Lambda",
+    "Bedrock",
+    "S3",
+    "Opensearch"
+  ],
+  "link": "",
+  "order": 3
+}

@@ -1,0 +1,16 @@
+{
+  "id": "party-snap",
+  "title": "PartySnap",
+  "description": "Event gallery application.",
+  "techStack": [
+    "React",
+    "Supabase",
+    "Cloudflare R2",
+    "Vercel",
+    "OAuth",
+    "face-api.js"
+  ],
+  "link": "#",
+  "image": "/projects/default.png",
+  "order": 3
+}

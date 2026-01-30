@@ -1,0 +1,8 @@
+{
+  "id": "responsive",
+  "title": "Responsive",
+  "description": "My layouts will work on any device, big or small.",
+  "icon": "Smartphone",
+  "color": "royal-blue",
+  "order": 2
+}

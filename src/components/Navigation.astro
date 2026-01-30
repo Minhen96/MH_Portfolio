@@ -9,7 +9,16 @@ import {
     Linkedin,
     Instagram,
 } from "lucide-preact";
-import { SOCIAL_LINKS } from "../constants/portfolio";
+// Removed constant import
+import { getEntry } from "astro:content";
+
+const socialsEntry = await getEntry("siteConfig", "socials");
+
+const SOCIAL_LINKS = {
+    github: socialsEntry?.data.github || "#",
+    linkedin: socialsEntry?.data.linkedin || "#",
+    instagram: socialsEntry?.data.instagram || "#",
+};
 
 // Client-side script for toggle
 ---
@@ -22,12 +31,12 @@ import { SOCIAL_LINKS } from "../constants/portfolio";
             {/* Logo */}
             <a href="#hero" class="flex items-center group">
                 <img
-                    src="/dark_logo/MH_Logo_transparent.png"
+                    src="/light_logo/MH_Logo_transparent_light.png"
                     alt="MH Logo"
                     class="h-10 w-auto transition-transform group-hover:scale-105 hidden dark:block"
                 />
                 <img
-                    src="/light_logo/MH_Logo_transparent_light.png"
+                    src="/dark_logo/MH_Logo_transparent.png"
                     alt="MH Logo"
                     class="h-10 w-auto transition-transform group-hover:scale-105 block dark:hidden"
                 />

@@ -1,0 +1,18 @@
+{
+  "id": "techtrove",
+  "title": "TechTrove Unearth Innovation",
+  "subtitle": "RE:ME",
+  "date": "2024",
+  "location": "Malaysia",
+  "description": [
+    "Done project 'RE:ME', a personal self-growth record web app that tracks moods, hobbies, reflections, and visualizes strengths.",
+    "Used Nextjs and Supabase as tech stack, Vercel to deploy."
+  ],
+  "techStack": [
+    "Next.js",
+    "Supabase",
+    "Vercel"
+  ],
+  "link": "",
+  "order": 2
+}

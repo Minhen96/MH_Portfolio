@@ -1,0 +1,13 @@
+{
+  "id": "software-engineering",
+  "title": "Software Engineering",
+  "items": [
+    "OOP",
+    "Agile",
+    "Software Architecture",
+    "Software Testing",
+    "HCI"
+  ],
+  "icon": "Code2",
+  "order": 1
+}

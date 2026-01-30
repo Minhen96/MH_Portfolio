@@ -1,43 +1,11 @@
 ---
 import { Github, ExternalLink } from 'lucide-preact';
+import { getCollection } from 'astro:content';
 
-const projects = [
-  {
-    title: 'HR System with Mobile & Web Portal',
-    description: 'Complete HR management system featuring a Flutter mobile app for employees and an admin web portal for HR management. Users can apply for leave, manage equipment, and check company information.',
-    technologies: ['Flutter', 'Dart', 'Web Portal', '.NET(C#)'],
-    image: 'https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=800',
-    github: 'https://github.com/Minhen96/hr_user_app_with_admin_web_portal'
-  },
-  {
-    title: 'RE-ME: Personal Growth Tracker',
-    description: 'A self-growth web application that helps users track moods, hobbies, and personal reflections. Features data visualization to identify your strengths and patterns over time.',
-    technologies: ['TypeScript', 'Nextjs', 'Supabase'],
-    image: 'https://images.pexels.com/photos/3807517/pexels-photo-3807517.jpeg?auto=compress&cs=tinysrgb&w=800',
-    github: 'https://github.com/Minhen96/RE-ME'
-  },
-  {
-    title: 'AI WhatsApp Assistant',
-    description: 'Intelligent AI chatbot that integrates with WhatsApp, supporting knowledge storage and file uploads. The bot answers questions based on user-provided documents.',
-    technologies: ['Java', 'OpenAI API', 'Twilio', 'WhatsApp API'],
-    image: 'https://images.pexels.com/photos/3587478/pexels-photo-3587478.jpeg?auto=compress&cs=tinysrgb&w=800',
-    github: 'https://github.com/Minhen96/ai-whatsapp-assistant'
-  },
-  {
-    title: 'AI Legal Assistant',
-    description: 'AWS GreatAI Hackathon project. A specialized AI assistant for legal document management and law-related inquiries. Users can upload legal documents and ask questions about them.',
-    technologies: ['TypeScript', 'AI', 'AWS amplify', 'AWS lambda'],
-    image: 'https://images.pexels.com/photos/3957987/pexels-photo-3957987.jpeg?auto=compress&cs=tinysrgb&w=800',
-    github: 'https://github.com/Minhen96/ai-legal-assistant'
-  },
-  {
-    title: 'Pet E-Commerce Platform',
-    description: 'TARUMT Final Year Project. A mobile e-commerce application for pet-related products. Users can act as either merchants or buyers in a peer-to-peer marketplace.',
-    technologies: ['Kotlin', 'Android', 'Mobile Commerce', 'Firebase'],
-    image: 'https://images.pexels.com/photos/2962123/pexels-photo-2962123.jpeg?auto=compress&cs=tinysrgb&w=800',
-    github: 'https://github.com/Minhen96/FYP-pet-ecommerce-platform-mobile-app'
-  }
-];
+const allProjects = await getCollection('projects');
+const projects = allProjects
+  .sort((a, b) => a.data.order - b.data.order)
+  .map(p => p.data);
 ---
 
 <section id="projects" class="py-32 relative bg-white dark:bg-black transition-colors duration-300">
@@ -90,7 +58,7 @@ const projects = [
               {project.description}
             </p>
             <div class="flex flex-wrap gap-2 mb-6">
-              {project.technologies.map((tech) => (
+              {project.techStack.map((tech) => (
                 <span
                   class="px-3 py-2 rounded-full text-xs font-medium border-2 transition-all hover:scale-105 bg-black/5 text-gray-600 border-black/20 hover:border-portfolio-navy/50 dark:bg-white/5 dark:text-gray-400 dark:border-white/20 dark:hover:border-portfolio-navy/50 shadow-sm"
                 >
@@ -99,7 +67,7 @@ const projects = [
               ))}
             </div>
             <a
-              href={project.github}
+              href={project.link}
               target="_blank"
               rel="noopener noreferrer"
               class="inline-flex items-center space-x-2 px-4 py-2.5 rounded-lg border-2 transition-all group/link hover:scale-105 text-gray-700 hover:text-black border-black/20 hover:border-portfolio-navy/50 hover:bg-portfolio-navy/10 dark:text-gray-300 dark:hover:text-white dark:border-white/20 dark:hover:border-portfolio-royal-blue/50 dark:hover:bg-portfolio-royal-blue/10 shadow-sm hover:shadow-md"

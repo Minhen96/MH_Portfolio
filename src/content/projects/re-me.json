@@ -1,0 +1,13 @@
+{
+  "id": "re-me",
+  "title": "RE:ME",
+  "description": "Self-growth app tracking moods, hobbies, and reflections.",
+  "techStack": [
+    "Next.js",
+    "Supabase",
+    "OAuth"
+  ],
+  "link": "#",
+  "image": "/projects/default.png",
+  "order": 5
+}

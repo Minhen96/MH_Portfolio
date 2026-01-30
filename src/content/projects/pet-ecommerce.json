@@ -1,0 +1,12 @@
+{
+  "id": "pet-ecommerce",
+  "title": "Pet Ecommerce Platform",
+  "description": "Platform for pet products and services.",
+  "techStack": [
+    "Kotlin",
+    "Firebase"
+  ],
+  "link": "#",
+  "image": "/projects/default.png",
+  "order": 6
+}

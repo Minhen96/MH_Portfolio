@@ -1,0 +1,24 @@
+{
+  "id": "ant-group",
+  "type": "work",
+  "title": "Java Engineer Fresh Grad",
+  "subtitle": "Ant Group | Kuala Lumpur",
+  "duration": "MAY 2025 - JAN 2026",
+  "startDate": "2025-05",
+  "endDate": "2026-01",
+  "location": "Kuala Lumpur",
+  "logo": "/timeline/ant_square_transparent.png",
+  "link": "https://www.ant-intl.com/en/",
+  "description": [
+    "Learn business logic and payment processing.",
+    "Maintain backend services using Spring Boot.",
+    "Deal with offline table and billing config.",
+    "Support Double 11 promotion event stress testing and monitoring."
+  ],
+  "items": [
+    "Learn business logic and payment processing.",
+    "Maintain backend services using Spring Boot.",
+    "Deal with offline table and billing config.",
+    "Support Double 11 promotion event stress testing and monitoring."
+  ]
+}

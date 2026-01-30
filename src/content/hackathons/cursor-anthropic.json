@@ -1,0 +1,18 @@
+{
+  "id": "cursor-anthropic",
+  "title": "Cursor x Anthropic Hackathon Malaysia",
+  "subtitle": "JustSnap",
+  "date": "2024",
+  "location": "Malaysia",
+  "description": [
+    "Project 'JustSnap': a snipping tool can do drawing, ocr, translation, snip ui and convert to ui code, copy, pin, save to local features.",
+    "Use React and Rust as tech stack, Github action to build release."
+  ],
+  "techStack": [
+    "React",
+    "Rust",
+    "Github Actions"
+  ],
+  "link": "",
+  "order": 1
+}

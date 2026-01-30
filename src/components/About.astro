@@ -1,26 +1,23 @@
 ---
-import { Code2, Palette, Zap } from 'lucide-preact';
+import { Code2, Palette, Zap, Smartphone, Lightbulb, Rocket } from 'lucide-preact';
+import { getCollection } from 'astro:content';
 
-const features = [
-  {
-    icon: Code2,
-    title: "Clean Code",
-    description: "Writing maintainable, scalable code that follows best practices.",
-    color: "navy"
-  },
-  {
-    icon: Palette,
-    title: "Design Focus",
-    description: "Creating beautiful interfaces that users love to interact with.",
-    color: "royal-blue"
-  },
-  {
-    icon: Zap,
-    title: "Fast Delivery",
-    description: "Efficient development process with quick turnaround times.",
-    color: "indigo"
-  }
-];
+const iconMap = {
+  'Code2': Code2,
+  'Palette': Palette,
+  'Zap': Zap,
+  'Smartphone': Smartphone,
+  'Lightbulb': Lightbulb,
+  'Rocket': Rocket
+} as const;
+
+const allFeatures = await getCollection('aboutFeatures');
+const features = allFeatures
+  .sort((a, b) => a.data.order - b.data.order)
+  .map(f => ({
+    ...f.data,
+    icon: iconMap[f.data.icon as keyof typeof iconMap]
+  }));
 ---
 
 <section id="about" class="py-32 relative bg-white dark:bg-black transition-colors duration-300 overflow-hidden">

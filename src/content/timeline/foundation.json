@@ -1,0 +1,18 @@
+{
+  "id": "foundation",
+  "type": "education",
+  "title": "Foundation in Engineering",
+  "subtitle": "Tunku Abdul Rahman University of Management and Technology",
+  "duration": "2020 - 2021",
+  "startDate": "2020-01",
+  "endDate": "2021-12",
+  "location": "Kuala Lumpur",
+  "logo": "/timeline/tarumt_square_transparent.png",
+  "link": "https://www.tarc.edu.my/",
+  "description": [
+    "Graduated with CGPA 3.9"
+  ],
+  "items": [
+    "Graduated with CGPA 3.9"
+  ]
+}

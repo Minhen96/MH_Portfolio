@@ -1,5 +1,4 @@
 import { atom } from 'nanostores';
-import { INTRO_CONFIG } from '../constants/portfolio';
 
 const isBrowser = typeof window !== 'undefined';
 
@@ -10,14 +9,16 @@ export const isIntroVisible = atom(true);
 // Key to force re-render/reset animations
 export const introKey = atom(0);
 
-if (isBrowser) {
+export function initIntro(enableSkip: boolean) {
+    if (!isBrowser) return;
+
     const stored = localStorage.getItem('portfolio_intro_completed') === 'true';
     introCompleted.set(stored);
 
-    // Logic from App.tsx:
+    // Logic:
     // If intro completed AND skip enabled, start with intro hidden.
     // Otherwise, start with intro visible.
-    if (stored && INTRO_CONFIG.enableSkip) {
+    if (stored && enableSkip) {
         isIntroVisible.set(false);
     } else {
         isIntroVisible.set(true);

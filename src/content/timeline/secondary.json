@@ -1,0 +1,18 @@
+{
+  "id": "secondary",
+  "type": "education",
+  "title": "Secondary School in Science Stream",
+  "subtitle": "Chong Hwa Independent High School",
+  "duration": "2016 - 2020",
+  "startDate": "2016-01",
+  "endDate": "2020-12",
+  "location": "Kuala Lumpur",
+  "logo": "/timeline/chkl_square_transparent.png",
+  "link": "https://www.chonghwakl.edu.my/",
+  "description": [
+    "SPM 10A"
+  ],
+  "items": [
+    "SPM 10A"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "degree",
+  "type": "education",
+  "title": "Bachelor of Software Engineering (Honours)",
+  "subtitle": "Tunku Abdul Rahman University of Management and Technology",
+  "duration": "2022 - 2025",
+  "startDate": "2022-01",
+  "endDate": "2025-12",
+  "location": "Kuala Lumpur",
+  "logo": "/timeline/tarumt_square_transparent.png",
+  "link": "https://www.tarc.edu.my/",
+  "description": [
+    "CGPA 3.8",
+    "Final Year Project in e-commerce system (kotlin + firebase)"
+  ],
+  "items": [
+    "CGPA 3.8",
+    "Final Year Project in e-commerce system (kotlin + firebase)"
+  ]
+}

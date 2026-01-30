@@ -1,5 +1,9 @@
 ---
 import { Mail, MessageSquare, Send } from "lucide-preact";
+import { getEntry } from "astro:content";
+
+const personalEntry = await getEntry("siteConfig", "personal");
+const email = personalEntry?.data.email || "email@example.com";
 ---
 
 <section
@@ -74,7 +78,7 @@ import { Mail, MessageSquare, Send } from "lucide-preact";
                             <p
                                 class="text-gray-700 dark:text-gray-400 break-all"
                             >
-                                evanyap96@gmail.com
+                                {email}
                             </p>
                         </div>
                     </div>

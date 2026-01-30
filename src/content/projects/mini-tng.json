@@ -1,0 +1,17 @@
+{
+  "id": "mini-tng",
+  "title": "Mini Tng (email)",
+  "description": "E-wallet application clone or similar system.",
+  "techStack": [
+    "React",
+    "Spring Boot",
+    "Postgres",
+    "Kafka",
+    "Redis",
+    "Prometheus",
+    "Grafana"
+  ],
+  "link": "#",
+  "image": "/projects/default.png",
+  "order": 1
+}

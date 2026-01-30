@@ -1,0 +1,13 @@
+{
+  "id": "devops",
+  "title": "DevOps & Deployment",
+  "items": [
+    "Docker",
+    "AWS (basic)",
+    "GitHub Actions",
+    "Vercel",
+    "Railway"
+  ],
+  "icon": "Container",
+  "order": 5
+}

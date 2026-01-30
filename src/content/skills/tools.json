@@ -1,0 +1,12 @@
+{
+  "id": "tools",
+  "title": "Other Tools",
+  "items": [
+    "Git & GitHub",
+    "Postman",
+    "Figma",
+    "Canva"
+  ],
+  "icon": "PenTool",
+  "order": 7
+}

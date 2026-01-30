@@ -1,46 +1,53 @@
-# Astro Starter Kit: Basics
+# Portfolio Website
 
-```sh
-npm create astro@latest -- --template basics
-```
+A modern, dynamic portfolio built with **Astro 5**, **Preact**, **Tailwind CSS**, and **Framer Motion**. Content is managed through **Astro Content Collections** for high performance and easy maintainability.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🚀 Features
 
-## 🚀 Project Structure
+-   **Content Collections**: All data (projects, skills, timeline, etc.) is stored in JSON files under `src/content/`.
+-   **Dynamic Intro**: Smooth introductory sequence with skip capabilities, controlled via Nanostores.
+-   **Responsive Design**: Fully optimized for mobile, tablet, and desktop.
+-   **Modern UI**: Glassmorphism, smooth gradients, and interactive animations.
 
-Inside of your Astro project, you'll see the following folders and files:
+## 📁 Project Structure
 
 ```text
 /
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
+├── public/              # Static assets (images, logos)
+├── scripts/             # Utility scripts
+│   └── generate_content.cjs # Script to regenerate content from source data
+├── src/
+│   ├── components/      # UI components (Astro & Preact)
+│   ├── content/         # JSON data for projects, skills, timeline, etc.
+│   ├── layouts/         # Page layouts
+│   ├── pages/           # Main website pages
+│   └── store/           # Client-side state (Nanostores)
 └── package.json
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🛠️ Commands
 
-## 🧞 Commands
+| Command             | Action                                      |
+| :------------------ | :------------------------------------------ |
+| `npm run dev`       | Starts local dev server at `localhost:4321` |
+| `npm run build`     | Build for production (outputs to `./dist/`) |
+| `npm run generator` | Run `node scripts/generate_content.cjs`     |
 
-All commands are run from the root of the project, from a terminal:
+## 📝 Content Management
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+To update your portfolio, edit the JSON files in `src/content/`:
+-   **Projects**: `src/content/projects/`
+-   **Skills**: `src/content/skills/`
+-   **Timeline**: `src/content/timeline/` (Experience & Education)
+-   **Hackathons**: `src/content/hackathons/`
+-   **Site Config**: `src/content/site_config/` (Personal info, social links)
 
-## 👀 Want to learn more?
+## ⚠️ Troubleshooting (Windows)
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+If you see an error like `EPERM: permission denied, rename ... .astro\data-store.json.tmp` while running `npm run dev`:
+
+1.  **Stop the dev server** (`Ctrl + C`).
+2.  **Delete the `.astro/` folder** in the project root.
+3.  **Restart the dev server** with `npm run dev`.
+
+This happens on Windows when Astro tries to update its internal cache while the dev server has a lock on the files.

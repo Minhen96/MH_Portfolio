@@ -1,0 +1,12 @@
+{
+  "id": "frontend",
+  "title": "Frontend & Web Frameworks",
+  "items": [
+    "React (TypeScript)",
+    "Next.js",
+    "Astro",
+    "Tailwind CSS"
+  ],
+  "icon": "Layout",
+  "order": 2
+}

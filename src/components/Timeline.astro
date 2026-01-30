@@ -1,29 +1,16 @@
 ---
 import { Briefcase, GraduationCap, MapPin, Sparkles, ChevronDown } from 'lucide-preact';
-import { EXPERIENCE, EDUCATION } from '../constants/portfolio';
+import { getCollection } from 'astro:content';
 
-// Data processing similar to the React component
-const timelineItems = [
-  ...EXPERIENCE.map((exp, index) => ({
-    ...exp,
-    uniqueId: `exp-${index}`,
-    type: 'work',
-    title: exp.position,
-    subtitle: exp.company,
-    items: exp.description,
-  })),
-  ...EDUCATION.map((edu, index) => ({
-    ...edu,
-    uniqueId: `edu-${index}`,
-    type: 'education',
-    title: edu.degree,
-    subtitle: edu.institution,
-    items: edu.achievements || [],
-  })),
-].sort((a, b) => {
-  const dateA = a.endDate === null ? '9999-12' : a.startDate;
-  const dateB = b.endDate === null ? '9999-12' : b.startDate;
-  return dateB.localeCompare(dateA);
+const allTimelineItems = await getCollection('timeline');
+
+const timelineItems = allTimelineItems.map(item => ({
+    ...item.data,
+    uniqueId: item.id // Use collection ID
+})).sort((a, b) => {
+  const dateA = a.endDate === null || a.endDate === undefined ? '9999-12' : a.startDate;
+  const dateB = b.endDate === null || b.endDate === undefined ? '9999-12' : b.startDate;
+  return dateB.localeCompare(dateA); 
 });
 
 const getIconColor = (type) => {
@@ -57,7 +44,7 @@ const getIconColor = (type) => {
       </div>
 
       <h2 class="text-4xl md:text-6xl font-bold text-black dark:text-white mb-6 tracking-tight">
-        My Timeline
+        Experience & Education
       </h2>
       <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
         From education to professional experience—here's my journey so far.

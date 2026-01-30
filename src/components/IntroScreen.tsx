@@ -1,9 +1,20 @@
 import { useEffect, useState } from 'preact/hooks';
-import { PERSONAL_INFO } from '../constants/portfolio';
 import { motion } from 'framer-motion';
 import { setIntroDone } from '../store/introStore';
 
-export default function IntroScreen() {
+interface IntroScreenProps {
+  personal: {
+    name: string;
+    title: string;
+  };
+  intro: {
+    greeting: string;
+    tagline: string;
+    skipText: string;
+  };
+}
+
+export default function IntroScreen({ personal, intro }: IntroScreenProps) {
   const [fadeOut, setFadeOut] = useState(false);
   const [showLogo, setShowLogo] = useState(false);
   const [showName, setShowName] = useState(false);
@@ -159,7 +170,7 @@ export default function IntroScreen() {
                   backgroundClip: 'text',
                 }}
               >
-                Yap Min Hen
+                {personal.name}
               </span>
             </h1>
           </div>
@@ -173,8 +184,7 @@ export default function IntroScreen() {
             }`}
           >
             <p className="text-xl md:text-2xl lg:text-3xl font-light text-white/70 tracking-wide">
-              {/* {PERSONAL_INFO.title} */}
-              Welcome to my portfolio.
+              {intro.tagline}
             </p>
           </div>
 
@@ -201,7 +211,7 @@ export default function IntroScreen() {
                 scale: { duration: 3, repeat: Infinity, ease: "easeInOut" }
               }}
             >
-              Click anywhere to continue...
+              {intro.skipText}
             </motion.p>
           </div>
         </div>

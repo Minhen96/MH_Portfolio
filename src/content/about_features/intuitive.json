@@ -1,0 +1,8 @@
+{
+  "id": "intuitive",
+  "title": "Intuitive",
+  "description": "Strong preference for easy to use, intuitive UX/UI.",
+  "icon": "Lightbulb",
+  "color": "indigo",
+  "order": 3
+}

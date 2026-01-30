@@ -1,0 +1,11 @@
+{
+  "id": "intro",
+  "greeting": "Hi there, I'm",
+  "tagline": "Software Engineer",
+  "introduction": [
+    "I build things for the web.",
+    "I'm a software engineer based in Kuala Lumpur, specializing in building (and occasionally designing) exceptional digital experiences."
+  ],
+  "enableSkip": true,
+  "skipText": "Press any key to skip intro"
+}

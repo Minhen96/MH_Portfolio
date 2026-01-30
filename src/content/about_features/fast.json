@@ -1,0 +1,8 @@
+{
+  "id": "fast",
+  "title": "Fast",
+  "description": "Fast load times and lag free interaction, my highest priority.",
+  "icon": "Zap",
+  "color": "navy",
+  "order": 1
+}

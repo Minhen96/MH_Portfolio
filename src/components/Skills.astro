@@ -1,26 +1,10 @@
 ---
-const skillCategories = [
-  {
-    title: 'Frontend',
-    skills: ['⚛️ React', '▲ Next.js', '📘 TypeScript', '🎨 Tailwind CSS']
-  },
-  {
-    title: 'Mobile Development',
-    skills: ['📱 Flutter (Dart)', '🤖 Kotlin']
-  },
-  {
-    title: 'Backend Languages & Frameworks',
-    skills: ['☕ Spring Boot (Java)', '🔷 .NET (C#)']
-  },
-  {
-    title: 'Database',
-    skills: ['🐘 Postgres', '🗄️ SQL Server', '⚡ Supabase', '🔥 Firebase']
-  },
-  {
-    title: 'Tools & Others',
-    skills: ['🔧 Git', '📮 Postman', '🐳 Docker', '☁️ AWS', '🌐 Cloudflare', '▲ Vercel', '🌍 Ngrok']
-  }
-];
+import { getCollection } from 'astro:content';
+
+const allSkills = await getCollection('skills');
+const skillCategories = allSkills
+    .sort((a, b) => a.data.order - b.data.order)
+    .map(c => c.data);
 ---
 
 <section id="skills" class="py-32 relative bg-gray-50 dark:bg-neutral-950 transition-colors duration-300">
@@ -56,7 +40,7 @@ const skillCategories = [
             {category.title}
           </h3>
           <div class="flex flex-wrap gap-3 relative z-10">
-            {category.skills.map((skill) => (
+            {category.items.map((skill) => (
               <span
                 class="px-4 py-2 rounded-full text-sm font-medium border-2 transition-all hover:scale-105 bg-black/5 text-gray-700 border-black/20 hover:bg-black/10 hover:border-portfolio-navy/50 dark:bg-white/5 dark:text-gray-300 dark:border-white/20 dark:hover:bg-white/10 dark:hover:border-portfolio-navy/50 shadow-sm hover:shadow-md"
               >

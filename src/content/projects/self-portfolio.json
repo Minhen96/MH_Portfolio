@@ -1,0 +1,11 @@
+{
+  "id": "self-portfolio",
+  "title": "Self Portfolio",
+  "description": "Personal portfolio website.",
+  "techStack": [
+    "Astro"
+  ],
+  "link": "#",
+  "image": "/projects/default.png",
+  "order": 8
+}

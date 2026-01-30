@@ -1,12 +1,19 @@
 ---
 import { Github, Instagram, Mail, ChevronDown } from "lucide-preact";
+import { getEntry } from "astro:content";
+
+const socialsEntry = await getEntry("siteConfig", "socials");
+const personalEntry = await getEntry("siteConfig", "personal");
 
 const socialLinks = {
-    github: "https://github.com/Minhen96",
-    instagram:
-        "https://www.instagram.com/minhen_96?igsh=ODNveW1yZnVka2Y%3D&utm_source=qr",
-    email: "mailto:evanyap96@gmail.com",
+    github: socialsEntry?.data.github || "#",
+    instagram: socialsEntry?.data.instagram || "#",
+    email: `mailto:${personalEntry?.data.email || "#"}`,
 };
+
+// Split name for effect "Min" "Hen"
+const fullName = personalEntry?.data.name || "Min Hen";
+// const [firstName, lastName] = fullName.split(" ").slice(0, 2); // Simple split
 ---
 
 <section
@@ -42,11 +49,11 @@ const socialLinks = {
                         class="relative text-6xl md:text-8xl font-bold leading-none tracking-tight mb-4 text-black dark:text-white"
                     >
                         <span class="inline-block animate-slide-in-left"
-                            >Min</span
+                            >{fullName}</span
                         >
-                        <span class="inline-block animate-slide-in-right"
-                            >Hen</span
-                        >
+                        <!-- <span class="inline-block animate-slide-in-right"
+                            >{lastName}</span
+                        > -->
                     </h1>
                 </div>
 
