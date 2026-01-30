@@ -1,0 +1,112 @@
+---
+const skillCategories = [
+  {
+    title: 'Frontend',
+    skills: ['⚛️ React', '▲ Next.js', '📘 TypeScript', '🎨 Tailwind CSS']
+  },
+  {
+    title: 'Mobile Development',
+    skills: ['📱 Flutter (Dart)', '🤖 Kotlin']
+  },
+  {
+    title: 'Backend Languages & Frameworks',
+    skills: ['☕ Spring Boot (Java)', '🔷 .NET (C#)']
+  },
+  {
+    title: 'Database',
+    skills: ['🐘 Postgres', '🗄️ SQL Server', '⚡ Supabase', '🔥 Firebase']
+  },
+  {
+    title: 'Tools & Others',
+    skills: ['🔧 Git', '📮 Postman', '🐳 Docker', '☁️ AWS', '🌐 Cloudflare', '▲ Vercel', '🌍 Ngrok']
+  }
+];
+---
+
+<section id="skills" class="py-32 relative bg-gray-50 dark:bg-neutral-950 transition-colors duration-300">
+  <!-- Luxurious Top Border -->
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-portfolio-royal-blue to-transparent"></div>
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-portfolio-royal-blue via-portfolio-navy to-portfolio-royal-blue blur-sm"></div>
+
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="flex items-center justify-center mb-6">
+      <div class="h-px w-16 bg-gradient-to-r from-transparent to-portfolio-royal-blue/50"></div>
+      <div class="mx-4 px-6 py-1 rounded-full border border-portfolio-royal-blue/20 bg-gradient-to-r from-portfolio-royal-blue/5 to-portfolio-navy/5">
+        <span class="text-xs font-medium tracking-widest uppercase text-portfolio-royal-blue">Expertise</span>
+      </div>
+      <div class="h-px w-16 bg-gradient-to-l from-transparent to-portfolio-navy/50"></div>
+    </div>
+
+    <h2 class="text-4xl md:text-6xl font-bold text-black dark:text-white mb-20 text-center animate-fade-in tracking-tight">
+      Skills & Technologies
+    </h2>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      {skillCategories.map((category, index) => (
+        <div
+          class="group/card p-8 rounded-2xl transition-all hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50 border-2 border-black/10 dark:bg-gradient-to-br dark:from-black dark:to-neutral-950 dark:border-white/10 animate-scale-in relative overflow-hidden shadow-xl hover:shadow-2xl"
+          style={`animation-delay: ${index * 0.1}s`}
+        >
+          <!-- Premium dual-tone accent border -->
+          <div class={`absolute top-0 left-0 right-0 h-2 bg-gradient-to-r ${index % 2 === 0 ? 'from-portfolio-navy via-portfolio-royal-blue to-portfolio-navy' : 'from-portfolio-royal-blue via-portfolio-navy to-portfolio-royal-blue'} opacity-0 group-hover/card:opacity-100 transition-opacity duration-500`}></div>
+          <div class="absolute inset-0 bg-gradient-to-br from-portfolio-navy/5 via-transparent to-portfolio-royal-blue/5 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500"></div>
+
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-6 tracking-tight flex items-center gap-3 relative z-10">
+            <span class={`w-1.5 h-8 rounded-full ${index % 2 === 0 ? 'bg-gradient-to-b from-portfolio-navy to-portfolio-royal-blue' : 'bg-gradient-to-b from-portfolio-royal-blue to-portfolio-navy'} shadow-lg`}></span>
+            {category.title}
+          </h3>
+          <div class="flex flex-wrap gap-3 relative z-10">
+            {category.skills.map((skill) => (
+              <span
+                class="px-4 py-2 rounded-full text-sm font-medium border-2 transition-all hover:scale-105 bg-black/5 text-gray-700 border-black/20 hover:bg-black/10 hover:border-portfolio-navy/50 dark:bg-white/5 dark:text-gray-300 dark:border-white/20 dark:hover:bg-white/10 dark:hover:border-portfolio-navy/50 shadow-sm hover:shadow-md"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .animate-fade-in {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+  
+  .animate-scale-in {
+    opacity: 0;
+    transform: scale(0.9);
+    animation: scaleIn 0.6s ease-out forwards;
+  }
+  
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+  
+  @keyframes scaleIn {
+    to { opacity: 1; transform: scale(1); }
+  }
+</style>
+
+<script>
+    // If strict animation triggers on scroll are needed, reuse the observer logic.
+    // For now simple animations on load or simple CSS hover states.
+    // The CSS animations above trigger on load. To trigger on scroll, we can add the observer again.
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                (entry.target as HTMLElement).style.animationPlayState = 'running';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    // We can pause animation initially in CSS and run it here, or just let them run.
+    // The class based visibility toggle in About.astro is cleaner.
+    // Let's assume the user is okay with load animations or we can add scroll later.
+    // For consistency with About/Timeline, let's just leave it simple for now.
+</script>

@@ -1,0 +1,175 @@
+---
+import { Code2, Palette, Zap } from 'lucide-preact';
+
+const features = [
+  {
+    icon: Code2,
+    title: "Clean Code",
+    description: "Writing maintainable, scalable code that follows best practices.",
+    color: "navy"
+  },
+  {
+    icon: Palette,
+    title: "Design Focus",
+    description: "Creating beautiful interfaces that users love to interact with.",
+    color: "royal-blue"
+  },
+  {
+    icon: Zap,
+    title: "Fast Delivery",
+    description: "Efficient development process with quick turnaround times.",
+    color: "indigo"
+  }
+];
+---
+
+<section id="about" class="py-32 relative bg-white dark:bg-black transition-colors duration-300 overflow-hidden">
+  <!-- Animated background elements -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute top-20 right-10 w-72 h-72 bg-portfolio-navy/10 rounded-full blur-3xl animate-pulse-slow"></div>
+    <div class="absolute bottom-20 left-10 w-96 h-96 bg-portfolio-royal-blue/10 rounded-full blur-3xl animate-pulse-slower"></div>
+  </div>
+
+  <!-- Top Border -->
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-portfolio-navy to-transparent"></div>
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-portfolio-navy via-portfolio-royal-blue to-portfolio-navy blur-sm"></div>
+
+  <div class="max-w-6xl mx-auto px-6 relative z-10">
+    <!-- Section Header -->
+    <div class="text-center mb-16 animate-on-scroll">
+      <div class="flex items-center justify-center mb-6">
+        <div class="h-px w-16 bg-gradient-to-r from-transparent to-portfolio-navy/50"></div>
+        <div class="mx-4 px-6 py-1 rounded-full border border-portfolio-navy/20 bg-gradient-to-r from-portfolio-navy/5 to-portfolio-royal-blue/5">
+          <span class="text-xs font-medium tracking-widest uppercase text-portfolio-navy">About</span>
+        </div>
+        <div class="h-px w-16 bg-gradient-to-l from-transparent to-portfolio-royal-blue/50"></div>
+      </div>
+
+      <h2 class="text-4xl md:text-6xl font-bold text-black dark:text-white mb-6 tracking-tight">
+        About Me
+      </h2>
+    </div>
+
+    <!-- Main Content Grid -->
+    <div class="grid md:grid-cols-2 gap-12 items-start mb-16">
+      
+      <!-- Left - Text Content -->
+      <div class="space-y-6 animate-on-scroll slide-left">
+        <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+          I'm a passionate software engineer with expertise in building full-stack applications
+          across multiple platforms. I enjoy creating innovative solutions that blend functionality
+          with user-centric design.
+        </p>
+        <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+          Beyond building applications, I'm constantly exploring new technologies and improving my craft.
+          I enjoy experimenting with AI, backend systems, and emerging tools—always looking for ways to
+          build smarter, more efficient, and meaningful digital experiences.
+        </p>
+      </div>
+
+      <!-- Right - Feature Cards -->
+      <div class="grid gap-6">
+        {features.map((feature, index) => {
+          const Icon = feature.icon;
+          return (
+            <div 
+              class={`group p-8 bg-gradient-to-br from-black/5 to-black/[0.02] border-black/20 dark:bg-gradient-to-br dark:from-white/5 dark:to-white/[0.02] dark:border-white/20 border-2 rounded-2xl transition-all relative overflow-hidden shadow-lg cursor-pointer animate-on-scroll slide-right delay-${index * 100}`}
+            >
+              <!-- Animated left border -->
+              <div class={`absolute top-0 left-0 w-2 transition-all duration-300 h-0 group-hover:h-full ${
+                feature.color === 'navy' ? 'bg-gradient-to-b from-portfolio-navy to-portfolio-navy/50' :
+                feature.color === 'royal-blue' ? 'bg-gradient-to-b from-portfolio-royal-blue to-portfolio-royal-blue/50' :
+                'bg-gradient-to-b from-portfolio-indigo to-portfolio-indigo/50'
+              }`}></div>
+
+              <!-- Hover background -->
+              <div class={`absolute inset-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100 ${
+                feature.color === 'navy' ? 'bg-gradient-to-br from-portfolio-navy/5 to-transparent' :
+                feature.color === 'royal-blue' ? 'bg-gradient-to-br from-portfolio-royal-blue/5 to-transparent' :
+                'bg-gradient-to-br from-portfolio-indigo/5 to-transparent'
+              }`}></div>
+
+              <div class="flex items-start space-x-4 relative z-10">
+                <div class={`p-4 rounded-xl shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-[360deg] ${
+                   feature.color === 'navy' ? 'bg-gradient-to-br from-portfolio-navy/30 to-portfolio-navy/10 border border-portfolio-navy/30' :
+                   feature.color === 'royal-blue' ? 'bg-gradient-to-br from-portfolio-royal-blue/30 to-portfolio-royal-blue/10 border border-portfolio-royal-blue/30' :
+                   'bg-gradient-to-br from-portfolio-indigo/30 to-portfolio-indigo/10 border border-portfolio-indigo/30'
+                }`}>
+                  <Icon 
+                    class={
+                      feature.color === 'navy' ? 'text-portfolio-navy' :
+                      feature.color === 'royal-blue' ? 'text-portfolio-royal-blue' :
+                      'text-portfolio-indigo'
+                    }
+                    size={24}
+                  />
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2 tracking-tight">
+                    {feature.title}
+                  </h3>
+                  <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Reuse or define new animations */
+  @keyframes pulse-slow {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.2); }
+  }
+  @keyframes pulse-slower {
+    0%, 100% { opacity: 0.2; transform: scale(1.2); }
+    50% { opacity: 0.4; transform: scale(1); }
+  }
+  .animate-pulse-slow { animation: pulse-slow 8s infinite ease-in-out; }
+  .animate-pulse-slower { animation: pulse-slower 10s infinite ease-in-out; }
+
+  /* Scroll Animation Classes */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  .animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .slide-left { transform: translateX(-50px); }
+  .slide-left.is-visible { transform: translateX(0); }
+  
+  .slide-right { transform: translateX(50px); }
+  .slide-right.is-visible { transform: translateX(0); }
+
+  .delay-0 { transition-delay: 0ms; }
+  .delay-100 { transition-delay: 100ms; }
+  .delay-200 { transition-delay: 200ms; }
+  .delay-300 { transition-delay: 300ms; }
+
+</style>
+
+<script>
+  // Simple Intersection Observer for scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target); // Trigger once
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+    observer.observe(el);
+  });
+</script>

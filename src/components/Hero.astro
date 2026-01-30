@@ -1,0 +1,278 @@
+---
+import { Github, Instagram, Mail, ChevronDown } from "lucide-preact";
+
+const socialLinks = {
+    github: "https://github.com/Minhen96",
+    instagram:
+        "https://www.instagram.com/minhen_96?igsh=ODNveW1yZnVka2Y%3D&utm_source=qr",
+    email: "mailto:evanyap96@gmail.com",
+};
+---
+
+<section
+    id="hero"
+    class="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 transition-colors duration-300 bg-gray-50 dark:bg-gradient-to-b dark:from-neutral-950 dark:to-neutral-900"
+>
+    <!-- Animated geometric accents -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div
+            class="absolute top-20 left-12 w-40 h-40 border-l-2 border-t-2 border-portfolio-navy/30 animate-fade-in-up"
+        >
+        </div>
+        <div
+            class="absolute bottom-20 right-12 w-40 h-40 border-r-2 border-b-2 border-portfolio-royal-blue/30 animate-fade-in-up delay-200"
+        >
+        </div>
+        <!-- Floating gradient orb -->
+        <div
+            class="absolute top-1/4 right-1/4 w-64 h-64 rounded-full bg-gradient-to-r from-portfolio-navy/10 to-portfolio-royal-blue/10 blur-3xl animate-pulse-slow"
+        >
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 py-20 relative z-10">
+        <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <!-- Left Column - Content -->
+            <div
+                class="space-y-6 md:space-y-8 text-center md:text-left order-2 md:order-1"
+            >
+                <!-- Name -->
+                <div class="inline-block relative animate-fade-in-up">
+                    <h1
+                        class="relative text-6xl md:text-8xl font-bold leading-none tracking-tight mb-4 text-black dark:text-white"
+                    >
+                        <span class="inline-block animate-slide-in-left"
+                            >Min</span
+                        >
+                        <span class="inline-block animate-slide-in-right"
+                            >Hen</span
+                        >
+                    </h1>
+                </div>
+
+                <p
+                    class="text-2xl md:text-3xl font-light tracking-wide text-gray-600 dark:text-gray-400 animate-fade-in delay-500"
+                >
+                    Software Engineer & Full Stack Developer
+                </p>
+
+                <!-- Accent divider -->
+                <div
+                    class="flex items-center justify-center md:justify-start gap-4 py-4 animate-scale-in delay-700"
+                >
+                    <div
+                        class="h-[2px] w-20 md:w-28 bg-gradient-to-r from-transparent via-portfolio-navy/50 to-transparent"
+                    >
+                    </div>
+                    <div
+                        class="w-2 h-2 rounded-full bg-portfolio-royal-blue shadow-lg shadow-portfolio-royal-blue/50 animate-pulse"
+                    >
+                    </div>
+                    <div
+                        class="h-[2px] w-20 md:w-28 bg-gradient-to-r from-transparent via-portfolio-royal-blue/50 to-transparent"
+                    >
+                    </div>
+                </div>
+
+                <p
+                    class="text-base md:text-lg max-w-2xl mx-auto font-light text-gray-600 dark:text-gray-500 animate-fade-in delay-1000"
+                >
+                    I'm a Software Engineering graduate from TAR UMT with a
+                    passion for building full-stack applications across web and
+                    mobile platforms.
+                </p>
+
+                <!-- Social Links -->
+                <div
+                    class="flex justify-center md:justify-start gap-4 pt-6 animate-fade-in delay-1000"
+                >
+                    <a
+                        href={socialLinks.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="social-btn group"
+                    >
+                        <Github
+                            class="text-black/70 group-hover:text-black dark:text-white/70 dark:group-hover:text-white transition-colors"
+                            size={22}
+                        />
+                    </a>
+                    <a
+                        href={socialLinks.instagram}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="social-btn group"
+                    >
+                        <Instagram
+                            class="text-black/70 group-hover:text-black dark:text-white/70 dark:group-hover:text-white transition-colors"
+                            size={22}
+                        />
+                    </a>
+                    <a href={socialLinks.email} class="social-btn group">
+                        <Mail
+                            class="text-black/70 group-hover:text-black dark:text-white/70 dark:group-hover:text-white transition-colors"
+                            size={22}
+                        />
+                    </a>
+                </div>
+
+                <button
+                    id="scroll-contact"
+                    class="mt-8 px-8 py-3 rounded-full font-medium relative overflow-hidden group text-white animate-fade-in-up delay-1000"
+                >
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-portfolio-navy to-portfolio-royal-blue"
+                    >
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-portfolio-royal-blue to-portfolio-navy opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    >
+                    </div>
+                    <span class="relative z-10">Get In Touch</span>
+                </button>
+            </div>
+
+            <!-- Right Column - Profile Image -->
+            <div
+                class="flex justify-center md:justify-end order-1 md:order-2 animate-fade-in-right delay-500"
+            >
+                <div class="relative">
+                    <div
+                        class="absolute inset-0 rounded-2xl bg-gradient-to-br from-portfolio-navy to-portfolio-royal-blue blur-2xl opacity-30 animate-pulse-slow"
+                    >
+                    </div>
+                    <div class="relative">
+                        <img
+                            src="/profile.jpg"
+                            alt="Min Hen Yap"
+                            class="relative w-48 h-48 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-2xl object-cover border-2 border-white/10 shadow-2xl"
+                        />
+                        <div
+                            class="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/20 to-transparent"
+                        >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button
+            id="scroll-about"
+            class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
+        >
+            <ChevronDown size={32} class="text-gray-400 dark:text-gray-700" />
+        </button>
+    </div>
+</section>
+
+<style>
+    .social-btn {
+        @apply p-4 rounded-lg transition-all hover:scale-105 bg-black/5 hover:bg-black/10 border border-black/10 dark:bg-white/5 dark:hover:bg-white/10 dark:border-white/10;
+    }
+
+    /* Custom Animations using pure CSS keyframes matching Framer Motion feel */
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    @keyframes fade-in-up {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    @keyframes slide-in-left {
+        from {
+            opacity: 0;
+            transform: translateX(-50px) rotate(-10deg);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0) rotate(0);
+        }
+    }
+    @keyframes slide-in-right {
+        from {
+            opacity: 0;
+            transform: translateX(50px) rotate(10deg);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0) rotate(0);
+        }
+    }
+    @keyframes scale-in {
+        from {
+            opacity: 0;
+            transform: scale(0.5);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    @keyframes pulse-slow {
+        0%,
+        100% {
+            opacity: 0.5;
+            transform: scale(1);
+        }
+        50% {
+            opacity: 0.8;
+            transform: scale(1.05);
+        }
+    }
+
+    .animate-fade-in {
+        animation: fade-in 1s ease-out forwards;
+    }
+    .animate-fade-in-up {
+        animation: fade-in-up 0.8s ease-out forwards;
+    }
+    .animate-slide-in-left {
+        animation: slide-in-left 0.8s ease-out forwards;
+    }
+    .animate-slide-in-right {
+        animation: slide-in-right 0.8s ease-out forwards;
+    }
+    .animate-scale-in {
+        animation: scale-in 0.8s ease-out forwards;
+    }
+    .animate-pulse-slow {
+        animation: pulse-slow 4s infinite ease-in-out;
+    }
+
+    .delay-200 {
+        animation-delay: 200ms;
+    }
+    .delay-500 {
+        animation-delay: 500ms;
+    }
+    .delay-700 {
+        animation-delay: 700ms;
+    }
+    .delay-1000 {
+        animation-delay: 1000ms;
+    }
+</style>
+
+<script>
+    document.getElementById("scroll-contact")?.addEventListener("click", () => {
+        document
+            .getElementById("contact")
+            ?.scrollIntoView({ behavior: "smooth" });
+    });
+    document.getElementById("scroll-about")?.addEventListener("click", () => {
+        document
+            .getElementById("about")
+            ?.scrollIntoView({ behavior: "smooth" });
+    });
+</script>

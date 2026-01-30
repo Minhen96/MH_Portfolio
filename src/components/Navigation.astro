@@ -1,0 +1,145 @@
+---
+import {
+    Menu,
+    X,
+    Moon,
+    Sun,
+    RotateCcw,
+    Github,
+    Linkedin,
+    Instagram,
+} from "lucide-preact";
+import { SOCIAL_LINKS } from "../constants/portfolio";
+
+// Client-side script for toggle
+---
+
+<nav
+    class="fixed top-0 w-full bg-white/80 dark:bg-black/80 backdrop-blur-xl z-50 border-b border-gray-200/50 dark:border-portfolio-navy/20 transition-colors duration-300 shadow-sm dark:shadow-portfolio-navy/5"
+>
+    <div class="max-w-7xl mx-auto px-6 py-5">
+        <div class="flex items-center justify-between">
+            {/* Logo */}
+            <a href="#hero" class="flex items-center group">
+                <img
+                    src="/dark_logo/MH_Logo_transparent.png"
+                    alt="MH Logo"
+                    class="h-10 w-auto transition-transform group-hover:scale-105 hidden dark:block"
+                />
+                <img
+                    src="/light_logo/MH_Logo_transparent_light.png"
+                    alt="MH Logo"
+                    class="h-10 w-auto transition-transform group-hover:scale-105 block dark:hidden"
+                />
+                <span
+                    class="ml-5 text-xl font-semibold text-gray-800 dark:text-gray-200"
+                >
+                    Portfolio
+                </span>
+            </a>
+
+            {/* Desktop Menu */}
+            <div class="hidden md:flex items-center space-x-6">
+                <div class="flex items-center space-x-3">
+                    <a
+                        href={SOCIAL_LINKS.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="social-btn group"
+                    >
+                        <Github
+                            size={18}
+                            class="text-gray-700 dark:text-gray-300 group-hover:text-portfolio-navy dark:group-hover:text-portfolio-royal-blue transition-colors"
+                        />
+                    </a>
+                    <a
+                        href={SOCIAL_LINKS.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="social-btn group"
+                    >
+                        <Linkedin
+                            size={18}
+                            class="text-gray-700 dark:text-gray-300 group-hover:text-portfolio-royal-blue dark:group-hover:text-portfolio-royal-blue transition-colors"
+                        />
+                    </a>
+                    <a
+                        href={SOCIAL_LINKS.instagram}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="social-btn group"
+                    >
+                        <Instagram
+                            size={18}
+                            class="text-gray-700 dark:text-gray-300 group-hover:text-portfolio-coral dark:group-hover:text-portfolio-coral transition-colors"
+                        />
+                    </a>
+                </div>
+
+                <div
+                    class="h-8 w-px bg-gradient-to-b from-transparent via-gray-300 dark:via-portfolio-silver/30 to-transparent"
+                >
+                </div>
+
+                <div class="flex items-center space-x-2">
+                    <button
+                        id="restart-intro"
+                        class="nav-btn group"
+                        title="Restart Intro"
+                    >
+                        <RotateCcw
+                            size={18}
+                            class="text-gray-700 dark:text-gray-300 group-hover:text-portfolio-indigo dark:group-hover:text-portfolio-indigo transition-colors"
+                        />
+                    </button>
+                    <button
+                        id="theme-toggle"
+                        class="nav-btn group"
+                        title="Toggle Theme"
+                    >
+                        <Sun
+                            size={18}
+                            class="text-gray-300 group-hover:text-portfolio-platinum transition-colors hidden dark:block"
+                        />
+                        <Moon
+                            size={18}
+                            class="text-gray-700 group-hover:text-portfolio-navy transition-colors block dark:hidden"
+                        />
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<style>
+    .social-btn {
+        @apply p-2.5 rounded-lg bg-gradient-to-br from-gray-100 to-gray-50 dark:from-white/5 dark:to-white/10 border border-gray-200 dark:border-white/10 hover:border-portfolio-navy dark:hover:border-portfolio-navy transition-all hover:scale-105;
+    }
+    .nav-btn {
+        @apply p-2.5 rounded-lg bg-gradient-to-br from-gray-100 to-gray-50 dark:from-white/5 dark:to-white/10 border border-gray-200 dark:border-white/10 hover:border-portfolio-navy dark:hover:border-portfolio-navy transition-all hover:scale-105;
+    }
+</style>
+
+<script>
+    import { toggleTheme } from "../store/themeStore";
+    import { restartIntro } from "../store/introStore";
+
+    const themeBtn = document.getElementById("theme-toggle");
+    const restartBtn = document.getElementById("restart-intro");
+
+    if (themeBtn) {
+        themeBtn.addEventListener("click", () => {
+            toggleTheme();
+        });
+    }
+
+    if (restartBtn) {
+        restartBtn.addEventListener("click", () => {
+            restartIntro();
+            // Optional: Logic to show intro again? The introStore handles visibility.
+            // But IntroController needs to be re-rendered?
+            // Since IntroController is an Island, it reacts to store changes.
+        });
+    }
+</script>
