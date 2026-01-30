@@ -11,7 +11,7 @@ const mailtoLink = socialsEntry?.data.email || `mailto:${email}`;
 
 <section
     id="contact"
-    class="py-32 relative bg-white dark:bg-neutral-950 transition-colors duration-300 overflow-hidden"
+    class="py-32 relative bg-transparent transition-colors duration-300 overflow-hidden"
 >
     <!-- Dynamic Decorative background -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
@@ -23,6 +23,15 @@ const mailtoLink = socialsEntry?.data.email || `mailto:${email}`;
             class="absolute bottom-1/4 -right-20 w-96 h-96 bg-portfolio-royal-blue/10 rounded-full blur-[120px] animate-pulse delay-700"
         >
         </div>
+    </div>
+
+    <div
+        class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-portfolio-navy to-transparent"
+    >
+    </div>
+    <div
+        class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-portfolio-navy via-portfolio-royal-blue to-portfolio-navy blur-sm"
+    >
     </div>
 
     <div class="max-w-6xl mx-auto px-6 relative z-10">

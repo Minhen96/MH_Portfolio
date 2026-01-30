@@ -41,8 +41,35 @@ const { title } = Astro.props;
 		</script>
 	</head>
 	<body
-		class="bg-gray-50 dark:bg-black transition-colors duration-300 opacity-0 relative"
+		class="bg-gray-50 dark:bg-neutral-950 transition-colors duration-300 opacity-0 relative"
 	>
+		<!-- Global Ambient Background -->
+		<div
+			class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none select-none"
+		>
+			<div
+				class="absolute inset-0 bg-gray-50 dark:bg-neutral-950 transition-colors duration-300"
+			>
+			</div>
+			<div class="absolute inset-0 bg-noise opacity-[0.03]"></div>
+
+			{
+				/* Drifting Orbs - Only visible in dark mode primarily, or subtle in light */
+			}
+			<div
+				class="absolute top-0 -left-4 w-96 h-96 bg-portfolio-navy/20 rounded-full mix-blend-multiply filter blur-3xl opacity-0 dark:opacity-20 animate-blob"
+			>
+			</div>
+			<div
+				class="absolute top-0 -right-4 w-96 h-96 bg-portfolio-royal-blue/20 rounded-full mix-blend-multiply filter blur-3xl opacity-0 dark:opacity-20 animate-blob animation-delay-2000"
+			>
+			</div>
+			<div
+				class="absolute -bottom-32 left-20 w-96 h-96 bg-purple-900/20 rounded-full mix-blend-multiply filter blur-3xl opacity-0 dark:opacity-20 animate-blob animation-delay-4000"
+			>
+			</div>
+		</div>
+
 		<script is:inline>
 			(function () {
 				// Anti-FOUC & Intro Logic
@@ -83,6 +110,18 @@ const { title } = Astro.props;
 			})();
 		</script>
 		<style is:global>
+			/* Global Scroll Animation */
+			.animate-on-scroll {
+				opacity: 0;
+				transform: translateY(20px);
+				transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+				will-change: opacity, transform;
+			}
+			.animate-on-scroll.is-visible {
+				opacity: 1;
+				transform: translateY(0);
+			}
+
 			/* When intro is active, hide everything EXCEPT the intro overlay */
 			body.intro-active > *:not(#intro-overlay-container) {
 				opacity: 0;
@@ -109,9 +148,40 @@ const { title } = Astro.props;
 		<slot />
 
 		<script>
+			// Global Scroll Observer (Runs once for the whole app)
+			const observer = new IntersectionObserver(
+				(entries) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							entry.target.classList.add("is-visible");
+							observer.unobserve(entry.target); // Run once!
+						}
+					});
+				},
+				{ threshold: 0.1, rootMargin: "0px 0px -20px 0px" },
+			);
+
+			// Utilize Astro's page load if available, or fallback to DOMContentLoaded
+			document.addEventListener("DOMContentLoaded", () => {
+				document
+					.querySelectorAll(".animate-on-scroll")
+					.forEach((el) => observer.observe(el));
+			});
+
+			// Re-run for View Transitions (if enabled later)
+			document.addEventListener("astro:page-load", () => {
+				document
+					.querySelectorAll(".animate-on-scroll")
+					.forEach((el) => observer.observe(el));
+			});
+
 			// Reveal body if it was hidden and intro didn't fire (failsafe)
 			window.addEventListener("load", () => {
 				document.body.classList.remove("opacity-0");
+				// Extra check for lazily loaded elements
+				document
+					.querySelectorAll(".animate-on-scroll")
+					.forEach((el) => observer.observe(el));
 			});
 		</script>
 	</body>

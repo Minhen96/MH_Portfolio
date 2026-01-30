@@ -20,7 +20,7 @@ const features = allFeatures
   }));
 ---
 
-<section id="about" class="py-32 relative bg-white dark:bg-black transition-colors duration-300 overflow-hidden">
+<section id="about" class="py-32 relative bg-transparent transition-colors duration-300 overflow-hidden">
   <!-- Animated background elements -->
   <div class="absolute inset-0 overflow-hidden pointer-events-none">
     <div class="absolute top-20 right-10 w-72 h-72 bg-portfolio-navy/10 rounded-full blur-3xl animate-pulse-slow"></div>
@@ -155,18 +155,4 @@ const features = allFeatures
 
 </style>
 
-<script>
-  // Simple Intersection Observer for scroll animations
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target); // Trigger once
-      }
-    });
-  }, { threshold: 0.1 });
 
-  document.querySelectorAll('.animate-on-scroll').forEach((el) => {
-    observer.observe(el);
-  });
-</script>
