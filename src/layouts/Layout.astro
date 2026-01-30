@@ -40,7 +40,79 @@ const { title } = Astro.props;
 			window.localStorage.setItem("theme-mode", theme);
 		</script>
 	</head>
-	<body class="bg-gray-50 dark:bg-black transition-colors duration-300">
+	<body
+		class="bg-gray-50 dark:bg-black transition-colors duration-300 opacity-0 relative"
+	>
+		<script is:inline>
+			(function () {
+				// Anti-FOUC & Intro Logic
+				const isReload =
+					performance.getEntriesByType("navigation")[0]?.type ===
+					"reload";
+				const introDone =
+					sessionStorage.getItem("portfolio_intro_completed") ===
+					"true";
+
+				// Should we show the intro?
+				// Yes if: Hard refresh OR Not done yet
+				const showIntro = isReload || !introDone;
+
+				if (showIntro) {
+					document.body.classList.add(
+						"overflow-hidden",
+						"animations-paused",
+					);
+					// Body remains opacity-0 until IntroController (or fallback) reveals it
+					// But wait, if we hide body, IntroScreen won't show either since it's a child!
+					// CORRECT: We need to hide ONLY the main content, not the IntroOverlay.
+					// BUT IntroOverlay is a React Portal or just a child?
+					// In index.astro, IntroController is a sibling to Navigation/Main.
+					// So default opacity-0 on Body is risky if IntroController is inside Body.
+					// Solution: Remove opacity-0 from body class in HTML, apply it via script to SPECIFIC elements if needed,
+					// OR relies on IntroController to be visible while siblings are hidden.
+
+					// Better approach:
+					// Add 'intro-active' class to body.
+					// Define CSS that hides 'main', 'nav', 'footer' when 'intro-active' is present.
+					// IntroController (z-9999) will override or be outside that selector.
+					document.body.classList.add("intro-active");
+				} else {
+					// No intro needed, show immediately
+					document.body.classList.remove("opacity-0");
+				}
+			})();
+		</script>
+		<style is:global>
+			/* When intro is active, hide everything EXCEPT the intro overlay */
+			body.intro-active > *:not(#intro-overlay-container) {
+				opacity: 0;
+				pointer-events: none;
+			}
+			/* But IntroController renders IntroScreen. logic?
+			   IntroController is a Preact component. It renders into a div? 
+			   Astro renders it as <astro-island>.
+			   We just need to ensure the IntroScreen is visible.
+			   IntroScreen uses fixed positioning (z-9999), so opacity:0 on parent (body) would hide it?
+			   Yes, opacity on parent hides children.
+			   
+			   So we CANNOT put opacity:0 on body.
+			   
+			   Let's use the 'animations-paused' class we already have to strictly pause everything.
+			   To prevent FOUC (visual flash), we can set Main content to opacity 0 initially?
+			*/
+
+			/* New Strategy: Default Main to Opacity 0. Reveal when ready. */
+			body:not(.intro-active) {
+				opacity: 1;
+			}
+		</style>
 		<slot />
+
+		<script>
+			// Reveal body if it was hidden and intro didn't fire (failsafe)
+			window.addEventListener("load", () => {
+				document.body.classList.remove("opacity-0");
+			});
+		</script>
 	</body>
 </html>

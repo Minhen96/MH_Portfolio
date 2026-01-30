@@ -22,10 +22,12 @@ export default function IntroScreen({ personal, intro }: IntroScreenProps) {
   const [showAccents, setShowAccents] = useState(false);
   const [showAccentLines, setShowAccentLines] = useState(false);
   const [showClickHint, setShowClickHint] = useState(false);
+  const [canInteract, setCanInteract] = useState(false);
 
   useEffect(() => {
     console.log('🎬 IntroScreen mounted/remounted - BLACK BACKGROUND');
     // Reset all states when component mounts
+    window.scrollTo(0, 0);
     setFadeOut(false);
     setShowLogo(false);
     setShowName(false);
@@ -33,6 +35,7 @@ export default function IntroScreen({ personal, intro }: IntroScreenProps) {
     setShowAccents(false);
     setShowAccentLines(false);
     setShowClickHint(false);
+    setCanInteract(false);
 
     // Staggered animation sequence - NO AUTO-SKIP
     const logoTimer = setTimeout(() => {
@@ -58,6 +61,9 @@ export default function IntroScreen({ personal, intro }: IntroScreenProps) {
 
   const handleContinue = () => {
     setFadeOut(true);
+    // IMMEDIATE REVEAL: Remove classes to start animations and show content BEHIND the fading overlay
+    document.body.classList.remove('overflow-hidden', 'animations-paused', 'intro-active');
+    
     setTimeout(() => {
       setIntroDone();
     }, 800);
@@ -66,9 +72,11 @@ export default function IntroScreen({ personal, intro }: IntroScreenProps) {
   useEffect(() => {
     let cleanupFn: (() => void) | null = null;
 
-    // Wait 500ms before enabling click handlers to prevent auto-trigger
+    // Wait 1.5s before enabling interaction to prevent accidental skips
     const enableDelay = setTimeout(() => {
-      // Click anywhere to skip
+      setCanInteract(true);
+      console.log('✨ Interaction ENABLED');
+      
       const handleClick = () => {
         if (!fadeOut) {
           console.log('👆 User clicked - continuing to portfolio');
@@ -94,11 +102,12 @@ export default function IntroScreen({ personal, intro }: IntroScreenProps) {
 
   return (
     <div
-      className={`fixed inset-0 flex items-center justify-center cursor-pointer transition-opacity duration-800 ${
+      className={`fixed inset-0 flex items-center justify-center transition-opacity duration-800 ${
         fadeOut ? 'opacity-0' : 'opacity-100'
-      }`}
+      } ${canInteract ? 'cursor-pointer pointer-events-auto' : 'cursor-wait pointer-events-none'}`}
       style={{
-        background: 'linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%)'
+        background: 'linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%)',
+        zIndex: 9999
       }}
     >
       {/* Minimalist corner accents */}
@@ -117,12 +126,12 @@ export default function IntroScreen({ personal, intro }: IntroScreenProps) {
           {[...Array(8)].map((_, i) => (
             <div
               key={i}
-              className="absolute w-1 h-1 rounded-full bg-portfolio-royal-blue/30 animate-ping"
+              className="absolute w-1 h-1 rounded-full bg-blue-400/50 animate-ping"
               style={{
                 top: `${20 + i * 10}%`,
                 left: `${15 + i * 12}%`,
                 animationDelay: `${i * 0.4}s`,
-                animationDuration: '4s',
+                animationDuration: '3s',
               }}
             />
           ))}

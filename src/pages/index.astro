@@ -32,11 +32,13 @@ const introData = introEntry?.data ?? {
 ---
 
 <Layout title={`${personalData.name} - ${personalData.title}`}>
-	<IntroController
-		client:only="preact"
-		personal={personalData}
-		intro={introData}
-	/>
+	<div id="intro-overlay-container" class="relative z-[9999]">
+		<IntroController
+			client:only="preact"
+			personal={personalData}
+			intro={introData}
+		/>
+	</div>
 	<Navigation />
 
 	<main>

@@ -142,8 +142,12 @@ const SOCIAL_LINKS = {
     }
 
     if (restartBtn) {
-        restartBtn.addEventListener("click", () => {
-            console.log("Restarting from Navigation button click");
+        restartBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation(); // Stop bubbling to window (prevents immediate intro skip)
+            console.log(
+                "Restarting from Navigation button click - STOP PROPAGATION",
+            );
             window.scrollTo({ top: 0, behavior: "instant" });
             restartIntro();
         });

@@ -6,11 +6,40 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Global Animation Pause - Used when Intro is active */
+/* Pause everything... */
+body.animations-paused * {
+  animation-play-state: paused !important;
+}
+
+/* ...EXCEPT the Intro Overlay and its children */
+body.animations-paused #intro-overlay-container,
+body.animations-paused #intro-overlay-container * {
+  animation-play-state: running !important;
+}
+
+/* RESET Animations when Intro is active (so they replay on restart) */
+/* TARGETING: Only children of SIBLINGS to the intro container (Main, Nav) */
+/* This leaves #intro-overlay-container completely untouched */
+body.intro-active> :not(#intro-overlay-container) .animate-fade-in,
+body.intro-active> :not(#intro-overlay-container) .animate-fade-in-up,
+body.intro-active> :not(#intro-overlay-container) .animate-slide-in-left,
+body.intro-active> :not(#intro-overlay-container) .animate-slide-in-right,
+body.intro-active> :not(#intro-overlay-container) .animate-scale-in,
+body.intro-active> :not(#intro-overlay-container) .animate-shimmer,
+body.intro-active> :not(#intro-overlay-container) .animate-glow,
+body.intro-active> :not(#intro-overlay-container) .animate-float,
+body.intro-active> :not(#intro-overlay-container) .animate-pulse-glow {
+  animation: none !important;
+  opacity: 0 !important;
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -22,6 +51,7 @@ html {
     opacity: 0;
     transform: translateX(-30px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -33,6 +63,7 @@ html {
     opacity: 0;
     transform: translateX(30px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -44,6 +75,7 @@ html {
     opacity: 0;
     transform: scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -51,43 +83,113 @@ html {
 }
 
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-10px);
   }
 }
 
 @keyframes glow {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 0 5px rgba(37, 99, 235, 0.2);
   }
+
   50% {
     box-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
   }
 }
 
 .animate-fade-in {
-  animation: fade-in 1s ease-out;
+  opacity: 0;
+  animation: fade-in 1s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  opacity: 0;
+  animation: fade-in-up 0.8s ease-out forwards;
 }
 
 .animate-slide-in-left {
-  animation: slide-in-left 0.8s ease-out;
+  opacity: 0;
+  animation: slide-in-left 0.8s ease-out forwards;
 }
 
 .animate-slide-in-right {
-  animation: slide-in-right 0.8s ease-out;
+  opacity: 0;
+  animation: slide-in-right 0.8s ease-out forwards;
 }
 
 .animate-scale-in {
-  animation: scale-in 0.6s ease-out;
+  opacity: 0;
+  animation: scale-in 0.6s ease-out forwards;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  25% {
+    transform: translateY(-5px) rotate(2deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(0deg);
+  }
+
+  75% {
+    transform: translateY(-5px) rotate(-2deg);
+  }
+
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
 }
 
 .animate-float {
-  animation: float 3s ease-in-out infinite;
+  animation: float 6s ease-in-out infinite;
 }
 
 .animate-glow {
   animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 200% center;
+  }
+
+  to {
+    background-position: -200% center;
+  }
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 8s linear infinite;
+  background-size: 200% auto;
 }

@@ -100,7 +100,7 @@ const projects = allProjects
               {project.images.length > 1 && (
                 <>
                   <button
-                    class="absolute left-4 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-black/40 hover:bg-black/60 backdrop-blur-md text-white/90 hover:text-white transition-all shadow-lg active:scale-95 z-30 opacity-0 group-hover/gallery:opacity-100 hidden"
+                    class="absolute left-4 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-black/40 hover:bg-black/60 backdrop-blur-md text-white/90 hover:text-white transition-all shadow-lg active:scale-95 z-30 opacity-100 md:opacity-0 md:group-hover/gallery:opacity-100 hidden"
                     data-scroll-prev
                     aria-label="Previous image"
                   >
@@ -119,7 +119,7 @@ const projects = allProjects
                     </svg>
                   </button>
                   <button
-                    class="absolute right-4 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-black/40 hover:bg-black/60 backdrop-blur-md text-white/90 hover:text-white transition-all shadow-lg active:scale-95 z-30 opacity-0 group-hover/gallery:opacity-100"
+                    class="absolute right-4 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-black/40 hover:bg-black/60 backdrop-blur-md text-white/90 hover:text-white transition-all shadow-lg active:scale-95 z-30 opacity-100 md:opacity-0 md:group-hover/gallery:opacity-100"
                     data-scroll-next
                     aria-label="Next image"
                   >
@@ -152,8 +152,8 @@ const projects = allProjects
                 </h3>
               </div>
 
-              {/* Mobile Teaser Content (Always visible on mobile, hidden on desktop md+) */}
-              <div class="md:hidden mb-6 space-y-4">
+              {/* Mobile Teaser Content (Collapsible) */}
+              <div class="md:hidden space-y-4 mb-6" data-teaser-container>
                 <p class="text-neutral-400 text-sm leading-relaxed line-clamp-2 italic opacity-80">
                   {project.description.split(" ").slice(0, 10).join(" ")}...
                 </p>
@@ -169,37 +169,18 @@ const projects = allProjects
                     </span>
                   )}
                 </div>
-                <button
-                  class="w-full py-3.5 px-6 rounded-xl bg-white/5 border border-white/10 text-portfolio-royal-blue font-bold text-xs flex items-center justify-center gap-2 hover:bg-white/10 transition-all active:scale-95 shadow-sm"
-                  data-details-toggle
-                >
-                  <span>Discover Project</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="transition-transform duration-300"
-                  >
-                    <path d="m6 9 6 6 6-6" />
-                  </svg>
-                </button>
               </div>
 
+              {/* Full Details (Hidden on mobile initially, visible on desktop) */}
               <div
-                class="project-details hidden md:block space-y-6"
+                class="project-details hidden md:block space-y-6 flex-grow"
                 data-details-container
               >
                 <p class="text-neutral-400 leading-relaxed text-sm">
                   {project.description}
                 </p>
 
-                <div class="mt-auto">
+                <div class="mt-6 md:mt-auto">
                   <div class="flex flex-wrap gap-2 mb-6">
                     {project.techStack.map((tech) => (
                       <span class="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-white/5 text-neutral-300 border border-white/10">
@@ -212,7 +193,7 @@ const projects = allProjects
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="inline-flex items-center space-x-2 px-6 py-3 rounded-xl border border-neutral-800 transition-all group/link hover:scale-105 text-neutral-300 hover:text-white hover:border-portfolio-royal-blue/50 hover:bg-portfolio-royal-blue/10 shadow-sm hover:shadow-md"
+                    class="inline-flex items-center space-x-2 px-6 py-3 rounded-xl border border-neutral-800 transition-all group/link hover:scale-105 text-neutral-300 hover:text-white hover:border-portfolio-royal-blue/50 hover:bg-portfolio-royal-blue/10 shadow-sm hover:shadow-md w-full md:w-auto justify-center md:justify-start"
                   >
                     <Github size={18} />
                     <span class="text-sm font-medium">View Source</span>
@@ -223,6 +204,36 @@ const projects = allProjects
                   </a>
                 </div>
               </div>
+
+              {/* Mobile Toggle Button (Premium Gradient Border) */}
+              <button
+                class="md:hidden mt-6 group relative w-full overflow-hidden rounded-xl p-[1px] active:scale-[0.98] transition-transform duration-300"
+                data-details-toggle
+              >
+                {/* Animated Gradient Border */}
+                <div class="absolute inset-0 bg-gradient-to-r from-portfolio-navy via-portfolio-royal-blue to-portfolio-navy bg-[length:200%_auto] animate-shimmer opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
+
+                {/* Button Content */}
+                <div class="relative h-full w-full bg-[#0c0c0c] rounded-xl flex items-center justify-center gap-2 py-3.5 transition-colors group-hover:bg-[#050505]">
+                  <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-white/90 group-hover:text-white transition-colors">
+                    Discover Project
+                  </span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="text-portfolio-royal-blue group-hover:text-white transition-colors duration-300"
+                  >
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                </div>
+              </button>
             </div>
           </div>
         ))
@@ -309,19 +320,9 @@ const projects = allProjects
     <script>
       // Show More Logic Removed - All projects visible by default
 
-      // Mobile Project Details Toggle Logic
-      document.querySelectorAll("[data-project-card]").forEach((card) => {
-        const toggleButton = card.querySelector("[data-details-toggle]");
-        const detailsContainer = card.querySelector("[data-details-container]");
-        const arrowIcon = toggleButton?.querySelector("svg");
+      // Show More Logic Removed - All projects visible by default
 
-        if (toggleButton && detailsContainer && arrowIcon) {
-          toggleButton.addEventListener("click", () => {
-            detailsContainer.classList.toggle("hidden");
-            arrowIcon.classList.toggle("rotate-180");
-          });
-        }
-      });
+      // Mobile Project Details Toggle Logic REMOVED (Relies on Global Delegation below to prevent double-toggling)
 
       // Shared Drag-to-Scroll Logic
       const initDragScroll = (container: HTMLElement) => {
@@ -568,43 +569,79 @@ const projects = allProjects
 
         // Initial state
         updateGalleryState();
+      });
 
-        // Mobile Details Toggle
-        const toggleBtn = card.querySelector(
+      // Global Event Delegation for Project Details Toggle
+      document.addEventListener("click", (e) => {
+        const toggleBtn = (e.target as HTMLElement).closest(
           "[data-details-toggle]",
-        ) as HTMLElement;
-        const detailsContainer = card.querySelector(
-          "[data-details-container]",
-        ) as HTMLElement;
-        const toggleIcon = toggleBtn?.querySelector(
-          "svg",
-        ) as unknown as SVGElement;
+        );
 
-        if (toggleBtn && detailsContainer) {
-          toggleBtn.addEventListener("click", () => {
+        if (toggleBtn) {
+          console.log("🎯 Clicked on Toggle Button (Delegated Listener)!");
+          e.preventDefault();
+          e.stopPropagation();
+
+          const card = toggleBtn.closest("[data-project-card]");
+          if (!card) {
+            console.error("❌ No parent card found for toggle button");
+            return;
+          }
+
+          const detailsContainer = card.querySelector(
+            "[data-details-container]",
+          ) as HTMLElement;
+          const teaserContainer = card.querySelector(
+            "[data-teaser-container]",
+          ) as HTMLElement;
+          const toggleIcon = toggleBtn.querySelector(
+            "svg",
+          ) as unknown as SVGElement;
+          const btnText = toggleBtn.querySelector("span");
+
+          if (detailsContainer) {
             const isHidden = detailsContainer.classList.contains("hidden");
-            const btnText = toggleBtn.querySelector("span");
+            console.log(
+              `Current state: ${isHidden ? "Hidden" : "Visible"}, toggling...`,
+            );
 
             if (isHidden) {
+              // Expand: Show Details, Hide Teaser
               detailsContainer.classList.remove("hidden");
-              detailsContainer.classList.add("flex"); // Ensure flex layout on mobile
+              detailsContainer.classList.add("flex", "flex-col");
+              teaserContainer?.classList.add("hidden");
+
               if (btnText) btnText.textContent = "Close Details";
               if (toggleIcon) toggleIcon.style.transform = "rotate(180deg)";
 
-              // Smoothly scroll the newly revealed content into view if necessary
+              // Scroll adjustment
               setTimeout(() => {
-                detailsContainer.scrollIntoView({
-                  behavior: "smooth",
-                  block: "nearest",
-                });
-              }, 50);
+                const gallery = card.querySelector(".group\\/gallery");
+                if (gallery) {
+                  gallery.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                  });
+                }
+              }, 150);
             } else {
+              // Collapse: Hide Details, Show Teaser
               detailsContainer.classList.add("hidden");
-              detailsContainer.classList.remove("flex");
+              detailsContainer.classList.remove("flex", "flex-col");
+              teaserContainer?.classList.remove("hidden");
+
               if (btnText) btnText.textContent = "Discover Project";
               if (toggleIcon) toggleIcon.style.transform = "rotate(0deg)";
+
+              // Scroll back to card top if needed
+              card.scrollIntoView({
+                behavior: "smooth",
+                block: "nearest",
+              });
             }
-          });
+          } else {
+            console.error("❌ No details container found");
+          }
         }
       });
     </script>

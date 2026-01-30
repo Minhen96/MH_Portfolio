@@ -12,12 +12,12 @@ export const introKey = atom(0);
 export function initIntro(enableSkip: boolean) {
     if (!isBrowser) return;
 
-    const stored = localStorage.getItem('portfolio_intro_completed') === 'true';
+    // Normal navigation: Check session storage
+    // If the user simply refreshes (F5), session storage persists, so we skip intro if already done.
+    // If they close the tab (Hard Session Reset), session storage is cleared, so intro plays.
+    const stored = sessionStorage.getItem('portfolio_intro_completed') === 'true';
     introCompleted.set(stored);
 
-    // Logic:
-    // If intro completed AND skip enabled, start with intro hidden.
-    // Otherwise, start with intro visible.
     if (stored && enableSkip) {
         isIntroVisible.set(false);
     } else {
@@ -29,7 +29,7 @@ export function setIntroDone() {
     introCompleted.set(true);
     isIntroVisible.set(false);
     if (isBrowser) {
-        localStorage.setItem('portfolio_intro_completed', 'true');
+        sessionStorage.setItem('portfolio_intro_completed', 'true');
     }
 }
 
@@ -39,6 +39,6 @@ export function restartIntro() {
     isIntroVisible.set(true);
     introKey.set(introKey.get() + 1);
     if (isBrowser) {
-        localStorage.removeItem('portfolio_intro_completed');
+        sessionStorage.removeItem('portfolio_intro_completed');
     }
 }

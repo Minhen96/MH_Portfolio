@@ -14,7 +14,9 @@ const socialLinks = {
 
 // Split name for effect "Min" "Hen"
 const fullName = personalEntry?.data.name || "Min Hen";
-// const [firstName, lastName] = fullName.split(" ").slice(0, 2); // Simple split
+const nameParts = fullName.split(" ");
+const [firstName, lastName] =
+    nameParts.length > 1 ? nameParts.slice(-2) : [fullName, ""];
 ---
 
 <section
@@ -44,17 +46,26 @@ const fullName = personalEntry?.data.name || "Min Hen";
             <div
                 class="space-y-6 md:space-y-8 text-center md:text-left order-2 md:order-1"
             >
-                <!-- Name -->
+                <!-- Name with Shimmer & Glow -->
                 <div class="inline-block relative animate-fade-in-up">
-                    <h1
-                        class="relative text-6xl md:text-8xl font-bold leading-none tracking-tight mb-4 text-black dark:text-white"
+                    <div
+                        class="absolute -inset-8 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.25)_0%,transparent_70%)] blur-2xl rounded-full opacity-0 animate-pulse-glow delay-200"
                     >
-                        <span class="inline-block animate-slide-in-left"
-                            >{fullName}</span
+                    </div>
+                    <h1
+                        class="relative text-6xl md:text-8xl font-bold leading-none tracking-tight mb-4 animate-float"
+                    >
+                        <span
+                            class="inline-block animate-slide-in-left text-white"
+                            >{firstName}</span
                         >
-                        <!-- <span class="inline-block animate-slide-in-right"
-                            >{lastName}</span
-                        > -->
+                        {
+                            lastName && (
+                                <span class="inline-block animate-slide-in-right text-white ml-0">
+                                    {lastName}
+                                </span>
+                            )
+                        }
                     </h1>
                 </div>
 
