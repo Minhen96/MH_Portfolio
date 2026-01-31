@@ -7,7 +7,7 @@ const skillCategories = allSkills
     .map(c => c.data);
 ---
 
-<section id="skills" class="py-32 relative bg-transparent transition-colors duration-500 overflow-hidden">
+<section id="skills" class="py-20 md:py-24 relative bg-transparent transition-colors duration-500 overflow-hidden">
   <!-- Dynamic Background Ambient -->
   <div class="absolute inset-0 overflow-hidden pointer-events-none">
     <div class="absolute top-1/4 -right-20 w-96 h-96 bg-portfolio-royal-blue/5 rounded-full blur-3xl animate-pulse-slow"></div>
@@ -24,7 +24,7 @@ const skillCategories = allSkills
   >
   </div>
 
-  <div class="max-w-6xl mx-auto px-6 relative z-10">
+  <div class="max-w-5xl mx-auto px-6 relative z-10">
     <div class="flex items-center justify-center mb-6 animate-on-scroll">
       <div class="h-px w-16 bg-gradient-to-r from-transparent to-portfolio-royal-blue/50"></div>
       <div class="mx-4 px-6 py-1 rounded-full border border-portfolio-royal-blue/20 bg-gradient-to-r from-portfolio-royal-blue/5 to-portfolio-navy/5">
@@ -33,26 +33,26 @@ const skillCategories = allSkills
       <div class="h-px w-16 bg-gradient-to-l from-transparent to-portfolio-navy/50"></div>
     </div>
 
-    <h2 class="text-4xl md:text-6xl font-bold text-black dark:text-white mb-24 text-center animate-on-scroll tracking-tight">
+    <h2 class="text-4xl md:text-5xl font-bold text-black dark:text-white mb-16 text-center animate-on-scroll tracking-tight">
       Skills & Technologies
     </h2>
 
-    <div class="space-y-24">
+    <div class="space-y-16">
       {skillCategories.map((category, catIndex) => (
         <div class="animate-on-scroll" style={`animation-delay: ${catIndex * 150}ms`}>
-          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-10 text-center tracking-tight flex items-center justify-center gap-4">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center tracking-tight flex items-center justify-center gap-4">
             <span class="h-px w-8 bg-black/10 dark:bg-white/10"></span>
             {category.title}
             <span class="h-px w-8 bg-black/10 dark:bg-white/10"></span>
           </h3>
           
-          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-5">
             {category.items.map((item, skillIndex) => (
               <div
-                class="group/skill relative p-6 rounded-3xl bg-white/50 dark:bg-white/[0.02] border border-black/5 dark:border-white/5 hover:border-portfolio-royal-blue/30 dark:hover:border-portfolio-royal-blue/30 hover:bg-white dark:hover:bg-white/[0.05] transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 flex flex-col items-center justify-center gap-4"
+                class="group/skill relative p-5 rounded-3xl bg-white dark:bg-white/[0.02] border border-gray-200 dark:border-white/5 hover:border-portfolio-royal-blue/30 dark:hover:border-portfolio-royal-blue/30 hover:bg-gray-50 dark:hover:bg-white/[0.05] transition-all duration-500 shadow-md shadow-gray-100 hover:shadow-xl hover:-translate-y-2 flex flex-col items-center justify-center gap-4"
               >
                 <!-- Icon Container -->
-                <div class="w-10 h-10 md:w-14 md:h-14 flex items-center justify-center transition-transform duration-500 group-hover/skill:scale-110">
+                <div class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition-transform duration-500 group-hover/skill:scale-110">
                   <img 
                     src={`https://cdn.simpleicons.org/${item.icon || 'codeforces'}`} 
                     alt={item.name}
@@ -76,6 +76,7 @@ const skillCategories = allSkills
     </div>
   </div>
 </section>
+
 
 <style>
 

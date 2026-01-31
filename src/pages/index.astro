@@ -9,6 +9,7 @@ import Hackathons from "../components/Hackathons.astro";
 import Skills from "../components/Skills.astro";
 import Projects from "../components/Projects.astro";
 import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
 import { getEntry } from "astro:content";
 
 const personalEntry = await getEntry("siteConfig", "personal");
@@ -49,5 +50,6 @@ const introData = introEntry?.data ?? {
 		<Projects />
 		<Hackathons />
 		<Contact />
+		<Footer />
 	</main>
 </Layout>

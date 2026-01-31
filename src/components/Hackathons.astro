@@ -6,14 +6,14 @@ const allHackathons = await getCollection('hackathons');
 const hackathons = allHackathons.map(item => item.data).sort((a, b) => a.order - b.order);
 ---
 
-<section id="hackathons" class="py-32 relative bg-transparent transition-colors duration-300">
+<section id="hackathons" class="py-20 md:py-24 relative bg-transparent transition-colors duration-300">
   <!-- Background Elements -->
   <div class="absolute inset-0 overflow-hidden pointer-events-none">
     <div class="absolute top-20 right-10 w-96 h-96 bg-portfolio-royal-blue/5 rounded-full blur-3xl animate-pulse-slow"></div>
     <div class="absolute bottom-20 left-10 w-80 h-80 bg-portfolio-navy/5 rounded-full blur-3xl animate-pulse-slower"></div>
   </div>
 
-  <div class="max-w-6xl mx-auto px-6 relative z-10">
+  <div class="max-w-5xl mx-auto px-6 relative z-10">
     <!-- Header -->
     <div class="text-center mb-16 animate-on-scroll">
       <div class="flex items-center justify-center mb-6">
@@ -24,7 +24,7 @@ const hackathons = allHackathons.map(item => item.data).sort((a, b) => a.order -
         <div class="h-px w-16 bg-gradient-to-l from-transparent to-portfolio-royal-blue/50"></div>
       </div>
 
-      <h2 class="text-4xl md:text-6xl font-bold text-black dark:text-white mb-6 tracking-tight">
+      <h2 class="text-4xl md:text-5xl font-bold text-black dark:text-white mb-6 tracking-tight">
         Hackathon Experience
       </h2>
       <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
@@ -33,15 +33,15 @@ const hackathons = allHackathons.map(item => item.data).sort((a, b) => a.order -
     </div>
 
     <!-- Hackathons Grid -->
-    <div class="grid md:grid-cols-2 gap-8">
+    <div class="grid md:grid-cols-2 gap-6">
       {hackathons.map((hackathon, index) => (
         <div 
-          class="hackathon-card group p-8 rounded-2xl bg-white dark:bg-white/5 border-2 border-black/10 dark:border-white/10 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 animate-on-scroll"
+          class="hackathon-card group p-6 rounded-2xl bg-white dark:bg-white/5 border-2 border-black/10 dark:border-white/10 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 animate-on-scroll"
           style={`animation-delay: ${index * 100}ms`}
         >
           <!-- Image -->
           {hackathon.image && (
-            <div class="h-56 mb-8 overflow-hidden rounded-xl border-2 border-black/5 dark:border-white/5 relative">
+            <div class="h-48 mb-6 overflow-hidden rounded-xl border-2 border-black/5 dark:border-white/5 relative">
               <img 
                 src={hackathon.image} 
                 alt={hackathon.title} 
@@ -55,7 +55,7 @@ const hackathons = allHackathons.map(item => item.data).sort((a, b) => a.order -
           <div class="flex items-start justify-between mb-4">
             <div class="flex-grow">
               <div class="flex items-center justify-between">
-                <h3 class="text-2xl font-bold text-black dark:text-white mb-2 group-hover:text-portfolio-royal-blue transition-colors">
+                <h3 class="text-xl md:text-2xl font-bold text-black dark:text-white mb-2 group-hover:text-portfolio-royal-blue transition-colors">
                   {hackathon.title}
                 </h3>
                 {hackathon.link && (
@@ -71,20 +71,20 @@ const hackathons = allHackathons.map(item => item.data).sort((a, b) => a.order -
                 )}
               </div>
               <div class="flex items-center gap-2 text-portfolio-royal-blue font-semibold mb-3">
-                <Rocket size={20} />
-                <span>{hackathon.subtitle}</span>
+                <Rocket size={18} />
+                <span class="text-sm">{hackathon.subtitle}</span>
               </div>
             </div>
           </div>
 
           <!-- Meta Info -->
-          <div class="flex flex-wrap gap-4 mb-4 text-sm text-gray-600 dark:text-gray-400">
+          <div class="flex flex-wrap gap-4 mb-4 text-xs font-medium text-gray-600 dark:text-gray-400">
             <div class="flex items-center gap-2">
-              <Calendar size={16} />
+              <Calendar size={14} />
               <span>{hackathon.date}</span>
             </div>
             <div class="flex items-center gap-2">
-              <MapPin size={16} />
+              <MapPin size={14} />
               <span>{hackathon.location}</span>
             </div>
           </div>
@@ -92,7 +92,7 @@ const hackathons = allHackathons.map(item => item.data).sort((a, b) => a.order -
           <!-- Description -->
           <div class="mb-6 space-y-2">
             {hackathon.description.map((desc) => (
-              <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+              <p class="text-xs md:text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
                 {desc}
               </p>
             ))}
@@ -101,7 +101,7 @@ const hackathons = allHackathons.map(item => item.data).sort((a, b) => a.order -
           <!-- Tech Stack -->
           <div class="flex flex-wrap gap-2">
             {hackathon.techStack.map((tech) => (
-              <span class="px-3 py-1 text-xs font-medium rounded-full bg-portfolio-navy/10 dark:bg-portfolio-navy/20 text-portfolio-navy dark:text-portfolio-royal-blue border border-portfolio-navy/20">
+              <span class="px-3 py-1 text-[10px] uppercase tracking-wide font-bold rounded-full bg-portfolio-navy/10 dark:bg-portfolio-navy/20 text-portfolio-navy dark:text-portfolio-royal-blue border border-portfolio-navy/20">
                 {tech}
               </span>
             ))}
@@ -111,6 +111,7 @@ const hackathons = allHackathons.map(item => item.data).sort((a, b) => a.order -
     </div>
   </div>
 </section>
+
 
 <style>
   @keyframes pulse-slow {

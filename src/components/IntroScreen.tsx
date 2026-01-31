@@ -102,13 +102,9 @@ export default function IntroScreen({ personal, intro }: IntroScreenProps) {
 
   return (
     <div
-      className={`fixed inset-0 flex items-center justify-center transition-opacity duration-800 ${
-        fadeOut ? 'opacity-0' : 'opacity-100'
+      className={`fixed inset-0 flex items-center justify-center transition-opacity duration-800 bg-white dark:bg-[#0a0a0a] z-[9999] ${
+        fadeOut ? 'opacity-0 pointer-events-none' : 'opacity-100'
       } ${canInteract ? 'cursor-pointer pointer-events-auto' : 'cursor-wait pointer-events-none'}`}
-      style={{
-        background: 'linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%)',
-        zIndex: 9999
-      }}
     >
       {/* Minimalist corner accents */}
       {showAccents && (
@@ -154,7 +150,7 @@ export default function IntroScreen({ personal, intro }: IntroScreenProps) {
                 <div className="absolute inset-0 bg-gradient-to-r from-portfolio-navy to-portfolio-royal-blue rounded-full blur-xl opacity-50 animate-pulse-slow" />
                 <div className="relative text-6xl font-bold">
                   <span className="text-portfolio-navy">&lt;</span>
-                  <span className="text-white">/</span>
+                  <span className="text-gray-900 dark:text-white">/</span>
                   <span className="text-portfolio-royal-blue">&gt;</span>
                 </div>
               </div>
@@ -170,7 +166,7 @@ export default function IntroScreen({ personal, intro }: IntroScreenProps) {
             }`}
           >
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight">
-              <span className="text-white/90">I'm </span>
+              <span className="text-gray-900 dark:text-white/90">I'm </span>
               <span
                 style={{
                   background: 'linear-gradient(135deg, #3B82F6 0%, #60A5FA 50%, #93C5FD 100%)',
@@ -192,7 +188,7 @@ export default function IntroScreen({ personal, intro }: IntroScreenProps) {
                 : 'opacity-0 translate-y-4'
             }`}
           >
-            <p className="text-xl md:text-2xl lg:text-3xl font-light text-white/70 tracking-wide">
+            <p className="text-xl md:text-2xl lg:text-3xl font-light text-gray-600 dark:text-white/70 tracking-wide">
               {intro.tagline}
             </p>
           </div>
@@ -209,7 +205,7 @@ export default function IntroScreen({ personal, intro }: IntroScreenProps) {
           {/* Skip hint */}
           <div className="pt-8">
             <motion.p
-              className="text-xs md:text-sm text-gray-300 font-mono"
+              className="text-xs md:text-sm text-gray-500 dark:text-gray-300 font-mono"
               initial={{ opacity: 0 }}
               animate={{
                 opacity: showClickHint ? [0.4, 1, 0.4] : 0,

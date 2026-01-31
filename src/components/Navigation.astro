@@ -20,16 +20,24 @@ const SOCIAL_LINKS = {
     instagram: socialsEntry?.data.instagram || "#",
 };
 
+const MENU_ITEMS = [
+    { label: "About", href: "#about" },
+    { label: "Journey", href: "#timeline" },
+    { label: "Skills", href: "#skills" },
+    { label: "Projects", href: "#projects" },
+    { label: "Contact", href: "#contact" },
+];
+
 // Client-side script for toggle
 ---
 
 <nav
-    class="fixed top-0 w-full bg-white/80 dark:bg-black/80 backdrop-blur-xl z-50 border-b border-gray-200/50 dark:border-portfolio-navy/20 transition-colors duration-300 shadow-sm dark:shadow-portfolio-navy/5"
+    class="fixed top-0 w-full bg-white/80 dark:bg-black/80 backdrop-blur-xl z-[9002] border-b border-gray-200/50 dark:border-portfolio-navy/20 transition-colors duration-300 shadow-sm dark:shadow-portfolio-navy/5"
 >
     <div class="max-w-7xl mx-auto px-6 py-5">
         <div class="flex items-center justify-between">
             {/* Logo */}
-            <a href="#hero" class="flex items-center group">
+            <a href="#hero" class="flex items-center group relative">
                 <img
                     src="/light_logo/MH_Logo_transparent_light.png"
                     alt="MH Logo"
@@ -46,6 +54,23 @@ const SOCIAL_LINKS = {
                     Portfolio
                 </span>
             </a>
+
+            {/* Desktop Navigation Links */}
+            <div
+                class="hidden lg:flex items-center space-x-8 absolute left-1/2 -translate-x-1/2"
+            >
+                {
+                    MENU_ITEMS.map((item) => (
+                        <a
+                            href={item.href}
+                            class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-portfolio-royal-blue dark:hover:text-white transition-colors relative group"
+                        >
+                            {item.label}
+                            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-portfolio-royal-blue transition-all duration-300 group-hover:w-full" />
+                        </a>
+                    ))
+                }
+            </div>
 
             {/* Desktop and Mobile Menu Actions */}
             <div class="flex items-center space-x-3 md:space-x-6">
@@ -116,10 +141,47 @@ const SOCIAL_LINKS = {
                         />
                     </button>
                 </div>
+
+                <button
+                    id="mobile-menu-btn"
+                    class="nav-btn lg:hidden relative"
+                    aria-label="Toggle Menu"
+                >
+                    <Menu
+                        size={20}
+                        class="text-gray-700 dark:text-gray-300 transition-transform duration-300"
+                        id="menu-icon"
+                    />
+                    <X
+                        size={20}
+                        class="text-gray-700 dark:text-gray-300 absolute inset-0 m-auto opacity-0 scale-75 transition-all duration-300"
+                        id="close-icon"
+                    />
+                </button>
             </div>
         </div>
     </div>
 </nav>
+
+{
+    /* Mobile Menu Overlay - Moved outside nav to avoid backdrop-filter containing block issues */
+}
+<div
+    id="mobile-menu-overlay"
+    class="fixed inset-0 bg-white/75 dark:bg-black/75 backdrop-blur-xl z-[9001] flex flex-col items-center justify-center space-y-8 opacity-0 pointer-events-none transition-all duration-300"
+>
+    {
+        MENU_ITEMS.map((item, index) => (
+            <a
+                href={item.href}
+                class="text-3xl font-bold text-gray-800 dark:text-white hover:text-portfolio-royal-blue dark:hover:text-portfolio-royal-blue transform translate-y-4 opacity-0 transition-all duration-500 mobile-nav-link"
+                style={`transition-delay: ${index * 100}ms`}
+            >
+                {item.label}
+            </a>
+        ))
+    }
+</div>
 
 <style>
     .social-btn {
@@ -152,4 +214,47 @@ const SOCIAL_LINKS = {
             restartIntro();
         });
     }
+
+    // Mobile Menu Logic
+    const mobileBtn = document.getElementById("mobile-menu-btn");
+    const mobileOverlay = document.getElementById("mobile-menu-overlay");
+    const menuIcon = document.getElementById("menu-icon");
+    const closeIcon = document.getElementById("close-icon");
+    const mobileLinks = document.querySelectorAll(".mobile-nav-link");
+    let isMenuOpen = false;
+
+    const toggleMenu = () => {
+        isMenuOpen = !isMenuOpen;
+
+        if (isMenuOpen) {
+            mobileOverlay?.classList.remove("opacity-0", "pointer-events-none");
+            menuIcon?.classList.add("opacity-0", "rotate-90", "scale-75");
+            closeIcon?.classList.remove("opacity-0", "scale-75");
+            closeIcon?.classList.add("rotate-90");
+            document.body.style.overflow = "hidden";
+
+            // Animate links in
+            mobileLinks.forEach((link) => {
+                link.classList.remove("translate-y-4", "opacity-0");
+            });
+        } else {
+            mobileOverlay?.classList.add("opacity-0", "pointer-events-none");
+            menuIcon?.classList.remove("opacity-0", "rotate-90", "scale-75");
+            closeIcon?.classList.add("opacity-0", "scale-75");
+            closeIcon?.classList.remove("rotate-90");
+            document.body.style.overflow = "";
+
+            // Reset links
+            mobileLinks.forEach((link) => {
+                link.classList.add("translate-y-4", "opacity-0");
+            });
+        }
+    };
+
+    mobileBtn?.addEventListener("click", toggleMenu);
+
+    // Close menu when a link is clicked
+    mobileLinks.forEach((link) => {
+        link.addEventListener("click", toggleMenu);
+    });
 </script>

@@ -26,16 +26,16 @@ const getAccentClass = (type) => {
 };
 ---
 
-<section id="timeline" class="py-32 relative bg-transparent transition-colors duration-500 overflow-hidden">
+<section id="timeline" class="py-20 md:py-24 relative bg-transparent transition-colors duration-500 overflow-hidden">
   <!-- Dynamic Background Ambient -->
   <div class="absolute inset-0 overflow-hidden pointer-events-none">
     <div class="absolute top-1/4 -left-20 w-96 h-96 bg-portfolio-royal-blue/5 rounded-full blur-3xl animate-pulse-slow"></div>
     <div class="absolute bottom-1/4 -right-20 w-[30rem] h-[30rem] bg-portfolio-navy/5 rounded-full blur-3xl animate-pulse-slower"></div>
   </div>
 
-  <div class="max-w-6xl mx-auto px-6 relative z-10">
+  <div class="max-w-5xl mx-auto px-6 relative z-10">
     <!-- Header (Matched with About.astro) -->
-    <div class="text-center mb-24 animate-on-scroll">
+    <div class="text-center mb-16 animate-on-scroll">
       <div class="flex items-center justify-center mb-6">
         <div class="h-px w-16 bg-gradient-to-r from-transparent to-portfolio-navy/50"></div>
         <div class="mx-4 px-6 py-1 rounded-full border border-portfolio-navy/20 bg-gradient-to-r from-portfolio-navy/5 to-portfolio-royal-blue/5">
@@ -44,7 +44,7 @@ const getAccentClass = (type) => {
         <div class="h-px w-16 bg-gradient-to-l from-transparent to-portfolio-royal-blue/50"></div>
       </div>
 
-      <h2 class="text-4xl md:text-6xl font-bold text-black dark:text-white mb-6 tracking-tight">
+      <h2 class="text-4xl md:text-5xl font-bold text-black dark:text-white mb-6 tracking-tight">
         Experience & Education
       </h2>
       <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
@@ -56,12 +56,12 @@ const getAccentClass = (type) => {
     <div class="relative pl-6 md:pl-12">
       <!-- High-Tech Left Axis -->
       <div class="absolute left-0 top-[30px] bottom-0 w-[2px] overflow-hidden">
-        <div class="h-full w-full bg-slate-200 dark:bg-white/10"></div>
+        <div class="h-full w-full bg-slate-300 dark:bg-white/10"></div>
         <!-- Animated Progress/Pulse Line (Starts from first event node center) -->
-        <div class="absolute top-0 left-0 w-full h-[50%] bg-gradient-to-b from-transparent via-portfolio-royal-blue/60 to-transparent animate-track-flow"></div>
+        <div class="absolute top-0 left-0 w-full h-[50%] bg-gradient-to-b from-transparent via-portfolio-royal-blue to-transparent animate-track-flow"></div>
       </div>
 
-      <div class="space-y-12 md:space-y-16">
+      <div class="space-y-8 md:space-y-12">
         {timelineItems.map((item, index) => {
             const isWork = item.type === 'work';
             const accentClass = getAccentClass(item.type);
@@ -85,23 +85,23 @@ const getAccentClass = (type) => {
 
                         <!-- Content Card -->
                         <div class="flex-grow">
-                            <div class="relative p-5 md:p-10 rounded-2xl md:rounded-[2rem] bg-gray-50/50 dark:bg-white/[0.03] backdrop-blur-sm border border-black/5 dark:border-white/5 hover:border-portfolio-royal-blue/20 transition-all duration-500 shadow-sm hover:shadow-2xl hover:-translate-y-1">
+                            <div class="relative p-6 md:p-8 rounded-2xl md:rounded-[2rem] bg-white dark:bg-white/[0.03] backdrop-blur-sm border border-gray-200 dark:border-white/5 hover:border-portfolio-royal-blue/20 transition-all duration-500 shadow-lg shadow-gray-200/50 dark:shadow-none hover:-translate-y-1">
                                 
                                 <!-- Primary Info: Title (Role) -->
-                                <h3 class="text-xl md:text-3xl font-bold text-portfolio-royal-blue mb-3 leading-tight group-hover:opacity-80 transition-opacity duration-300">
+                                <h3 class="text-xl md:text-2xl font-bold text-portfolio-royal-blue mb-3 leading-tight group-hover:opacity-80 transition-opacity duration-300">
                                     {item.title}
                                 </h3>
 
                                 <!-- Secondary Info: Logo + Company + Location -->
                                 <div class="flex flex-wrap items-center gap-3 md:gap-4 mb-6">
                                     {item.logo && (
-                                        <div class="w-10 h-10 md:w-11 md:h-11 rounded-xl bg-white p-2 shadow-sm border border-black/5 flex items-center justify-center transform group-hover:scale-105 transition-transform">
+                                        <div class="w-10 h-10 md:w-10 md:h-10 rounded-xl bg-white p-2 shadow-sm border border-black/5 flex items-center justify-center transform group-hover:scale-105 transition-transform">
                                             <img src={item.logo} alt={item.subtitle} class="w-full h-full object-contain" />
                                         </div>
                                     )}
                                     <div class="flex flex-col">
                                         <div class="flex items-center gap-2">
-                                            <span class="text-lg md:text-xl font-bold text-gray-500 dark:text-gray-400">
+                                            <span class="text-lg md:text-lg font-bold text-gray-500 dark:text-gray-400">
                                                 {item.subtitle}
                                             </span>
                                             {item.link && (
@@ -119,11 +119,11 @@ const getAccentClass = (type) => {
 
                                 <!-- Body: Achievements (Always Visible) -->
                                 <div class="achievement-section border-t border-black/5 dark:border-white/5 mt-6 pt-6 font-Inter">
-                                    <ul class="space-y-4">
+                                    <ul class="space-y-3">
                                         {item.items.map((point) => (
                                             <li class="flex items-start gap-3 md:gap-4 group/li">
-                                                <div class={`mt-2 w-1.5 h-1.5 rounded-full bg-${accentClass}/30 group-hover/li:bg-${accentClass} transition-colors duration-300 flex-shrink-0`}></div>
-                                                <p class="text-[13px] md:text-base text-gray-600 dark:text-gray-400 leading-relaxed font-medium">
+                                                <div class={`mt-2 w-2 h-2 rounded-full transition-colors duration-300 flex-shrink-0 ${isWork ? 'bg-portfolio-navy/30 group-hover/li:bg-portfolio-navy' : 'bg-portfolio-royal-blue/30 group-hover/li:bg-portfolio-royal-blue'}`}></div>
+                                                <p class="text-[13px] md:text-[15px] text-gray-600 dark:text-gray-400 leading-relaxed font-medium">
                                                     {point}
                                                 </p>
                                             </li>
@@ -140,6 +140,7 @@ const getAccentClass = (type) => {
     </div>
   </div>
 </section>
+
 
 <style>
   @keyframes track-flow {

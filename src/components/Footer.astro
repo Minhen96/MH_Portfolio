@@ -1,0 +1,68 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer
+    class="py-12 border-t border-black/5 dark:border-white/5 bg-white/50 dark:bg-black/50 backdrop-blur-xl relative z-10 transition-colors duration-300"
+>
+    <div class="max-w-7xl mx-auto px-6">
+        <div
+            class="flex flex-col md:flex-row justify-between items-center gap-8"
+        >
+            <!-- Brand -->
+            <div class="flex flex-col items-center md:items-start gap-2">
+                <div
+                    class="text-2xl font-black italic tracking-tighter text-black dark:text-white"
+                >
+                    MH<span class="text-portfolio-royal-blue">.</span>
+                </div>
+                <div
+                    class="text-sm text-gray-500 dark:text-gray-400 font-medium"
+                >
+                    Building digital experiences.
+                </div>
+            </div>
+
+            <!-- Navigation Links -->
+            <div
+                class="flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm font-medium text-gray-600 dark:text-gray-400"
+            >
+                <a
+                    href="#about"
+                    class="hover:text-portfolio-royal-blue dark:hover:text-white transition-colors"
+                    >About</a
+                >
+                <a
+                    href="#timeline"
+                    class="hover:text-portfolio-royal-blue dark:hover:text-white transition-colors"
+                    >Journey</a
+                >
+                <a
+                    href="#skills"
+                    class="hover:text-portfolio-royal-blue dark:hover:text-white transition-colors"
+                    >Skills</a
+                >
+                <a
+                    href="#projects"
+                    class="hover:text-portfolio-royal-blue dark:hover:text-white transition-colors"
+                    >Projects</a
+                >
+                <a
+                    href="#hackathons"
+                    class="hover:text-portfolio-royal-blue dark:hover:text-white transition-colors"
+                    >Hackathons</a
+                >
+                <a
+                    href="#contact"
+                    class="hover:text-portfolio-royal-blue dark:hover:text-white transition-colors"
+                    >Connect</a
+                >
+            </div>
+
+            <!-- Copyright -->
+            <div class="text-sm text-gray-400 font-medium opacity-80">
+                &copy; {currentYear} Yap Min Hen.
+            </div>
+        </div>
+    </div>
+</footer>
