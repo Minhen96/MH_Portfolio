@@ -8,6 +8,8 @@ interface Props {
 	type?: string;
 }
 
+import { getEntry } from "astro:content";
+
 const {
 	title,
 	description = "Yap Min Hen - Software Engineer & Full Stack Developer based in Kuala Lumpur. Specialized in React, Spring Boot, and Mobile Development.",
@@ -16,6 +18,34 @@ const {
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+// Fetch site config for JSON-LD
+const personalEntry = await getEntry("siteConfig", "personal");
+const socialsEntry = await getEntry("siteConfig", "socials");
+
+const personalData =
+	personalEntry?.data.id === "personal" ? personalEntry.data : undefined;
+const socialsData =
+	socialsEntry?.data.id === "socials" ? socialsEntry.data : undefined;
+
+const schemaData = {
+	"@context": "https://schema.org",
+	"@type": "Person",
+	name: personalData?.name || "Yap Min Hen",
+	url: Astro.site,
+	image: new URL(image, Astro.site),
+	jobTitle: personalData?.title || "Software Engineer",
+	worksFor: {
+		"@type": "Organization",
+		name: "Freelance",
+	},
+	sameAs: [
+		socialsData?.github,
+		socialsData?.linkedin,
+		socialsData?.instagram,
+		personalData?.resumeUrl,
+	].filter(Boolean),
+};
 ---
 
 <!doctype html>
@@ -45,6 +75,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 		<meta property="twitter:image" content={new URL(image, Astro.url)} />
 
 		<title>{title}</title>
+
+		<!-- JSON-LD SEO -->
+		<script
+			type="application/ld+json"
+			set:html={JSON.stringify(schemaData)}
+		/>
+
 		<!-- Inline script for dark mode to prevent FOUC -->
 		<script is:inline>
 			const theme = (() => {
