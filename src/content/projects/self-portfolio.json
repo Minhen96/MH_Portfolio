@@ -10,6 +10,8 @@
   "link": "https://github.com/Minhen96/MH_Portfolio",
   "order": 10,
   "images": [
-    "/projects/default.png"
+    "/projects/portfolio/1_minhen.png",
+    "/projects/portfolio/2_welcome.png",
+    "/projects/portfolio/3_skills.png"
   ]
 }

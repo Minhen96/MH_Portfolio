@@ -1,0 +1,102 @@
+---
+
+---
+
+<section id="notes" class="py-24 relative overflow-hidden">
+    <!-- Background Decor (Matches Projects/Skills) -->
+    <div class="absolute inset-0 pointer-events-none">
+        <div
+            class="absolute top-1/4 left-0 w-[500px] h-[500px] bg-portfolio-royal-blue/5 rounded-full blur-[100px] animate-pulse-slow"
+        >
+        </div>
+        <div
+            class="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-portfolio-navy/5 rounded-full blur-[100px] animate-pulse-slow delay-1000"
+        >
+        </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-6 relative z-10">
+        <!-- Header -->
+        <div class="flex items-center justify-center mb-6">
+            <div
+                class="h-px w-16 bg-gradient-to-r from-transparent to-portfolio-navy/50"
+            >
+            </div>
+            <div
+                class="mx-4 px-6 py-1 rounded-full border border-portfolio-navy/20 bg-gradient-to-r from-portfolio-navy/5 to-portfolio-royal-blue/5"
+            >
+                <span
+                    class="text-xs font-medium tracking-widest uppercase text-portfolio-navy dark:text-portfolio-royal-blue"
+                    >Knowledge</span
+                >
+            </div>
+            <div
+                class="h-px w-16 bg-gradient-to-l from-transparent to-portfolio-royal-blue/50"
+            >
+            </div>
+        </div>
+
+        <h2
+            class="text-4xl md:text-5xl font-bold text-black dark:text-white mb-12 text-center animate-fade-in tracking-tight"
+        >
+            My Notes
+        </h2>
+
+        <!-- Notion Embed Container -->
+        <div
+            class="w-full rounded-[24px] overflow-hidden border border-gray-200 dark:border-neutral-800 bg-white dark:bg-[#0a0a0a] shadow-xl animate-fade-in-up"
+        >
+            <iframe
+                src="https://spiffy-lentil-7ac.notion.site/ebd//2f10b63f1517805dab99dcee0512b73c"
+                width="100%"
+                height="600"
+                frameborder="0"
+                allowfullscreen
+                class="w-full h-[400px] md:h-[600px] bg-white dark:bg-black dark:filter dark:invert dark:hue-rotate-180 transition-all duration-500"
+            ></iframe>
+        </div>
+
+        <div class="mt-4 flex justify-center">
+            <a
+                href="https://spiffy-lentil-7ac.notion.site/ebd//2f10b63f1517805dab99dcee0512b73c"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-sm text-gray-500 hover:text-portfolio-royal-blue transition-colors flex items-center gap-2"
+            >
+                <span>Open in Notion</span>
+                <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    ><path
+                        d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                    ></path><polyline points="15 3 21 3 21 9"></polyline><line
+                        x1="10"
+                        y1="14"
+                        x2="21"
+                        y2="3"></line></svg
+                >
+            </a>
+        </div>
+    </div>
+</section>
+
+<style>
+    @keyframes pulse-slow {
+        0%,
+        100% {
+            opacity: 0.3;
+        }
+        50% {
+            opacity: 0.6;
+        }
+    }
+    .animate-pulse-slow {
+        animation: pulse-slow 6s ease-in-out infinite;
+    }
+</style>

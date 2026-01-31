@@ -222,10 +222,11 @@ const skillsData = [
     },
     {
         id: 'frontend',
-        title: 'Frontend & Web Frameworks',
+        title: 'Frontend & Mobile Frameworks',
         items: [
             { name: 'React (TypeScript) ⚛️', icon: 'react' },
             { name: 'Next.js 🚀', icon: 'nextdotjs' },
+            { name: 'Flutter 🐦', icon: 'flutter' },
             { name: 'Astro 👨‍🚀', icon: 'astro' },
             { name: 'Tailwind CSS 🎨', icon: 'tailwindcss' }
         ],
@@ -372,7 +373,6 @@ const projectsData = [
         description: 'Modern and fast personal portfolio website built with Astro.',
         techStack: ['Astro', 'Tailwind CSS', 'Preact'],
         link: 'https://github.com/Minhen96/MH_Portfolio',
-        image: '/projects/default.png',
         order: 10
     }
 ];

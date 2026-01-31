@@ -159,20 +159,31 @@ const [firstName, lastName] =
                     </a>
                 </div>
 
-                <button
-                    id="scroll-contact"
-                    class="mt-8 px-8 py-3 rounded-full font-medium relative overflow-hidden group text-white animate-fade-in-up delay-1000"
+                <div
+                    class="mt-8 flex flex-col md:flex-row gap-4 justify-center md:justify-start animate-fade-in-up delay-1000"
                 >
-                    <div
-                        class="absolute inset-0 bg-gradient-to-r from-portfolio-navy to-portfolio-royal-blue"
+                    <button
+                        id="scroll-projects"
+                        class="px-8 py-3 rounded-full font-medium relative overflow-hidden group border border-gray-300 dark:border-white/20 hover:border-portfolio-royal-blue dark:hover:border-portfolio-royal-blue text-gray-700 dark:text-white transition-all hover:text-portfolio-royal-blue dark:hover:text-portfolio-royal-blue"
                     >
-                    </div>
-                    <div
-                        class="absolute inset-0 bg-gradient-to-r from-portfolio-royal-blue to-portfolio-navy opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                        <span class="relative z-10">View Projects</span>
+                    </button>
+
+                    <button
+                        id="scroll-contact"
+                        class="px-8 py-3 rounded-full font-medium relative overflow-hidden group text-white"
                     >
-                    </div>
-                    <span class="relative z-10">Get In Touch</span>
-                </button>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-portfolio-navy to-portfolio-royal-blue"
+                        >
+                        </div>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-portfolio-royal-blue to-portfolio-navy opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                        >
+                        </div>
+                        <span class="relative z-10">Get In Touch</span>
+                    </button>
+                </div>
             </div>
 
             <!-- Right Column - Profile Image -->
@@ -318,4 +329,11 @@ const [firstName, lastName] =
             .getElementById("about")
             ?.scrollIntoView({ behavior: "smooth" });
     });
+    document
+        .getElementById("scroll-projects")
+        ?.addEventListener("click", () => {
+            document
+                .getElementById("projects")
+                ?.scrollIntoView({ behavior: "smooth" });
+        });
 </script>

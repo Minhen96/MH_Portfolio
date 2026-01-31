@@ -1,6 +1,6 @@
 {
   "id": "frontend",
-  "title": "Frontend & Web Frameworks",
+  "title": "Frontend & Mobile Frameworks",
   "items": [
     {
       "name": "React (TypeScript) ⚛️",
@@ -9,6 +9,10 @@
     {
       "name": "Next.js 🚀",
       "icon": "nextdotjs"
+    },
+    {
+      "name": "Flutter 🐦",
+      "icon": "flutter"
     },
     {
       "name": "Astro 👨‍🚀",

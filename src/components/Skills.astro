@@ -49,14 +49,14 @@ const skillCategories = allSkills
           <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-5">
             {category.items.map((item, skillIndex) => (
               <div
-                class="group/skill relative p-5 rounded-3xl bg-white dark:bg-white/[0.02] border border-gray-200 dark:border-white/5 hover:border-portfolio-royal-blue/30 dark:hover:border-portfolio-royal-blue/30 hover:bg-gray-50 dark:hover:bg-white/[0.05] transition-all duration-500 shadow-md shadow-gray-100 hover:shadow-xl hover:-translate-y-2 flex flex-col items-center justify-center gap-4"
+                class="group/skill relative p-5 rounded-3xl bg-white dark:bg-neutral-900 border border-gray-200 dark:border-white/10 hover:border-portfolio-royal-blue/30 dark:hover:border-portfolio-royal-blue/30 hover:bg-gray-50 dark:hover:bg-neutral-800 transition-all duration-500 shadow-md shadow-gray-100 dark:shadow-none hover:shadow-xl hover:-translate-y-2 flex flex-col items-center justify-center gap-4"
               >
                 <!-- Icon Container -->
                 <div class="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition-transform duration-500 group-hover/skill:scale-110">
                   <img 
                     src={`https://cdn.simpleicons.org/${item.icon || 'codeforces'}`} 
                     alt={item.name}
-                    class="w-full h-full object-contain dark:invert-[0.1] group-hover/skill:brightness-125 transition-all"
+                    class="w-full h-full object-contain dark:filter dark:invert dark:hue-rotate-180 group-hover/skill:brightness-125 transition-all"
                     onerror="this.src='https://cdn.simpleicons.org/codeforces';this.style.opacity='0.5';"
                   />
                 </div>
