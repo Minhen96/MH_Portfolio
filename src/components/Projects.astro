@@ -50,7 +50,7 @@ const projects = allProjects
             {/* Multi-Image Gallery Container */}
             <div class="relative aspect-video w-full bg-neutral-900 overflow-hidden group/gallery">
               <div
-                class="flex h-full overflow-x-auto overflow-y-hidden snap-x snap-mandatory no-scrollbar scroll-smooth touch-pan-x cursor-grab active:cursor-grabbing"
+                class="flex h-full overflow-x-auto overflow-y-hidden snap-x snap-mandatory no-scrollbar scroll-smooth touch-pan-y cursor-grab active:cursor-grabbing"
                 data-scroll-container
               >
                 {project.images.map((img, imgIdx) => (
@@ -237,7 +237,7 @@ const projects = allProjects
     >
       <button
         id="lightbox-close"
-        class="absolute top-6 right-6 p-3 text-white/70 hover:text-white transition-colors z-[110] bg-black/20 rounded-full backdrop-blur-md"
+        class="absolute top-6 right-6 p-3 text-white/90 hover:text-white transition-all z-[110] bg-black/50 hover:bg-portfolio-royal-blue rounded-full backdrop-blur-md shadow-xl hover:scale-110 active:scale-95 border border-white/10"
         aria-label="Close lightbox"
       >
         <svg
@@ -378,7 +378,7 @@ const projects = allProjects
         lightboxScroll.innerHTML = currentGallery
           .map(
             (img, i) => `
-          <div class="flex-none w-full h-full snap-center flex items-center justify-center p-4">
+          <div class="flex-none w-full h-full snap-center flex items-center justify-center p-4 lightbox-slide" data-slide-index="${i}">
             <img src="${img}" alt="Screenshot ${i + 1}" class="max-w-full max-h-full object-contain shadow-2xl rounded-lg pointer-events-none select-none" />
           </div>
         `,
@@ -438,7 +438,11 @@ const projects = allProjects
 
       closeBtn?.addEventListener("click", closeLightbox);
       lightbox.addEventListener("click", (e) => {
-        if (e.target === lightbox || e.target === lightboxScroll)
+        if (
+          e.target === lightbox ||
+          e.target === lightboxScroll ||
+          (e.target as HTMLElement).closest(".lightbox-slide")
+        )
           closeLightbox();
       });
 
@@ -517,8 +521,8 @@ const projects = allProjects
               const diffY = Math.abs(pos.pageY - startY);
 
               // Only trigger if it's a clean tap (minimal movement in any axis)
-              // This prevents accidental triggers while vertical scrolling the page
-              if (diffX < 10 && diffY < 10) {
+              // Increased threshold to 30px to better distinguish from scrolling
+              if (diffX < 30 && diffY < 30) {
                 openLightbox(images, idx);
               }
             };
@@ -604,16 +608,16 @@ const projects = allProjects
               if (btnText) btnText.textContent = "Close Details";
               if (toggleIcon) toggleIcon.style.transform = "rotate(180deg)";
 
-              // Scroll adjustment
-              setTimeout(() => {
-                const gallery = card.querySelector(".group\\/gallery");
-                if (gallery) {
-                  gallery.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start",
-                  });
-                }
-              }, 150);
+              // Scroll adjustment REMOVED per user request
+              // setTimeout(() => {
+              //   const gallery = card.querySelector(".group\\/gallery");
+              //   if (gallery) {
+              //     gallery.scrollIntoView({
+              //       behavior: "smooth",
+              //       block: "start",
+              //     });
+              //   }
+              // }, 150);
             } else {
               // Collapse: Hide Details, Show Teaser
               detailsContainer.classList.add("hidden");
@@ -623,11 +627,11 @@ const projects = allProjects
               if (btnText) btnText.textContent = "Discover Project";
               if (toggleIcon) toggleIcon.style.transform = "rotate(0deg)";
 
-              // Scroll back to card top if needed
-              card.scrollIntoView({
-                behavior: "smooth",
-                block: "nearest",
-              });
+              // Scroll back to card top REMOVED per user request
+              // card.scrollIntoView({
+              //   behavior: "smooth",
+              //   block: "nearest",
+              // });
             }
           } else {
             console.error("❌ No details container found");
