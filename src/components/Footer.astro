@@ -1,73 +1,160 @@
 ---
+import { Github, Linkedin, Instagram, Mail } from "lucide-preact";
+import { getEntry } from "astro:content";
+
 const currentYear = new Date().getFullYear();
+const socialsEntry = await getEntry("siteConfig", "socials");
+
+const SOCIAL_LINKS = {
+    github: socialsEntry?.data.github || "#",
+    linkedin: socialsEntry?.data.linkedin || "#",
+    instagram: socialsEntry?.data.instagram || "#",
+    email: `mailto:${(await getEntry("siteConfig", "personal"))?.data.email || "#"}`,
+};
 ---
 
-<footer
-    class="py-12 border-t border-black/5 dark:border-white/5 bg-white/50 dark:bg-black/50 backdrop-blur-xl relative z-10 transition-colors duration-300"
->
+<footer class="relative pt-20 pb-10 overflow-hidden">
+    <!-- Vibrant Gradient Top Border -->
+    <div
+        class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-portfolio-royal-blue to-transparent opacity-50"
+    >
+    </div>
+    <div
+        class="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-[2px] bg-gradient-to-r from-transparent via-portfolio-royal-blue to-transparent blur-[2px]"
+    >
+    </div>
+
+    <!-- Background Effects -->
+    <div
+        class="absolute inset-0 bg-gray-50/50 dark:bg-[#050505]/90 backdrop-blur-xl z-[-1]"
+    >
+    </div>
+    <div
+        class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-portfolio-royal-blue/5 rounded-full blur-[100px] pointer-events-none"
+    >
+    </div>
+
     <div class="max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-4 gap-12 mb-16">
+            <!-- Brand Column -->
+            <div class="md:col-span-2 space-y-6">
+                <a href="#hero" class="group relative inline-block">
+                    <img
+                        src="/light_logo/MH_Logo_transparent_light.png"
+                        alt="MH Logo"
+                        class="h-12 w-auto transition-transform group-hover:scale-105 hidden dark:block"
+                    />
+                    <img
+                        src="/dark_logo/MH_Logo_transparent.png"
+                        alt="MH Logo"
+                        class="h-12 w-auto transition-transform group-hover:scale-105 block dark:hidden"
+                    />
+                </a>
+                <p
+                    class="text-gray-600 dark:text-gray-400 text-base leading-relaxed max-w-sm"
+                >
+                    Building digital experiences that matter. Crafting clean
+                    code and pixel-perfect designs to bring ideas to life.
+                </p>
+
+                <!-- Social Links -->
+                <div class="flex items-center gap-4">
+                    <a
+                        href={SOCIAL_LINKS.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="social-icon"
+                    >
+                        <Github size={20} />
+                    </a>
+                    <a
+                        href={SOCIAL_LINKS.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="social-icon"
+                    >
+                        <Linkedin size={20} />
+                    </a>
+                    <a href={SOCIAL_LINKS.email} class="social-icon">
+                        <Mail size={20} />
+                    </a>
+                    <a
+                        href={SOCIAL_LINKS.instagram}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="social-icon"
+                    >
+                        <Instagram size={20} />
+                    </a>
+                </div>
+            </div>
+
+            <!-- Navigation Column -->
+            <div class="space-y-6">
+                <h4
+                    class="text-sm font-bold uppercase tracking-widest text-gray-900 dark:text-white"
+                >
+                    Explore
+                </h4>
+                <ul class="space-y-3">
+                    <li><a href="#about" class="footer-link">About</a></li>
+                    <li><a href="#timeline" class="footer-link">Journey</a></li>
+                    <li>
+                        <a href="#projects" class="footer-link">Projects</a>
+                    </li>
+                    <li><a href="#notes" class="footer-link">Notes</a></li>
+                </ul>
+            </div>
+
+            <!-- Connect Column -->
+            <div class="space-y-6">
+                <h4
+                    class="text-sm font-bold uppercase tracking-widest text-gray-900 dark:text-white"
+                >
+                    Connect
+                </h4>
+                <ul class="space-y-3">
+                    <li>
+                        <a href="#contact" class="footer-link">Contact Me</a>
+                    </li>
+                    <li>
+                        <a
+                            href={SOCIAL_LINKS.linkedin}
+                            target="_blank"
+                            class="footer-link">LinkedIn</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href={SOCIAL_LINKS.github}
+                            target="_blank"
+                            class="footer-link">GitHub</a
+                        >
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Copyright Row -->
         <div
-            class="flex flex-col md:flex-row justify-between items-center gap-8"
+            class="pt-8 border-t border-gray-200/50 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500 dark:text-gray-500"
         >
-            <!-- Brand -->
-            <div class="flex flex-col items-center md:items-start gap-2">
-                <div
-                    class="text-2xl font-black italic tracking-tighter text-black dark:text-white"
-                >
-                    MH<span class="text-portfolio-royal-blue">.</span>
-                </div>
-                <div
-                    class="text-sm text-gray-500 dark:text-gray-400 font-medium"
-                >
-                    Building digital experiences.
-                </div>
+            <div>
+                &copy; {currentYear} Yap Min Hen. All rights reserved.
             </div>
-
-            <!-- Navigation Links -->
-            <div
-                class="flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm font-medium text-gray-600 dark:text-gray-400"
-            >
-                <a
-                    href="#about"
-                    class="hover:text-portfolio-royal-blue dark:hover:text-white transition-colors"
-                    >About</a
-                >
-                <a
-                    href="#timeline"
-                    class="hover:text-portfolio-royal-blue dark:hover:text-white transition-colors"
-                    >Journey</a
-                >
-                <a
-                    href="#skills"
-                    class="hover:text-portfolio-royal-blue dark:hover:text-white transition-colors"
-                    >Skills</a
-                >
-                <a
-                    href="#projects"
-                    class="hover:text-portfolio-royal-blue dark:hover:text-white transition-colors"
-                    >Projects</a
-                >
-                <a
-                    href="#hackathons"
-                    class="hover:text-portfolio-royal-blue dark:hover:text-white transition-colors"
-                    >Hackathons</a
-                >
-                <a
-                    href="#notes"
-                    class="hover:text-portfolio-royal-blue dark:hover:text-white transition-colors"
-                    >Notes</a
-                >
-                <a
-                    href="#contact"
-                    class="hover:text-portfolio-royal-blue dark:hover:text-white transition-colors"
-                    >Connect</a
-                >
-            </div>
-
-            <!-- Copyright -->
-            <div class="text-sm text-gray-400 font-medium opacity-80">
-                &copy; {currentYear} Yap Min Hen.
+            <div class="flex items-center gap-6">
+                <span>Made with Astro & Tailwind</span>
             </div>
         </div>
     </div>
 </footer>
+
+<style>
+    .social-icon {
+        @apply p-2.5 rounded-xl bg-white dark:bg-white/5 text-gray-600 dark:text-gray-400 hover:text-white hover:bg-portfolio-royal-blue dark:hover:bg-portfolio-royal-blue transition-all duration-300 hover:scale-110 shadow-sm hover:shadow-lg hover:shadow-portfolio-royal-blue/20;
+    }
+
+    .footer-link {
+        @apply text-gray-500 dark:text-gray-400 hover:text-portfolio-royal-blue dark:hover:text-white transition-colors duration-200 block;
+    }
+</style>

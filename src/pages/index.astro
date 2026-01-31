@@ -33,7 +33,11 @@ const introData = introEntry?.data ?? {
 };
 ---
 
-<Layout title={`${personalData.name} - ${personalData.title}`}>
+<Layout
+	title={`${personalData.name} - ${personalData.title}`}
+	description="Top-rated Software Engineer & Full Stack Developer in Kuala Lumpur. Specialized in building high-performance web and mobile applications using React, Spring Boot, and Flutter."
+	image="/profile.jpg"
+>
 	<div id="intro-overlay-container" class="relative z-[9999]">
 		<IntroController
 			client:only="preact"

@@ -37,10 +37,22 @@
         </div>
 
         <h2
-            class="text-4xl md:text-5xl font-bold text-black dark:text-white mb-12 text-center animate-fade-in tracking-tight"
+            class="text-4xl md:text-5xl font-bold text-black dark:text-white mb-6 text-center animate-fade-in tracking-tight"
         >
             My Notes
         </h2>
+
+        <p
+            class="text-gray-600 dark:text-gray-400 text-center mb-12 max-w-2xl mx-auto animate-fade-in delay-200"
+        >
+            A curated collection of my technical notes, snippets, and learnings.
+            <span class="hidden md:inline"
+                >Feel free to explore the embedded page below.</span
+            >
+            <span class="md:hidden"
+                >Tap the button below for the best reading experience.</span
+            >
+        </p>
 
         <!-- Notion Embed Container -->
         <div
@@ -51,36 +63,27 @@
                 width="100%"
                 height="600"
                 frameborder="0"
+                scrolling="yes"
                 allowfullscreen
                 class="w-full h-[400px] md:h-[600px] bg-white dark:bg-black dark:filter dark:invert dark:hue-rotate-180 transition-all duration-500"
             ></iframe>
         </div>
 
-        <div class="mt-4 flex justify-center">
+        <div class="mt-8 flex justify-center animate-fade-in-up delay-300">
             <a
                 href="https://spiffy-lentil-7ac.notion.site/ebd//2f10b63f1517805dab99dcee0512b73c"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="text-sm text-gray-500 hover:text-portfolio-royal-blue transition-colors flex items-center gap-2"
+                class="inline-flex items-center space-x-2 px-8 py-4 rounded-full bg-black dark:bg-white text-white dark:text-black font-medium hover:scale-105 transition-transform shadow-lg hover:shadow-xl"
             >
-                <span>Open in Notion</span>
-                <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    ><path
-                        d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
-                    ></path><polyline points="15 3 21 3 21 9"></polyline><line
-                        x1="10"
-                        y1="14"
-                        x2="21"
-                        y2="3"></line></svg
-                >
+                <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png"
+                    width="20"
+                    height="20"
+                    alt="Notion"
+                    class="dark:invert"
+                />
+                <span>Read Full Notes on Notion</span>
             </a>
         </div>
     </div>
