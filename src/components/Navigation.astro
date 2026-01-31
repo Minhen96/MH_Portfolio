@@ -15,9 +15,18 @@ import { getEntry } from "astro:content";
 const socialsEntry = await getEntry("siteConfig", "socials");
 
 const SOCIAL_LINKS = {
-    github: socialsEntry?.data.github || "#",
-    linkedin: socialsEntry?.data.linkedin || "#",
-    instagram: socialsEntry?.data.instagram || "#",
+    github:
+        (socialsEntry?.data.id === "socials"
+            ? socialsEntry.data.github
+            : undefined) || "#",
+    linkedin:
+        (socialsEntry?.data.id === "socials"
+            ? socialsEntry.data.linkedin
+            : undefined) || "#",
+    instagram:
+        (socialsEntry?.data.id === "socials"
+            ? socialsEntry.data.instagram
+            : undefined) || "#",
 };
 
 const MENU_ITEMS = [

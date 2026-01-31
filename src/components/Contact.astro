@@ -4,9 +4,15 @@ import { getEntry } from "astro:content";
 
 const personalEntry = await getEntry("siteConfig", "personal");
 const socialsEntry = await getEntry("siteConfig", "socials");
-const email = personalEntry?.data.email || "email@example.com";
-const whatsapp = socialsEntry?.data.whatsapp || "#";
-const mailtoLink = socialsEntry?.data.email || `mailto:${email}`;
+const email =
+    (personalEntry?.data.id === "personal"
+        ? personalEntry.data.email
+        : undefined) || "email@example.com";
+const whatsapp =
+    (socialsEntry?.data.id === "socials"
+        ? socialsEntry.data.whatsapp
+        : undefined) || "#";
+const mailtoLink = `mailto:${email}`;
 ---
 
 <section

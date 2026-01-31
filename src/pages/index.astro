@@ -16,7 +16,10 @@ import { getEntry } from "astro:content";
 const personalEntry = await getEntry("siteConfig", "personal");
 const introEntry = await getEntry("siteConfig", "intro");
 
-const personalData = personalEntry?.data ?? {
+const personalData = (personalEntry?.data.id === "personal"
+	? personalEntry.data
+	: undefined) ?? {
+	id: "personal",
 	name: "Yap Min Hen",
 	title: "Full Stack Developer",
 	email: "",
@@ -24,7 +27,11 @@ const personalData = personalEntry?.data ?? {
 	location: "",
 	bio: "",
 };
-const introData = introEntry?.data ?? {
+
+const introData = (introEntry?.data.id === "intro"
+	? introEntry.data
+	: undefined) ?? {
+	id: "intro",
 	greeting: "Hi",
 	tagline: "Welcome",
 	skipText: "Click to skip",

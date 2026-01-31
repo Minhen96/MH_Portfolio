@@ -13,7 +13,7 @@ const timelineItems = allTimelineItems.map(item => ({
   return dateB.localeCompare(dateA); 
 });
 
-const getAccentColor = (type) => {
+const getAccentColor = (type: string) => {
     switch (type) {
       case 'work': return '#002B5B'; // portfolio-navy
       case 'education': return '#1A5F7A'; // portfolio-royal-blue
@@ -21,7 +21,7 @@ const getAccentColor = (type) => {
     }
 };
 
-const getAccentClass = (type) => {
+const getAccentClass = (type: string) => {
     return type === 'work' ? 'portfolio-navy' : 'portfolio-royal-blue';
 };
 ---

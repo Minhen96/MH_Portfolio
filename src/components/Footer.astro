@@ -4,12 +4,22 @@ import { getEntry } from "astro:content";
 
 const currentYear = new Date().getFullYear();
 const socialsEntry = await getEntry("siteConfig", "socials");
+const personalEntry = await getEntry("siteConfig", "personal");
 
 const SOCIAL_LINKS = {
-    github: socialsEntry?.data.github || "#",
-    linkedin: socialsEntry?.data.linkedin || "#",
-    instagram: socialsEntry?.data.instagram || "#",
-    email: `mailto:${(await getEntry("siteConfig", "personal"))?.data.email || "#"}`,
+    github:
+        (socialsEntry?.data.id === "socials"
+            ? socialsEntry.data.github
+            : undefined) || "#",
+    linkedin:
+        (socialsEntry?.data.id === "socials"
+            ? socialsEntry.data.linkedin
+            : undefined) || "#",
+    instagram:
+        (socialsEntry?.data.id === "socials"
+            ? socialsEntry.data.instagram
+            : undefined) || "#",
+    email: `mailto:${(personalEntry?.data.id === "personal" ? personalEntry.data.email : undefined) || "#"}`,
 };
 ---
 
