@@ -8,7 +8,15 @@
     },
     {
       "name": "AWS (basic) ☁️",
-      "icon": "amazonaws"
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"
+    },
+    {
+      "name": "Linux 🐧",
+      "icon": "linux"
+    },
+    {
+      "name": "CI/CD 🔄",
+      "icon": "git"
     },
     {
       "name": "GitHub Actions 🤖",

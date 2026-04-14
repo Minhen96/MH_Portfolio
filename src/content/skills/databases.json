@@ -8,7 +8,7 @@
     },
     {
       "name": "MSSQL 🛢️",
-      "icon": "microsoftsqlserver"
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-plain.svg"
     },
     {
       "name": "Supabase ⚡",

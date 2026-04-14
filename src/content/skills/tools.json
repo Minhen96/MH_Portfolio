@@ -12,7 +12,7 @@
     },
     {
       "name": "Stitch 🧵",
-      "icon": "stitch"
+      "icon": "mongodb"
     },
     {
       "name": "Kibana 📊",
@@ -20,7 +20,7 @@
     },
     {
       "name": "Neon 🐘",
-      "icon": "neon"
+      "icon": "postgresql"
     },
     {
       "name": "Upstash ⚡",
@@ -32,7 +32,7 @@
     },
     {
       "name": "Canva 🖌️",
-      "icon": "canva"
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/canva/canva-original.svg"
     }
   ],
   "icon": "PenTool",

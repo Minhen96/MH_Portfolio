@@ -215,7 +215,7 @@ const skillsData = [
             { name: 'Agile 🏃', icon: 'asana' },
             { name: 'Software Architecture 🏛️', icon: 'lucid' },
             { name: 'Software Testing 🧪', icon: 'jest' },
-            { name: 'HCI 👥', icon: 'accessibility' }
+            { name: 'HCI 👥', icon: 'w3c' }
         ],
         icon: 'Code2',
         order: 1
@@ -239,7 +239,7 @@ const skillsData = [
         items: [
             { name: 'Spring Boot (Java) ☕', icon: 'springboot' },
             { name: '.NET Core (ASP.NET) ⚡', icon: 'dotnet' },
-            { name: 'Microservices 🧩', icon: 'server' },
+            { name: 'Microservices 🧩', icon: 'kubernetes' },
             { name: 'REST APIs 🔌', icon: 'postman' },
             { name: 'Solidity ⛓️', icon: 'solidity' }
         ],
@@ -262,7 +262,9 @@ const skillsData = [
         title: 'DevOps & Deployment',
         items: [
             { name: 'Docker 🐳', icon: 'docker' },
-            { name: 'AWS (basic) ☁️', icon: 'amazonaws' },
+            { name: 'AWS (basic) ☁️', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg' },
+            { name: 'Linux 🐧', icon: 'linux' },
+            { name: 'CI/CD 🔄', icon: 'git' },
             { name: 'GitHub Actions 🤖', icon: 'githubactions' },
             { name: 'Vercel 📐', icon: 'vercel' },
             { name: 'Railway 🚂', icon: 'railway' }
@@ -275,7 +277,7 @@ const skillsData = [
         title: 'Databases & Storage',
         items: [
             { name: 'Postgres 🐘', icon: 'postgresql' },
-            { name: 'MSSQL 🛢️', icon: 'microsoftsqlserver' },
+            { name: 'MSSQL 🛢️', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-plain.svg' },
             { name: 'Supabase ⚡', icon: 'supabase' },
             { name: 'Firebase 🔥', icon: 'firebase' }
         ],
@@ -288,12 +290,12 @@ const skillsData = [
         items: [
             { name: 'Git & GitHub 🐙', icon: 'github' },
             { name: 'Postman 🚀', icon: 'postman' },
-            { name: 'Stitch 🧵', icon: 'stitch' },
+            { name: 'Stitch 🧵', icon: 'mongodb' },
             { name: 'Kibana 📊', icon: 'kibana' },
-            { name: 'Neon 🐘', icon: 'neon' },
+            { name: 'Neon 🐘', icon: 'postgresql' },
             { name: 'Upstash ⚡', icon: 'upstash' },
             { name: 'Figma 🎨', icon: 'figma' },
-            { name: 'Canva 🖌️', icon: 'canva' }
+            { name: 'Canva 🖌️', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/canva/canva-original.svg' }
         ],
         icon: 'PenTool',
         order: 7
