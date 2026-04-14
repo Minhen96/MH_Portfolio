@@ -239,6 +239,7 @@ const skillsData = [
         items: [
             { name: 'Spring Boot (Java) ☕', icon: 'springboot' },
             { name: '.NET Core (ASP.NET) ⚡', icon: 'dotnet' },
+            { name: 'Microservices 🧩', icon: 'server' },
             { name: 'REST APIs 🔌', icon: 'postman' },
             { name: 'Solidity ⛓️', icon: 'solidity' }
         ],
@@ -250,6 +251,7 @@ const skillsData = [
         title: 'Infrastructure',
         items: [
             { name: 'Redis 🔴', icon: 'redis' },
+            { name: 'NGINX 🌐', icon: 'nginx' },
             { name: 'Authentication 🔑', icon: 'auth0' }
         ], 
         icon: 'Cloud',
@@ -286,6 +288,10 @@ const skillsData = [
         items: [
             { name: 'Git & GitHub 🐙', icon: 'github' },
             { name: 'Postman 🚀', icon: 'postman' },
+            { name: 'Stitch 🧵', icon: 'stitch' },
+            { name: 'Kibana 📊', icon: 'kibana' },
+            { name: 'Neon 🐘', icon: 'neon' },
+            { name: 'Upstash ⚡', icon: 'upstash' },
             { name: 'Figma 🎨', icon: 'figma' },
             { name: 'Canva 🖌️', icon: 'canva' }
         ],
@@ -296,68 +302,12 @@ const skillsData = [
 
 const projectsData = [
     {
-        id: 'mini-tng',
-        title: 'Mini Tng',
-        description: 'E-wallet application but using email to transfer money. Practice purpose.',
-        techStack: ['React', 'Spring Boot', 'Postgres', 'Kafka', 'Redis', 'Prometheus', 'Grafana'],
-        link: 'https://github.com/Minhen96/Mini_tng_Springboot', 
+        id: 'self-portfolio',
+        title: 'Self Portfolio',
+        description: 'Modern and fast personal portfolio website built with Astro.',
+        techStack: ['Astro', 'Tailwind CSS', 'Preact', 'Resend'],
+        link: 'https://github.com/Minhen96/MH_Portfolio',
         order: 1
-    },
-    {
-        id: 'justsnap',
-        title: 'JustSnap',
-        description: 'Snipping tool with OCR, translation, and UI-to-code conversion features.',
-        techStack: ['React', 'Rust', 'Tauri', 'AI API'],
-        link: 'https://github.com/Minhen96/JustSnap',
-        order: 2
-    },
-    {
-        id: 'partysnap',
-        title: 'PartySnap',
-        description: 'Create event, participants join event to upload images. Find related images by scanning face.',
-        techStack: ['React', 'Supabase', 'Cloudflare R2', 'Vercel', 'OAuth', 'face-api.js'],
-        link: 'https://github.com/Minhen96/PartySnap',
-        order: 3
-    },
-    {
-        id: 'reme',
-        title: 'RE:ME',
-        description: 'Self-growth app tracking moods, hobbies, and reflections, visualize your growth and find your personality.',
-        techStack: ['Next.js', 'Supabase', 'Vercel', 'OAuth'],
-        link: 'https://github.com/Minhen96/RE-ME',
-        order: 4
-    },
-    {
-        id: 'ai-whatsapp',
-        title: 'AI WhatsApp Assistant',
-        description: 'AI-powered chatbot system that integrates WhatsApp messaging, can save knowledge and chat.',
-        techStack: ['React', 'Twilio', 'SpringBoot', 'Web Socket'],
-        link: 'https://github.com/Minhen96/ai-whatsapp-assistant',
-        order: 5
-    },
-    {
-        id: 'hr-app',
-        title: 'HR App & Portal',
-        description: 'Comprehensive HR management solution with mobile app and admin web portal.',
-        techStack: ['Flutter', 'React', '.NET core', 'MSSQL'],
-        link: 'https://github.com/Minhen96/hr_user_app_with_admin_web_portal',
-        order: 6
-    },
-    {
-        id: 'pet-ecommerce',
-        title: 'Pet Ecommerce Platform',
-        description: 'Final Year Project. Platform for pet products and services, can be merchant or buyer.',
-        techStack: ['Kotlin', 'Firebase'],
-        link: 'https://github.com/Minhen96/FYP-pet-ecommerce-platform-mobile-app',
-        order: 7
-    },
-    {
-        id: 'ai-legal',
-        title: 'AI Legal Assistant',
-        description: 'AI-powered assistant tp analyse legal document analysis and clause identification, and ai chatbot to answer legal question.',
-        techStack: ['AWS Amplify', 'Lambda', 'Bedrock', 'S3', 'Opensearch'],
-        link: 'https://github.com/Minhen96/ai-legal-assistant',
-        order: 8
     },
     {
         id: '3d-particle',
@@ -365,15 +315,95 @@ const projectsData = [
         description: 'Interactive 3D particle motion visualization with holographic interface.',
         techStack: ['Three.js', 'JavaScript', 'HTML/CSS'],
         link: 'https://github.com/Minhen96/Jarvis-Holographic-interface',
+        order: 2
+    },
+    {
+        id: 'ai-legal',
+        title: 'AI Legal Assistant',
+        description: 'AI-powered assistant tp analyse legal document analysis and clause identification, and ai chatbot to answer legal question.',
+        techStack: ['AWS Amplify', 'Lambda', 'Bedrock', 'S3', 'Opensearch'],
+        link: 'https://github.com/Minhen96/ai-legal-assistant',
+        order: 3
+    },
+    {
+        id: 'pet-ecommerce',
+        title: 'Pet Ecommerce Platform',
+        description: 'Final Year Project. Platform for pet products and services, can be merchant or buyer.',
+        techStack: ['Kotlin', 'Firebase'],
+        link: 'https://github.com/Minhen96/FYP-pet-ecommerce-platform-mobile-app',
+        order: 4
+    },
+    {
+        id: 'hr-app',
+        title: 'HR App & Portal',
+        description: 'Comprehensive HR management solution with mobile app and admin web portal.',
+        techStack: ['Flutter', 'React', '.NET core', 'MSSQL'],
+        link: 'https://github.com/Minhen96/hr_user_app_with_admin_web_portal',
+        order: 5
+    },
+    {
+        id: 'ai-whatsapp',
+        title: 'AI WhatsApp Assistant',
+        description: 'AI-powered chatbot system that integrates WhatsApp messaging, can save knowledge and chat.',
+        techStack: ['React', 'Twilio', 'SpringBoot', 'Web Socket'],
+        link: 'https://github.com/Minhen96/ai-whatsapp-assistant',
+        order: 6
+    },
+    {
+        id: 'reme',
+        title: 'RE:ME (Self-growth app)',
+        description: 'Self-growth app tracking moods, hobbies, and reflections, visualize your growth and find your personality.',
+        techStack: ['Next.js', 'Supabase', 'Vercel', 'OAuth'],
+        link: 'https://github.com/Minhen96/RE-ME',
+        order: 7
+    },
+    {
+        id: 'partysnap',
+        title: 'PartySnap (Event photo sharing)',
+        description: 'Create event, participants join event to upload images. Find related images by scanning face.',
+        techStack: ['React', 'Supabase', 'Cloudflare R2', 'Vercel', 'OAuth', 'face-api.js'],
+        link: 'https://github.com/Minhen96/PartySnap',
+        order: 8
+    },
+    {
+        id: 'justsnap',
+        title: 'JustSnap (Snipping tool)',
+        description: 'Snipping tool with OCR, translation, and UI-to-code conversion features.',
+        techStack: ['React', 'Rust', 'Tauri', 'AI API'],
+        link: 'https://github.com/Minhen96/JustSnap',
         order: 9
     },
     {
-        id: 'self-portfolio',
-        title: 'Self Portfolio',
-        description: 'Modern and fast personal portfolio website built with Astro.',
-        techStack: ['Astro', 'Tailwind CSS', 'Preact'],
-        link: 'https://github.com/Minhen96/MH_Portfolio',
+        id: 'mini-tng',
+        title: 'Mini Tng',
+        description: 'E-wallet application but using email to transfer money. Practice purpose.',
+        techStack: ['React', 'Spring Boot', 'Postgres', 'Kafka', 'Redis', 'Prometheus', 'Grafana'],
+        link: 'https://github.com/Minhen96/Mini_tng_Springboot', 
         order: 10
+    },
+    {
+        id: 'meeple',
+        title: 'Meeple (Boardgame app)',
+        description: 'A board game community app for discovering games, tracking your collection, connecting with players, and organising game nights.',
+        techStack: ['SvelteKit', 'Spring Boot', 'Neon (Postgres)', 'Redis', 'Cloudflare R2', 'AWS EB'],
+        link: 'https://github.com/Minhen96/Meeple',
+        order: 11
+    },
+    {
+        id: 'vhack',
+        title: 'RESCUE-ALPHA (Drone sim)',
+        description: 'High-performance, distributed simulation system designed for autonomous earthquake disaster response via drones and LLM MCP.',
+        techStack: ['React', 'FastAPI', 'Python', 'Go', 'MCP', 'LangChain', 'Web Socket'],
+        link: 'https://github.com/Minhen96/vhack',
+        order: 12
+    },
+    {
+        id: 'futurelens',
+        title: 'Plot the News',
+        description: 'Geopolitical Simulation from Real Headlines. Live a visual novel, lock prediction on-chain, and watch an AI-simulated future.',
+        techStack: ['Next.js', 'Tailwind CSS', 'Supabase', 'DeepSeek', 'FAL.ai', 'GNews'],
+        link: 'https://github.com/Minhen96/Plot-the-news',
+        order: 13
     }
 ];
 

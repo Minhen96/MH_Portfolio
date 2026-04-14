@@ -11,6 +11,10 @@
       "icon": "dotnet"
     },
     {
+      "name": "Microservices 🧩",
+      "icon": "server"
+    },
+    {
       "name": "REST APIs 🔌",
       "icon": "postman"
     },

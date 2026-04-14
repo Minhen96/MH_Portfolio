@@ -1,6 +1,6 @@
 {
   "id": "reme",
-  "title": "RE:ME",
+  "title": "RE:ME (Self-growth app)",
   "description": "Self-growth app tracking moods, hobbies, and reflections, visualize your growth and find your personality.",
   "techStack": [
     "Next.js",
@@ -9,7 +9,7 @@
     "OAuth"
   ],
   "link": "https://github.com/Minhen96/RE-ME",
-  "order": 4,
+  "order": 7,
   "images": [
     "/projects/reme/1_dashboard.png",
     "/projects/reme/2_hobby.png",

@@ -1,0 +1,21 @@
+{
+  "id": "meeple",
+  "title": "Meeple (Boardgame app)",
+  "description": "A board game community app for discovering games, tracking your collection, connecting with players, and organising game nights.",
+  "techStack": [
+    "SvelteKit",
+    "Spring Boot",
+    "Neon (Postgres)",
+    "Redis",
+    "Cloudflare R2",
+    "AWS EB"
+  ],
+  "link": "https://github.com/Minhen96/Meeple",
+  "order": 11,
+  "images": [
+    "/projects/meeple/1_home.png",
+    "/projects/meeple/2_boardgame.png",
+    "/projects/meeple/3_event.png",
+    "/projects/meeple/4_profile.png"
+  ]
+}

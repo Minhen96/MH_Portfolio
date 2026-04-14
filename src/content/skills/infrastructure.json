@@ -7,6 +7,10 @@
       "icon": "redis"
     },
     {
+      "name": "NGINX 🌐",
+      "icon": "nginx"
+    },
+    {
       "name": "Authentication 🔑",
       "icon": "auth0"
     }

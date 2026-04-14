@@ -11,6 +11,22 @@
       "icon": "postman"
     },
     {
+      "name": "Stitch 🧵",
+      "icon": "stitch"
+    },
+    {
+      "name": "Kibana 📊",
+      "icon": "kibana"
+    },
+    {
+      "name": "Neon 🐘",
+      "icon": "neon"
+    },
+    {
+      "name": "Upstash ⚡",
+      "icon": "upstash"
+    },
+    {
       "name": "Figma 🎨",
       "icon": "figma"
     },

@@ -1,0 +1,19 @@
+{
+  "id": "vhack",
+  "title": "RESCUE-ALPHA (Drone sim)",
+  "description": "High-performance, distributed simulation system designed for autonomous earthquake disaster response via drones and LLM MCP.",
+  "techStack": [
+    "React",
+    "FastAPI",
+    "Python",
+    "Go",
+    "MCP",
+    "LangChain",
+    "Web Socket"
+  ],
+  "link": "https://github.com/Minhen96/vhack",
+  "order": 12,
+  "images": [
+    "/projects/default.png"
+  ]
+}

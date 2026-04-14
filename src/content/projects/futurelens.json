@@ -1,0 +1,24 @@
+{
+  "id": "futurelens",
+  "title": "Plot the News",
+  "description": "Geopolitical Simulation from Real Headlines. Live a visual novel, lock prediction on-chain, and watch an AI-simulated future.",
+  "techStack": [
+    "Next.js",
+    "Tailwind CSS",
+    "Supabase",
+    "DeepSeek",
+    "FAL.ai",
+    "GNews"
+  ],
+  "link": "https://github.com/Minhen96/Plot-the-news",
+  "order": 13,
+  "images": [
+    "/projects/futurelens/1_home.png",
+    "/projects/futurelens/2_article.png",
+    "/projects/futurelens/3_role.png",
+    "/projects/futurelens/4_play.png",
+    "/projects/futurelens/5_predicion.png",
+    "/projects/futurelens/6_outcome.png",
+    "/projects/futurelens/7_summary.png"
+  ]
+}

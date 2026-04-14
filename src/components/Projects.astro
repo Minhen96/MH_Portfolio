@@ -4,7 +4,7 @@ import { getCollection } from "astro:content";
 
 const allProjects = await getCollection("projects");
 const projects = allProjects
-  .sort((a, b) => a.data.order - b.data.order)
+  .sort((a, b) => b.data.order - a.data.order)
   .map((p) => p.data);
 ---
 
