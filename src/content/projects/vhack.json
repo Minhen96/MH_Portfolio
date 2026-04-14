@@ -14,6 +14,9 @@
   "link": "https://github.com/Minhen96/vhack",
   "order": 12,
   "images": [
-    "/projects/default.png"
+    "/projects/vhack/1_command.png",
+    "/projects/vhack/2_search.png",
+    "/projects/vhack/3_drone_pov.png",
+    "/projects/vhack/4_playback.png"
   ]
 }
